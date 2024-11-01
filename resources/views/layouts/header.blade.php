@@ -17,7 +17,7 @@
 
 <body>
 
-    
+
     <!-- mobile header -->
 
     <header class="d-flex d-md-none shadow">
@@ -150,4 +150,4 @@
             </div>
         </div>
     </header>
-    <main>
+    

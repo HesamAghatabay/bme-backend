@@ -1,3 +1,5 @@
+
+
 <footer>
     <div class="container">
         <div class="row justify-content-between">
@@ -76,8 +78,6 @@
 
 </footer>
 
-
-</main>
 
 
 
