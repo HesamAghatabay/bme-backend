@@ -1,4 +1,41 @@
 @extends('layouts.master')
+@section('mobileh')
+    <div class="div-header-s">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-11 text-center name-header animate__animated animate__fadeInUp">
+                    <h1>مهندسی پزشکی شاهرود</h1>
+                    <h6>وبسایت رسمی مقالات مهندسی پزشکی و کمک توانبخشی دانشگاه صنعتی شاهرود</h6>
+                </div>
+            </div>
+        </div>
+    </div>
+@endsection
+@section('desktoph')
+    <div class="div-header text-center">
+        <div class="container-fluid">
+            <div class="row justify-content-center">
+                <div class="col-6 name-header animate__animated animate__fadeInUp">
+                    <h1>مهندسی پزشکی شاهرود</h1>
+                    <h6>وبسایت رسمی مقالات مهندسی پزشکی و کمک توانبخشی دانشگاه صنعتی شاهرود</h6>
+                </div>
+            </div>
+
+
+
+            <div class="row justify-content-center">
+                <div class="col-5">
+                    <div class="serch-header shadow animate__animated animate__fadeInUpBig">
+                        <form action="" class="d-flex justify-content-center">
+                            <input type="search" class="form-control" placeholder="مقالات خود را جست و جو کنید">
+                            <button type="submit" class="btn btn-primary"><i class="bi bi-search"></i></button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+@endsection
 @section('content')
     <!-- parts -->
     <section id="parts" class="text-center">

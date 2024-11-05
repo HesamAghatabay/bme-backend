@@ -10,4 +10,10 @@ class HomeController extends Controller
     {
         return view('index');
     }
+    public function addarticle()
+    {
+        return view('add-article');
+    }
+
+    
 }

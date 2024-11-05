@@ -27,13 +27,13 @@
                     <div class="col-5">
                         <div class="row row-cols-3">
                             <div class="col">
-                                <a class="button-87s" href="register">ثبت نام</a>
+                                <a class="button-87s" href="{{ route('register') }}">ثبت نام</a>
                             </div>
                             <div class="col">
-                                <a class="button-87s" href="login">ورود</a>
+                                <a class="button-87s" href="{{route('login')}}">ورود</a>
                             </div>
                             <div class="col">
-                                <a class="button-87s" href="add-article">افزودن </a>
+                                <a class="button-87s" href="{{route('add-article')}}">افزودن </a>
                             </div>
                         </div>
                     </div>
@@ -48,16 +48,8 @@
                 </div>
             </div>
         </nav>
-        <div class="div-header-s">
-            <div class="container">
-                <div class="row justify-content-center">
-                    <div class="col-11 text-center name-header animate__animated animate__fadeInUp">
-                        <h1>مهندسی پزشکی شاهرود</h1>
-                        <h6>وبسایت رسمی مقالات مهندسی پزشکی و کمک توانبخشی دانشگاه صنعتی شاهرود</h6>
-                    </div>
-                </div>
-            </div>
-        </div>
+
+        @yield('mobileh')
     </header>
 
 
@@ -67,13 +59,13 @@
             <div class="container-fluid text-center">
                 <div class="row justify-content-between align-items-center">
                     <div class="col col-3">
-                        <a class="button-87" href="register">ثبت نام</a>
-                        <a class="button-87" href="login">ورود</a>
-                        <a class="button-87" href="add-article">افزودن مقاله</a>
+                        <a class="button-87" href="{{route('register')}}">ثبت نام</a>
+                        <a class="button-87" href="{{route('login')}}">ورود</a>
+                        <a class="button-87" href="{{route('add-article')}}">افزودن مقاله</a>
                     </div>
                     <div class="col col-6">
                         <ul class="d-md-flex justify-content-center align-items-center">
-                            <li class="mx-4"><a class="vazir" href="#home">خانه</a></li>
+                            <li class="mx-4"><a class="vazir" href="{{route('index')}}">خانه</a></li>
                             <!-- <li class="mx-4"><a class="a-bold" href="#parts">دسته ها</a></li> -->
                             <li class="mx-4">
                                 <div class="dropdown vazir">
@@ -126,27 +118,5 @@
             </div>
         </nav>
 
-        <div class="div-header text-center">
-            <div class="container-fluid">
-                <div class="row justify-content-center">
-                    <div class="col-6 name-header animate__animated animate__fadeInUp">
-                        <h1>مهندسی پزشکی شاهرود</h1>
-                        <h6>وبسایت رسمی مقالات مهندسی پزشکی و کمک توانبخشی دانشگاه صنعتی شاهرود</h6>
-                    </div>
-                </div>
-
-
-
-                <div class="row justify-content-center">
-                    <div class="col-5">
-                        <div class="serch-header shadow animate__animated animate__fadeInUpBig">
-                            <form action="" class="d-flex justify-content-center">
-                                <input type="search" class="form-control" placeholder="مقالات خود را جست و جو کنید">
-                                <button type="submit" class="btn btn-primary"><i class="bi bi-search"></i></button>
-                            </form>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
+        @yield('desktoph')
     </header>
