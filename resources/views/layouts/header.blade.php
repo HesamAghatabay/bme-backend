@@ -9,6 +9,20 @@
         integrity="sha384-dpuaG1suU0eT09tx5plTaGMLBsfDLzUCCUXOY2j/LSvXYuG6Bqs43ALlhIqAJVRb" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+
+    <link rel="icon" type="image/png" href="https://ckeditor.com/assets/images/favicons/32x32.png" sizes="32x32">
+    <link rel="icon" type="image/png" href="https://ckeditor.com/assets/images/favicons/96x96.png" sizes="96x96">
+    <link rel="apple-touch-icon" type="image/png" href="https://ckeditor.com/assets/images/favicons/120x120.png"
+        sizes="120x120">
+    <link rel="apple-touch-icon" type="image/png" href="https://ckeditor.com/assets/images/favicons/152x152.png"
+        sizes="152x152">
+    <link rel="apple-touch-icon" type="image/png" href="https://ckeditor.com/assets/images/favicons/167x167.png"
+        sizes="167x167">
+    <link rel="apple-touch-icon" type="image/png" href="https://ckeditor.com/assets/images/favicons/180x180.png"
+        sizes="180x180">
+    <link rel="stylesheet" href="{{ asset('CKEditor5Folder/style.css') }}">
+    <link rel="stylesheet" href="{{ asset('CKEditor5Folder/ckeditor5/ckeditor5.css') }}">
+
     <link rel="stylesheet" href="{{ asset('css/reset.css') }}">
     <link rel="stylesheet" href="{{ asset('css/style.css') }}">
 
@@ -30,10 +44,10 @@
                                 <a class="button-87s" href="{{ route('register') }}">ثبت نام</a>
                             </div>
                             <div class="col">
-                                <a class="button-87s" href="{{route('login')}}">ورود</a>
+                                <a class="button-87s" href="{{ route('login') }}">ورود</a>
                             </div>
                             <div class="col">
-                                <a class="button-87s" href="{{route('add-article')}}">افزودن </a>
+                                <a class="button-87s" href="{{ route('add-article') }}">افزودن </a>
                             </div>
                         </div>
                     </div>
@@ -59,13 +73,13 @@
             <div class="container-fluid text-center">
                 <div class="row justify-content-between align-items-center">
                     <div class="col col-3">
-                        <a class="button-87" href="{{route('register')}}">ثبت نام</a>
-                        <a class="button-87" href="{{route('login')}}">ورود</a>
-                        <a class="button-87" href="{{route('add-article')}}">افزودن مقاله</a>
+                        <a class="button-87" href="{{ route('register') }}">ثبت نام</a>
+                        <a class="button-87" href="{{ route('login') }}">ورود</a>
+                        <a class="button-87" href="{{ route('add-article') }}">افزودن مقاله</a>
                     </div>
                     <div class="col col-6">
                         <ul class="d-md-flex justify-content-center align-items-center">
-                            <li class="mx-4"><a class="vazir" href="{{route('index')}}">خانه</a></li>
+                            <li class="mx-4"><a class="vazir" href="{{ route('index') }}">خانه</a></li>
                             <!-- <li class="mx-4"><a class="a-bold" href="#parts">دسته ها</a></li> -->
                             <li class="mx-4">
                                 <div class="dropdown vazir">

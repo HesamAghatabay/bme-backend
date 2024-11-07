@@ -27,7 +27,16 @@
 
                     <div class="col-10 col-md-7">
                         <label for="body" class="form-label">بدنه</label>
-                        <textarea name="body" id="body" class="form-control" rows="15" cols="30"></textarea>
+                        <div>
+                            <div class="main-container">
+                                <div class="editor-container editor-container_classic-editor" id="editor-container">
+                                    <div class="editor-container__editor">
+                                        <div id="editor"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        {{-- <textarea name="body" id="body" class="form-control" rows="15" cols="30"></textarea> --}}
                     </div>
 
                 </div>

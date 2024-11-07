@@ -1,5 +1,3 @@
-
-
 <footer>
     <div class="container">
         <div class="row justify-content-between">
@@ -85,7 +83,28 @@
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
     integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous">
 </script>
-<script src="{{asset('js/custom.js')}}"></script>
+
+
+<script type="importmap">
+    {
+        "imports": {
+            "ckeditor5": "{{asset('CKEditor5Folder/ckeditor5/ckeditor5.js')}}",
+            "ckeditor5/": "{{asset('CKEditor5Folder/ckeditor5/')}}"
+            
+        }
+    }
+</script>
+<script type="module" src="{{ asset('CKEditor5Folder/main.js') }}"></script>
+<!-- A friendly reminder to run on a server, remove this during the integration. -->
+<script>
+    window.onload = function() {
+        if (window.location.protocol === "file:") {
+            alert("This sample requires an HTTP server. Please serve this file with a web server.");
+        }
+    };
+</script>
+
+<script src="{{ asset('js/custom.js') }}"></script>
 
 </body>
 
