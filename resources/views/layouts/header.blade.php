@@ -38,20 +38,53 @@
         <nav class="shadow">
             <div class="container-fluid">
                 <div class="row align-items-center justify-content-between">
-                    <div class="col-5">
-                        <div class="row row-cols-3">
-                            <div class="col">
+                    <div class="col-4">
+                        <div class="row row-cols-4 align-items-center">
+                            {{-- <div class="col">
                                 <a class="button-87s" href="{{ route('register') }}">ثبت نام</a>
                             </div>
                             <div class="col">
                                 <a class="button-87s" href="{{ route('login') }}">ورود</a>
+                            </div> --}}
+                            <div class="col">
+                                <a class="" href="{{route('index')}}"><i class="bi bi-house-door-fill f-orange"></i></a>
+                            </div>
+                            <div class="col">
+                                <div class="dropdown vazir">
+                                    <h6 class="dropdown-toggle " data-bs-toggle="dropdown" aria-expanded="false">
+                                        <i class="bi bi-person-circle f-orange"></i>
+                                    </h6>
+                                    <ul class="dropdown-menu dropdown-bg">
+                                        <li class="my-1 px-1"><a class="" href="{{ route('register') }}">ثبت
+                                                نام</a></li>
+                                        <li class="my-1 px-1"><a class="" href="{{ route('login') }}">ورود</a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="col">
+                                <div class="dropdown vazir button-87s">
+                                    <h6 class="dropdown-toggle " data-bs-toggle="dropdown" aria-expanded="false">
+                                        دسته ها
+                                    </h6>
+                                    <ul class="dropdown-menu dropdown-bg">
+                                        <li class="my-1 px-1"><a class="" href="{{ route('add-article') }}">افزودن
+                                                مقاله</a></li>
+                                        <li class="my-1 px-1"><a class="" href="{{ route('add-article') }}">افزودن
+                                                دسته</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                            {{-- <div class="col">
+                                <a class="button-87s" href="{{ route('add-article') }}">افزودن </a>
                             </div>
                             <div class="col">
                                 <a class="button-87s" href="{{ route('add-article') }}">افزودن </a>
-                            </div>
+                            </div> --}}
                         </div>
                     </div>
-                    <div class="col-6">
+                    
+                    <div class="col-8">
                         <div class="serch-navs shadow">
                             <form action="" class="d-flex justify-content-center">
                                 <input type="search" class="form-control" placeholder="جست و جو">
@@ -76,6 +109,7 @@
                         <a class="button-87" href="{{ route('register') }}">ثبت نام</a>
                         <a class="button-87" href="{{ route('login') }}">ورود</a>
                         <a class="button-87" href="{{ route('add-article') }}">افزودن مقاله</a>
+                        <a class="button-87" href="">افزودن دسته</a>
                     </div>
                     <div class="col col-6">
                         <ul class="d-md-flex justify-content-center align-items-center">
