@@ -80,7 +80,9 @@ header a{
     border-radius: 17px;
     margin-top: 40px;
     padding: 10px 20px;
-
+}
+.t-shadow{
+    text-shadow: 2px 4px 2px #eee0b3;
 }
 h1{
     font-size: 35px;

@@ -2,7 +2,7 @@
 @section('content')
     <section class="text-start mt-130">
         <div class="container">
-            <h1 class="text-center my-5">صفحه ورود</h1>
+            <h1 class="text-center my-5 t-shadow">صفحه ورود</h1>
             <div class="row">
                 <div class="col-12 px-5">
                     <form action="">
