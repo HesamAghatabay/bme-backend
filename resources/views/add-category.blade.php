@@ -8,6 +8,10 @@
                         <label for="title" class="form-label">عنوان</label>
                         <input type="text" class="form-control mb-2" name="title" id="title" placeholder="عنوان">
 
+                        <label for="img" class="form-label">عکس</label>
+                        <input type="file" class="form-control mb-2" name="img" id="img"
+                            placeholder="بارگذاری عکس ">
+                            
                         <label for="body" class="form-label">بدنه</label>
                         <textarea name="body" id="body" class="form-control" rows="15" cols="30"></textarea>
                     </div>

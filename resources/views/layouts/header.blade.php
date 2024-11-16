@@ -47,7 +47,8 @@
                                 <a class="button-87s" href="{{ route('login') }}">ورود</a>
                             </div> --}}
                             <div class="col">
-                                <a class="" href="{{route('index')}}"><i class="bi bi-house-door-fill f-orange"></i></a>
+                                <a class="" href="{{ route('index') }}"><i
+                                        class="bi bi-house-door-fill f-orange"></i></a>
                             </div>
                             <div class="col">
                                 <div class="dropdown vazir">
@@ -70,7 +71,8 @@
                                     <ul class="dropdown-menu dropdown-bg">
                                         <li class="my-1 px-1"><a class="" href="{{ route('add-article') }}">افزودن
                                                 مقاله</a></li>
-                                        <li class="my-1 px-1"><a class="" href="{{ route('add-article') }}">افزودن
+                                        <li class="my-1 px-1"><a class=""
+                                                href="{{ route('add-category') }}">افزودن
                                                 دسته</a></li>
                                     </ul>
                                 </div>
@@ -83,7 +85,7 @@
                             </div> --}}
                         </div>
                     </div>
-                    
+
                     <div class="col-8">
                         <div class="serch-navs shadow">
                             <form action="" class="d-flex justify-content-center">
@@ -109,7 +111,7 @@
                         <a class="button-87" href="{{ route('register') }}">ثبت نام</a>
                         <a class="button-87" href="{{ route('login') }}">ورود</a>
                         <a class="button-87" href="{{ route('add-article') }}">افزودن مقاله</a>
-                        <a class="button-87" href="">افزودن دسته</a>
+                        <a class="button-87" href="{{ route('add-category') }}">افزودن دسته</a>
                     </div>
                     <div class="col col-6">
                         <ul class="d-md-flex justify-content-center align-items-center">

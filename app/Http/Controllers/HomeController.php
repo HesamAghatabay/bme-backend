@@ -14,6 +14,9 @@ class HomeController extends Controller
     {
         return view('add-article');
     }
+    public function addcategory()
+    {
+        return view('add-category');
+    }
 
-    
 }
