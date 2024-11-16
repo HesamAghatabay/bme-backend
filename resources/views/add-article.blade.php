@@ -1,8 +1,10 @@
 @extends('layouts.master')
 @section('content')
+<h1 class="text-center mt-5 pt-5">صفحه افزودن مقاله جدید</h1>
     <section class="text-start mt-130 bg-add-article py-5">
         <form action="">
             <div class="container">
+
                 <div class="row justify-content-center align-items-start">
                     <div class="col-10 col-md-4">
                         <label for="title" class="form-label">عنوان</label>
