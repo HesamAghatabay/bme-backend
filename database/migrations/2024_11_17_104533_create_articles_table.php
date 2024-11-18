@@ -19,7 +19,7 @@ return new class extends Migration
             $table->string('writer');
             $table->dateTime('date');
             $table->longText('body');
-            $table->boolean('activity');
+            $table->integer('view')->default(0);
             $table->boolean('activity')->default(0);
             $table->unsignedBigInteger('user_id');
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade')->onUpdate('cascade');

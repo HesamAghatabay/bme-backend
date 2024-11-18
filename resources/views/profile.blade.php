@@ -7,6 +7,7 @@
                     <p class="profile-info">اسم و فامیلش</p>
                     <p class="profile-info">دانشگاه و رشتش و تحصیلات</p>
                     <p>توضیحات</p>
+                    <a href="">ویرایش پروفایل</a>
                 </div>
                 <div class="col-4">
                     <div class="card">
