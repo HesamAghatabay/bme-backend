@@ -14,11 +14,13 @@ return new class extends Migration
         Schema::create('articles', function (Blueprint $table) {
             $table->id();
             $table->string('image');
-            $table->string('intro');
+            $table->text('intro');
             $table->string('resources');
             $table->string('writer');
             $table->dateTime('date');
             $table->longText('body');
+            $table->boolean('activity');
+            $table->boolean('activity')->default(0);
             $table->unsignedBigInteger('user_id');
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade')->onUpdate('cascade');
             $table->unsignedBigInteger('category_id');

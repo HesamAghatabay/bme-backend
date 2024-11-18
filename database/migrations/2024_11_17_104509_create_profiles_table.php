@@ -15,7 +15,7 @@ return new class extends Migration
             $table->id();
             $table->string('study');
             $table->string('photo');
-            $table->string('info');
+            $table->text('info');
             $table->unsignedBigInteger('user_id');
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade')->onUpdate('cascade');
             $table->softDeletes();

@@ -13,7 +13,6 @@ Route::get('add-article', [HomeController::class, 'addarticle'])->name('add-arti
 Route::get('add-category', [HomeController::class, 'addcategory'])->name('add-category');
 
 
-
 Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
