@@ -8,18 +8,18 @@ use Illuminate\Support\Facades\Auth;
 
 class AuthController extends Controller
 {
-    public function create()
+    public function register()
     {
         return view('auth.register');
     }
-    public function store(Request $request)
+    public function registerstore(Request $request)
     {
-        $$credentials = $request->validate([
+        $credentials = $request->validate([
             'name' => 'required|max:255',
             'phone' => 'required|max:255|unique:users',
             'email' => 'max:255|email',
-            'password' => 'required|password|min:8',
-            'password_confirmation' => 'required|password-confirmation'
+            'password' => 'required|min:8|confirmed',
+            'password_confirmation' => 'required'
         ], [
             'name.required' => '*نام و نام خانوادگی الزامی است*',
             'name.max' => '*بیش از حد مجاز*',
@@ -39,4 +39,13 @@ class AuthController extends Controller
 
         return redirect()->route('login')->with('sucsess', 'ثبت نام با موفقیت انجام شد . لطفا برای دسترسی به خدمات وارد سایت شوید');
     }
+    public function login(){
+        return view('auth.login');
+    }
+    public function loginstore(Request $request){
+        
+    }
+
+
+
 }

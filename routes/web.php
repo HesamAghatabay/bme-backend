@@ -12,8 +12,10 @@ Route::get('/', [HomeController::class, 'index'])->name('index');
 Route::get('add-article', [HomeController::class, 'addarticle'])->name('add-article');
 Route::get('add-category', [HomeController::class, 'addcategory'])->name('add-category');
 
-Route::get('register', [AuthController::class, 'create'])->name('register');
-Route::post('register-store', [AuthController::class, 'store'])->name('register-store');
+Route::get('register', [AuthController::class, 'register'])->name('register');
+Route::post('register-store', [AuthController::class, 'registerstore'])->name('register-store');
+Route::get('login', [AuthController::class, 'login'])->name('login');
+Route::post('login-store', [AuthController::class, 'loginstore'])->name('login-store');
 
 Route::get('/dashboard', function () {
     return view('dashboard');

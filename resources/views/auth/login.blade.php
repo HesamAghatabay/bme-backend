@@ -54,7 +54,7 @@
             <div class="row">
                 <div class="col-12 px-5">
 
-                    <form method="POST" action="{{route('login')}}">
+                    <form method="POST" action="{{route('login-store')}}">
 
                         <label for="name" class="form-label"> نام و نام خانوادگی</label>
                         <input type="text" class="form-control mb-4" name="name" id="name"

@@ -108,10 +108,14 @@
             <div class="container-fluid text-center">
                 <div class="row justify-content-between align-items-center">
                     <div class="col col-3">
+                        @guest
                         <a class="button-87" href="{{ route('register') }}">ثبت نام</a>
                         <a class="button-87" href="{{ route('login') }}">ورود</a>
+                        @endguest
+                        @auth
                         <a class="button-87" href="{{ route('add-article') }}">افزودن مقاله</a>
                         <a class="button-87" href="{{ route('add-category') }}">افزودن دسته</a>
+                        @endauth
                     </div>
                     <div class="col col-6">
                         <ul class="d-md-flex justify-content-center align-items-center">
