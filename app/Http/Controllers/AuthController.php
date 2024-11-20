@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
 
 class AuthController extends Controller
 {
@@ -14,7 +15,7 @@ class AuthController extends Controller
     }
     public function registerstore(Request $request)
     {
-        $credentials = $request->validate([
+        $request->validate([
             'name' => 'required|max:255',
             'phone' => 'required|max:255|unique:users',
             'email' => 'max:255|email',
@@ -32,20 +33,38 @@ class AuthController extends Controller
             'password_confirmation.required' => '*تاییده رمز الزامی است*',
             'password_confirmation.password_confirmation' => 'تاییده رمز را به صورت صحیح وارد کنید'
         ]);
-        if (Auth::attempt($credentials)) {
-            $request->session()->regenerate();
-            return redirect()->back()->with('error', 'ثبت نام با خطا مواجه شد');
+        $user = User::create([
+            'name' => $request->name,
+            'phone' => $request->phone,
+            'email' => $request->email,
+            'password' => Hash::make($request->password),
+        ]);
+        if(!$user){
+            return redirect()->back()->with('error', 'ثبت نام با مشکل مواجه شد!');
         }
-
-        return redirect()->route('login')->with('sucsess', 'ثبت نام با موفقیت انجام شد . لطفا برای دسترسی به خدمات وارد سایت شوید');
+        return redirect()->route('index')->with('sucsess', 'ثبت نام با موفقیت انجام شد . لطفا برای دسترسی به سایت اقدام به ورود نمایید!');
     }
-    public function login(){
+    public function login()
+    {
         return view('auth.login');
     }
-    public function loginstore(Request $request){
-        
+    public function loginstore(Request $request)
+    {
+
+        $credentials = $request->validate([
+            'phone' => 'required|max:255|unique:users',
+            'password' => 'required|min:8|confirmed'
+        ], [
+            'phone.required' => '*شماره تماس الزامی است*',
+            'phone.max' => '*بیش از حد مجاز*',
+            'password.required' => '*ایجاد رمز الزامی است*',
+            'password.min' => '*حداقل 8 کارکتر*'
+        ]);
+        if (Auth::attempt($credentials)) {
+            $request->session()->regenerate();
+            return redirect()->back()->with('error', 'ورود به سایت با خطا مواجه شد');
+        }
+
+        return redirect()->route('home')->with('sucsess', 'ورود با موفقیت انجام شد!');
     }
-
-
-
 }
