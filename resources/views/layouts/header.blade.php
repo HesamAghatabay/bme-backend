@@ -98,6 +98,20 @@
             </div>
         </nav>
 
+
+        @if (session('error'))
+            <div class="alert alert-danger" role="alert">
+                <p>{{ session('error') }}</p>
+            </div>
+        @endif
+
+        @if (session('secsess'))
+            <div class="alert alert-success" role="alert">
+                <p>{{ session('secsess') }}</p>
+            </div>
+        @endif
+
+
         @yield('mobileh')
     </header>
 
@@ -109,12 +123,12 @@
                 <div class="row justify-content-between align-items-center">
                     <div class="col col-3">
                         @guest
-                        <a class="button-87" href="{{ route('register') }}">ثبت نام</a>
-                        <a class="button-87" href="{{ route('login') }}">ورود</a>
+                            <a class="button-87" href="{{ route('register') }}">ثبت نام</a>
+                            <a class="button-87" href="{{ route('login') }}">ورود</a>
                         @endguest
                         @auth
-                        <a class="button-87" href="{{ route('add-article') }}">افزودن مقاله</a>
-                        <a class="button-87" href="{{ route('add-category') }}">افزودن دسته</a>
+                            <a class="button-87" href="{{ route('add-article') }}">افزودن مقاله</a>
+                            <a class="button-87" href="{{ route('add-category') }}">افزودن دسته</a>
                         @endauth
                     </div>
                     <div class="col col-6">
@@ -170,7 +184,19 @@
                     </div>
                 </div>
             </div>
-        </nav>
 
+            @if (session('error'))
+                <div class="alert alert-danger" role="alert">
+                    <p>{{ session('error') }}</p>
+                </div>
+            @endif
+
+            @if (session('secsess'))
+                <div class="alert alert-success" role="alert">
+                    <p>{{ session('secsess') }}</p>
+                </div>
+            @endif
+
+        </nav>
         @yield('desktoph')
     </header>

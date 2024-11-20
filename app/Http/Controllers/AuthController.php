@@ -52,8 +52,8 @@ class AuthController extends Controller
     {
 
         $credentials = $request->validate([
-            'phone' => 'required|max:255|unique:users',
-            'password' => 'required|min:8|confirmed'
+            'phone' => 'required|max:255|exists:users,phone',
+            'password' => 'required|min:8'
         ], [
             'phone.required' => '*شماره تماس الزامی است*',
             'phone.max' => '*بیش از حد مجاز*',
@@ -62,9 +62,9 @@ class AuthController extends Controller
         ]);
         if (Auth::attempt($credentials)) {
             $request->session()->regenerate();
-            return redirect()->back()->with('error', 'ورود به سایت با خطا مواجه شد');
+            return redirect()->route('home')->with('sucsess', 'خوش آمدید');
         }
 
-        return redirect()->route('home')->with('sucsess', 'ورود با موفقیت انجام شد!');
+        return redirect()->back()->with('error', 'ورود به سایت با خطا مواجه شد .لطفا دوباره تلاش کنید!');
     }
 }
