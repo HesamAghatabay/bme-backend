@@ -12,7 +12,7 @@ class CategoryController extends Controller
      */
     public function index()
     {
-        //
+        return view('add-category');
     }
 
     /**
@@ -28,7 +28,26 @@ class CategoryController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'title' => 'required|max:255',
+            'img' => 'required|max:255',
+            'body' => 'required',
+        ], [
+            'title.required' => 'عنوان الزامی است',
+            'title.max' => 'بیش از حد مجاز',
+            'img.required' => 'تصویر الزامی است',
+            'img.max' => 'بیش از حد مجاز',
+            'body.required' => 'توضیحات الزامی است',
+        ]);
+        $category = category::create([
+            'title' => $request->title,
+            'img' => $request->img,
+            'body' => $request->body,
+        ]);
+        if (!$category) {
+            return redirect()->back()->with('error', 'ایجاد دسته با مشکل مواجه شد!');
+        }
+        return redirect()->route('index')->with('succsess', 'دسته با موفقت ایجاد شد!');
     }
 
     /**

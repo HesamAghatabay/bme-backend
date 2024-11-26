@@ -1,6 +1,8 @@
 <?php
 
+use App\Http\Controllers\ArticleController;
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
@@ -9,8 +11,6 @@ use Illuminate\Support\Facades\Route;
 //     return view('welcome');
 // });
 Route::get('/', [HomeController::class, 'index'])->name('index');
-Route::get('add-article', [HomeController::class, 'addarticle'])->name('add-article');
-Route::get('add-category', [HomeController::class, 'addcategory'])->name('add-category');
 
 Route::get('register', [AuthController::class, 'register'])->name('register');
 Route::post('register-store', [AuthController::class, 'registerstore'])->name('register-store');
@@ -18,7 +18,10 @@ Route::get('login', [AuthController::class, 'login'])->name('login');
 Route::post('login-store', [AuthController::class, 'loginstore'])->name('login-store');
 Route::get('logout', [AuthController::class, 'logout'])->name('logout');
 
+Route::get('add-category', [CategoryController::class, 'index'])->name('add-category');
+Route::get('store-category', [CategoryController::class, 'store'])->name('store-category');
 
+Route::get('add-article', [ArticleController::class, 'addarticle'])->name('add-article');
 
 Route::get('/dashboard', function () {
     return view('dashboard');
