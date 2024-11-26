@@ -95,28 +95,28 @@
                         </div>
                     </div>
                 </div>
+                <div class="row text-center justify-content-center">
+                    <div class="col-8">
+
+                        @if (session('success'))
+                            <div class="alert alert-success zz" role="alert">
+                                <p style="color: green">{{ session('success') }}</p>
+                            </div>
+                        @endif
+                        @if (session('error'))
+                            <div class="alert alert-danger zz" role="alert">
+                                <p style="color: red">{{ session('error') }}</p>
+                            </div>
+                        @endif
+                    </div>
+                </div>
             </div>
         </nav>
-
-
-        @if (session('error'))
-            <div class="alert alert-danger" role="alert">
-                <p>{{ session('error') }}</p>
-            </div>
-        @endif
-
-        @if (session('secsess'))
-            <div class="alert alert-success" role="alert">
-                <p>{{ session('secsess') }}</p>
-            </div>
-        @endif
-
-
         @yield('mobileh')
     </header>
 
 
-    <!-- desktop hader -->
+    <!-- desktop header -->
     <header class="d-none d-md-flex shadow">
         <nav class="shadow">
             <div class="container-fluid text-center">
@@ -183,20 +183,23 @@
                         </div>
                     </div>
                 </div>
+                <div class="row text-center justify-content-center">
+                    <div class="col-8">
+
+                        @if (session('success'))
+                            <div class="alert alert-success zz" role="alert">
+                                <p style="color: green">{{ session('success') }}</p>
+                            </div>
+                        @endif
+                        @if (session('error'))
+                            <div class="alert alert-danger zz" role="alert">
+                                <p style="color: red">{{ session('error') }}</p>
+                            </div>
+                        @endif
+                    </div>
+                </div>
+
             </div>
-
-            @if (session('error'))
-                <div class="alert alert-danger" role="alert">
-                    <p>{{ session('error') }}</p>
-                </div>
-            @endif
-
-            @if (session('secsess'))
-                <div class="alert alert-success" role="alert">
-                    <p>{{ session('secsess') }}</p>
-                </div>
-            @endif
-
         </nav>
         @yield('desktoph')
     </header>

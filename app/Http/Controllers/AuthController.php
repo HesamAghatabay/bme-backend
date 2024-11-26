@@ -42,7 +42,7 @@ class AuthController extends Controller
         if(!$user){
             return redirect()->back()->with('error', 'ثبت نام با مشکل مواجه شد!');
         }
-        return redirect()->route('index')->with('sucsess', 'ثبت نام با موفقیت انجام شد . لطفا برای دسترسی به سایت اقدام به ورود نمایید!');
+        return redirect()->route('index')->with('success', 'ثبت نام با موفقیت انجام شد . لطفا برای دسترسی به سایت اقدام به ورود نمایید!');
     }
     public function login()
     {
@@ -62,7 +62,7 @@ class AuthController extends Controller
         ]);
         if (Auth::attempt($credentials)) {
             $request->session()->regenerate();
-            return redirect()->route('home')->with('sucsess', 'خوش آمدید');
+            return redirect()->route('home')->with('success', 'خوش آمدید');
         }
 
         return redirect()->back()->with('error', 'ورود به سایت با خطا مواجه شد .لطفا دوباره تلاش کنید!');
