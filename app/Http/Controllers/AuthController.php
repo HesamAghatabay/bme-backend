@@ -39,10 +39,10 @@ class AuthController extends Controller
             'email' => $request->email,
             'password' => Hash::make($request->password),
         ]);
-        if(!$user){
-            return redirect()->back()->with('error', 'ثبت نام با مشکل مواجه شد!');
+        if (!$user) {
+            return redirect()->back()->with('error', $request->name . 'ثبت نام با مشکل مواجه شد!');
         }
-        return redirect()->route('index')->with('success', 'ثبت نام با موفقیت انجام شد . لطفا برای دسترسی به سایت اقدام به ورود نمایید!');
+        return redirect()->route('index')->with('success', $request->name . 'ثبت نام با موفقیت انجام شد . لطفا برای دسترسی به سایت اقدام به ورود نمایید!');
     }
     public function login()
     {
@@ -50,7 +50,6 @@ class AuthController extends Controller
     }
     public function loginstore(Request $request)
     {
-
         $credentials = $request->validate([
             'phone' => 'required|max:255|exists:users,phone',
             'password' => 'required|min:8'
@@ -62,9 +61,17 @@ class AuthController extends Controller
         ]);
         if (Auth::attempt($credentials)) {
             $request->session()->regenerate();
-            return redirect()->route('home')->with('success', 'خوش آمدید');
+            $user = Auth::user()->name;
+            return redirect()->route('index')->with('success', $user . 'خوش آمدید');
         }
-
-        return redirect()->back()->with('error', 'ورود به سایت با خطا مواجه شد .لطفا دوباره تلاش کنید!');
+        return redirect()->back()->with('index', 'ورود به سایت با خطا مواجه شد .لطفا دوباره تلاش کنید!');
+    }
+    public function logout(Request $request)
+    {
+        $user = Auth::user()->name;
+        Auth::logout();
+        $request->session()->invalidate();
+        $request->session()->regenerateToken();
+        return redirect()->route('index')->with('success', $user . 'شما از سایت خارج شدید!');
     }
 }

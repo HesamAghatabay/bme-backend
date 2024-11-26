@@ -129,6 +129,7 @@
                         @auth
                             <a class="button-87" href="{{ route('add-article') }}">افزودن مقاله</a>
                             <a class="button-87" href="{{ route('add-category') }}">افزودن دسته</a>
+                            <a class="button-87" href="{{ route('logout') }}">خروج</a>
                         @endauth
                     </div>
                     <div class="col col-6">

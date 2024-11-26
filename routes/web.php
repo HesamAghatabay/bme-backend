@@ -16,6 +16,9 @@ Route::get('register', [AuthController::class, 'register'])->name('register');
 Route::post('register-store', [AuthController::class, 'registerstore'])->name('register-store');
 Route::get('login', [AuthController::class, 'login'])->name('login');
 Route::post('login-store', [AuthController::class, 'loginstore'])->name('login-store');
+Route::get('logout', [AuthController::class, 'logout'])->name('logout');
+
+
 
 Route::get('/dashboard', function () {
     return view('dashboard');
@@ -27,4 +30,4 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
-require __DIR__.'/auth.php';
+require __DIR__ . '/auth.php';
