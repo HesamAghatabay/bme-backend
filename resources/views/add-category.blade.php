@@ -5,7 +5,7 @@
         <form action="">
             <div class="container">
 
-                <form method="POST" action="{{ route('store-category') }}">
+                <form method="POST" action="{{ route('category.store') }}" enctype="multipart/form-data">
                     @csrf
                     <div class="row justify-content-center align-items-start">
                         <div class="col-10 col-md-10">
@@ -17,18 +17,18 @@
                             @enderror
 
 
-                            <label for="img" class="form-label">تصویر</label>
-                            <input type="file" class="form-control mb-2" name="img" id="img"
+                            <label for="image" class="form-label">تصویر</label>
+                            <input type="file" class="form-control mb-2" name="image" id="image"
                                 placeholder="بارگذاری عکس ">
-                            @error('img')
+                            @error('image')
                                 <p class="f-r mb-4">{{ $message }}</p>
                             @enderror
 
 
-                            <label for="body" class="form-label"> بدنه و توضیحات </label>
-                            <textarea name="body" id="body" class="form-control" placeholder="توضیحات مختصر در مورد دسته" rows="15"
+                            <label for="info" class="form-label"> بدنه و توضیحات </label>
+                            <textarea name="info" id="info" class="form-control" placeholder="توضیحات مختصر در مورد دسته" rows="15"
                                 cols="30"></textarea>
-                            @error('body')
+                            @error('info')
                                 <p class="f-r mb-4">{{ $message }}</p>
                             @enderror
                         </div>

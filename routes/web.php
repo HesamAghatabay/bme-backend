@@ -18,10 +18,11 @@ Route::get('login', [AuthController::class, 'login'])->name('login');
 Route::post('login-store', [AuthController::class, 'loginstore'])->name('login-store');
 Route::get('logout', [AuthController::class, 'logout'])->name('logout');
 
-Route::get('add-category', [CategoryController::class, 'index'])->name('add-category');
-Route::get('store-category', [CategoryController::class, 'store'])->name('store-category');
+Route::get('category/add', [CategoryController::class, 'index'])->name('category.add');
+Route::post('/category/store', [CategoryController::class, 'store'])->name('category.store');
 
-Route::get('add-article', [ArticleController::class, 'addarticle'])->name('add-article');
+
+Route::get('article/add', [ArticleController::class, 'addarticle'])->name('article.add');
 
 Route::get('/dashboard', function () {
     return view('dashboard');

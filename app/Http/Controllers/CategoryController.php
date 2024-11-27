@@ -28,26 +28,29 @@ class CategoryController extends Controller
      */
     public function store(Request $request)
     {
-        $request->validate([
-            'title' => 'required|max:255',
-            'img' => 'required|max:255',
-            'body' => 'required',
-        ], [
-            'title.required' => 'عنوان الزامی است',
-            'title.max' => 'بیش از حد مجاز',
-            'img.required' => 'تصویر الزامی است',
-            'img.max' => 'بیش از حد مجاز',
-            'body.required' => 'توضیحات الزامی است',
-        ]);
-        $category = category::create([
-            'title' => $request->title,
-            'img' => $request->img,
-            'body' => $request->body,
-        ]);
-        if (!$category) {
-            return redirect()->back()->with('error', 'ایجاد دسته با مشکل مواجه شد!');
-        }
-        return redirect()->route('index')->with('succsess', 'دسته با موفقت ایجاد شد!');
+        dd($request->all());
+        // $request->validate([
+        //     'title' => 'required|max:255',
+        //     'image' => 'required|image|mimes:jpeg,png,jpg,gif|max:2048',
+        //     'info' => 'required',
+        // ], [
+        //     'title.required' => 'عنوان الزامی است',
+        //     'title.max' => 'بیش از حد مجاز',
+        //     'image.required' => 'تصویر الزامی است',
+        //     'image.max' => 'بیش از حد مجاز',
+        //     'info.required' => 'توضیحات الزامی است',
+        // ]);
+        // $filename = time() . ' - ' . $request->image->getClientOriginalName();
+        // $request->image->storeAs('/images', $filename);
+        // $category = category::create([
+        //     'title' => $request->title,
+        //     'image' => $filename,
+        //     'info' => $request->body,
+        // ]);
+        // if (!$category) {
+        //     return redirect()->back()->with('error', 'ایجاد دسته با مشکل مواجه شد!');
+        // }
+        // return redirect()->route('index')->with('succsess', 'دسته با موفقت ایجاد شد!');
     }
 
     /**

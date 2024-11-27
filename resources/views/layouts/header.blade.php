@@ -69,10 +69,10 @@
                                         دسته ها
                                     </h6>
                                     <ul class="dropdown-menu dropdown-bg">
-                                        <li class="my-1 px-1"><a class="" href="{{ route('add-article') }}">افزودن
+                                        <li class="my-1 px-1"><a class="" href="{{ route('article.add') }}">افزودن
                                                 مقاله</a></li>
                                         <li class="my-1 px-1"><a class=""
-                                                href="{{ route('add-category') }}">افزودن
+                                                href="{{ route('category.add') }}">افزودن
                                                 دسته</a></li>
                                     </ul>
                                 </div>
@@ -127,8 +127,8 @@
                             <a class="button-87" href="{{ route('login') }}">ورود</a>
                         @endguest
                         @auth
-                            <a class="button-87" href="{{ route('add-article') }}">افزودن مقاله</a>
-                            <a class="button-87" href="{{ route('add-category') }}">افزودن دسته</a>
+                            <a class="button-87" href="{{ route('article.add') }}">افزودن مقاله</a>
+                            <a class="button-87" href="{{ route('category.add') }}">افزودن دسته</a>
                             <a class="button-87" href="{{ route('logout') }}">خروج</a>
                         @endauth
                     </div>
