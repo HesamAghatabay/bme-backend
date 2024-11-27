@@ -2,7 +2,6 @@
 @section('content')
     <h1 class="text-center mt-5 pt-5">صفحه افزودن دسته جدید</h1>
     <section class="text-start mt-130 bg-add-article py-5">
-        <form action="">
             <div class="container">
 
                 <form method="POST" action="{{ route('category.store') }}" enctype="multipart/form-data">
@@ -40,6 +39,5 @@
                     </div>
                 </form>
             </div>
-        </form>
     </section>
 @endsection

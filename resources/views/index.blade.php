@@ -45,6 +45,19 @@
         <div class="container">
             <div class="row">
 
+                @foreach ($categories as $category)
+                    <div class="col-4 col-md-2">
+                        <a href="{{ route('category.show', $category->id) }}" class="">
+                            <div class="parts-card mt-5">
+                                <img src="{{ asset('images/images/' . $category->image) }}"
+                                    class="card-img-top card-img shadow" alt="...">
+                                <div class="card-body">
+                                    <h5 class="card-title">{{ $category->title }}</h5>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                @endforeach
                 <div class="col-4 col-md-2">
                     <a href="#" class="">
                         <div class="parts-card mt-5">

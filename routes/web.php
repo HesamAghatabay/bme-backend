@@ -5,6 +5,7 @@ use App\Http\Controllers\AuthController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ProfileController;
+use App\Models\category;
 use Illuminate\Support\Facades\Route;
 
 // Route::get('/', function () {
@@ -19,8 +20,8 @@ Route::post('login-store', [AuthController::class, 'loginstore'])->name('login-s
 Route::get('logout', [AuthController::class, 'logout'])->name('logout');
 
 Route::get('category/add', [CategoryController::class, 'index'])->name('category.add');
-Route::post('/category/store', [CategoryController::class, 'store'])->name('category.store');
-
+Route::post('/category/store', [categoryController::class, 'store'])->name('category.store');
+Route::get('category/show/{id}', [CategoryController::class, 'show'])->name('category.show');
 
 Route::get('article/add', [ArticleController::class, 'addarticle'])->name('article.add');
 

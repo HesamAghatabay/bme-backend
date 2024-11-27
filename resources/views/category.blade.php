@@ -7,6 +7,20 @@
         <div class="container">
             <div class="row">
 
+                @foreach ($categories as $category)
+                    <div class="col-4 col-md-2">
+                        <a href="{{ route('category.show', $category->id) }}" class="">
+                            <div class="parts-card mt-5">
+                                <img src="{{ asset('images/images/' . $category->image) }}"
+                                    class="card-img-top card-img shadow" alt="...">
+                                <div class="card-body">
+                                    <h5 class="card-title">{{ $category->title }}</h5>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                @endforeach
+
                 <div class="col-4 col-md-2">
                     <a href="#" class="">
                         <div class="parts-card">
@@ -84,16 +98,14 @@
             <div class="row align-items-start">
                 <div class="col-12 col-md-3">
                     <div class="card mb-2">
-                        <div class="card-body">
-                            <div class="d-flex justify-content-between align-items-center">
-                                <h5 class="text-start">دسته فلان ام</h5>
+                        {{-- @foreach ($categories as $category) --}}
+                            <div class="card-body">
+                                <div class="d-flex justify-content-between align-items-center">
+                                    <h5 class="text-start">{{ $categories->title }}</h5>
+                                </div>
+                                <p>{{$categories->onfo}}</p>
                             </div>
-                            <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Recusandae laborum sint
-                                accusamus
-                                esse beatae eos obcaecati quae ea officia? Incidunt vero, nobis totam perspiciatis
-                                quia
-                                quibusdam deserunt delectus earum rem.</p>
-                        </div>
+                        {{-- @endforeach --}}
                     </div>
                     <div class="card d-none d-md-flex mb-2">
                         <div class="card-body">
