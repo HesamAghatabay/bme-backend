@@ -21,73 +21,6 @@
                     </div>
                 @endforeach
 
-                <div class="col-4 col-md-2">
-                    <a href="#" class="">
-                        <div class="parts-card">
-                            <img src="./imgs/img-1.jpg" class="card-img-top card-img shadow" alt="...">
-                            <div class="card-body">
-                                <h5 class="card-title">Card title</h5>
-                            </div>
-                        </div>
-                    </a>
-                </div>
-
-                <div class="col-4 col-md-2">
-                    <a href="#" class="">
-                        <div class="parts-card">
-                            <img src="./imgs/img-1.jpg" class="card-img-top card-img shadow" alt="...">
-                            <div class="card-body">
-                                <h5 class="card-title">Card title</h5>
-                            </div>
-                        </div>
-                    </a>
-                </div>
-
-                <div class="col-4 col-md-2">
-                    <a href="#" class="">
-                        <div class="parts-card">
-                            <img src="./imgs/img-1.jpg" class="card-img-top card-img shadow" alt="...">
-                            <div class="card-body">
-                                <h5 class="card-title">Card title</h5>
-                            </div>
-                        </div>
-                    </a>
-                </div>
-
-                <div class="col-4 col-md-2">
-                    <a href="#" class="">
-                        <div class="parts-card">
-                            <img src="./imgs/img-1.jpg" class="card-img-top card-img shadow" alt="...">
-                            <div class="card-body">
-                                <h5 class="card-title">Card title</h5>
-                            </div>
-                        </div>
-                    </a>
-                </div>
-
-                <div class="col-4 col-md-2">
-                    <a href="#" class="">
-                        <div class="parts-card">
-                            <img src="./imgs/img-1.jpg" class="card-img-top card-img shadow" alt="...">
-                            <div class="card-body">
-                                <h5 class="card-title">Card title</h5>
-                            </div>
-                        </div>
-                    </a>
-                </div>
-
-                <div class="col-4 col-md-2">
-                    <a href="#" class="">
-                        <div class="parts-card">
-                            <img src="./imgs/img-1.jpg" class="card-img-top card-img shadow" alt="...">
-                            <div class="card-body">
-                                <h5 class="card-title">Card title</h5>
-                            </div>
-                        </div>
-                    </a>
-                </div>
-
-
             </div>
         </div>
     </section>
@@ -98,14 +31,14 @@
             <div class="row align-items-start">
                 <div class="col-12 col-md-3">
                     <div class="card mb-2">
-                        {{-- @foreach ($categories as $category) --}}
+
                             <div class="card-body">
                                 <div class="d-flex justify-content-between align-items-center">
-                                    <h5 class="text-start">{{ $categories->title }}</h5>
+                                    <h5 class="text-start">{{ $thiscategory->title }}</h5>
                                 </div>
-                                <p>{{$categories->onfo}}</p>
+                                <p>{{$thiscategory->info}}</p>
                             </div>
-                        {{-- @endforeach --}}
+
                     </div>
                     <div class="card d-none d-md-flex mb-2">
                         <div class="card-body">

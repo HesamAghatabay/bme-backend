@@ -58,72 +58,7 @@
                         </a>
                     </div>
                 @endforeach
-                <div class="col-4 col-md-2">
-                    <a href="#" class="">
-                        <div class="parts-card mt-5">
-                            <img src="{{ asset('imgs/img-1.jpg') }}" class="card-img-top card-img shadow" alt="...">
-                            <div class="card-body">
-                                <h5 class="card-title">Card title</h5>
-                            </div>
-                        </div>
-                    </a>
-                </div>
-
-                <div class="col-4 col-md-2">
-                    <a href="#" class="">
-                        <div class="parts-card mt-5">
-                            <img src="{{ asset('imgs/img-1.jpg') }}" class="card-img-top card-img shadow" alt="...">
-                            <div class="card-body">
-                                <h5 class="card-title">Card title</h5>
-                            </div>
-                        </div>
-                    </a>
-                </div>
-
-                <div class="col-4 col-md-2">
-                    <a href="#" class="">
-                        <div class="parts-card mt-5">
-                            <img src="{{ asset('imgs/img-1.jpg') }}" class="card-img-top card-img shadow" alt="...">
-                            <div class="card-body">
-                                <h5 class="card-title">Card title</h5>
-                            </div>
-                        </div>
-                    </a>
-                </div>
-
-                <div class="col-4 col-md-2">
-                    <a href="#" class="">
-                        <div class="parts-card mt-5">
-                            <img src="{{ asset('imgs/img-1.jpg') }}" class="card-img-top card-img shadow" alt="...">
-                            <div class="card-body">
-                                <h5 class="card-title">Card title</h5>
-                            </div>
-                        </div>
-                    </a>
-                </div>
-
-                <div class="col-4 col-md-2">
-                    <a href="#" class="">
-                        <div class="parts-card mt-5">
-                            <img src="{{ asset('imgs/img-1.jpg') }}" class="card-img-top card-img shadow" alt="...">
-                            <div class="card-body">
-                                <h5 class="card-title">Card title</h5>
-                            </div>
-                        </div>
-                    </a>
-                </div>
-
-                <div class="col-4 col-md-2">
-                    <a href="#" class="">
-                        <div class="parts-card mt-5">
-                            <img src="{{ asset('imgs/img-1.jpg') }}" class="card-img-top card-img shadow" alt="...">
-                            <div class="card-body">
-                                <h5 class="card-title">Card title</h5>
-                            </div>
-                        </div>
-                    </a>
-                </div>
-
+            
 
             </div>
         </div>

@@ -12,7 +12,7 @@ class CategoryController extends Controller
      */
     public function index()
     {
-        return view('add-category');
+        //
     }
 
     /**
@@ -20,7 +20,7 @@ class CategoryController extends Controller
      */
     public function create()
     {
-        //
+        return view('add-category');
     }
 
     /**
@@ -49,7 +49,7 @@ class CategoryController extends Controller
         if (!$category) {
             return redirect()->back()->with('error', 'ایجاد دسته با مشکل مواجه شد!');
         }
-        return redirect()->route('index')->with('succsess', 'دسته با موفقت ایجاد شد!');
+        return redirect()->route('index')->with('success', 'دسته با موفقت ایجاد شد!');
     }
 
     /**
@@ -57,8 +57,9 @@ class CategoryController extends Controller
      */
     public function show( $id)
     {
-        $categories = category::find($id);
-        return view('category', compact('categories'));
+        $thiscategory = Category::findOrFail($id);
+        $categories = category::all();
+        return view('category', compact('thiscategory','categories'));
     }
 
     /**

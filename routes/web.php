@@ -19,7 +19,7 @@ Route::get('login', [AuthController::class, 'login'])->name('login');
 Route::post('login-store', [AuthController::class, 'loginstore'])->name('login-store');
 Route::get('logout', [AuthController::class, 'logout'])->name('logout');
 
-Route::get('category/add', [CategoryController::class, 'index'])->name('category.add');
+Route::get('category/add', [CategoryController::class, 'create'])->name('category.add');
 Route::post('/category/store', [categoryController::class, 'store'])->name('category.store');
 Route::get('category/show/{id}', [CategoryController::class, 'show'])->name('category.show');
 
