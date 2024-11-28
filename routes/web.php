@@ -22,6 +22,9 @@ Route::get('logout', [AuthController::class, 'logout'])->name('logout');
 Route::get('category/add', [CategoryController::class, 'create'])->name('category.add');
 Route::post('/category/store', [categoryController::class, 'store'])->name('category.store');
 Route::get('category/show/{id}', [CategoryController::class, 'show'])->name('category.show');
+Route::get('category/edit/{id}', [CategoryController::class, 'edit'])->name('category.edit');
+Route::put('category/update/{id}', [CategoryController::class, 'update'])->name('category.update');
+Route::delete('category/delete/{id}', [CategoryController::class, 'destroy'])->name('category.destroy');
 
 Route::get('article/add', [ArticleController::class, 'addarticle'])->name('article.add');
 

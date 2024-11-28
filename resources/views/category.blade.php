@@ -32,13 +32,51 @@
                 <div class="col-12 col-md-3">
                     <div class="card mb-2">
 
-                            <div class="card-body">
-                                <div class="d-flex justify-content-between align-items-center">
-                                    <h5 class="text-start">{{ $thiscategory->title }}</h5>
-                                </div>
-                                <p>{{$thiscategory->info}}</p>
+                        <div class="card-body">
+                            <div class="d-flex justify-content-between align-items-center">
+                                <h5 class="text-start">{{ $thiscategory->title }}</h5>
                             </div>
+                            <p>{{ $thiscategory->info }}</p>
+                        </div>
+                        <div class="row row-cols-2 justify-content-center mx-5 p-2 mt-4">
+                            <div class="col">
+                                <a href="{{ route('category.edit', $thiscategory->id) }}" class="btn btn-warning">ویرایش
+                                </a>
+                            </div>
+                            <div class="col">
+                                <!-- Button trigger modal -->
+                                <button type="button" class="btn btn-danger" data-bs-toggle="modal"
+                                    data-bs-target="#exampleModal">
+                                    حذف
+                                </button>
 
+                                <!-- Modal -->
+                                <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"
+                                    aria-hidden="true">
+                                    <div class="modal-dialog">
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <h1 class="modal-title fs-5" id="exampleModalLabel">آیا
+                                                    {{ $thiscategory->title }} را حذف می کنید؟</h1>
+                                                <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                                    aria-label="Close"></button>
+                                            </div>
+                                            <div class="modal-footer">
+                                                <button type="button" class="btn btn-secondary"
+                                                    data-bs-dismiss="modal">لغو</button>
+                                                <form method="POST"
+                                                    action="{{ route('category.destroy', $thiscategory->id) }}">
+                                                    @csrf
+                                                    @method('delete')
+                                                    <button type="submit" class="btn btn-danger">حذف</button>
+                                                </form>
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                     <div class="card d-none d-md-flex mb-2">
                         <div class="card-body">
