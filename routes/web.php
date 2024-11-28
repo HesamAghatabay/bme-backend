@@ -12,7 +12,6 @@ use Illuminate\Support\Facades\Route;
 //     return view('welcome');
 // });
 Route::get('/', [HomeController::class, 'index'])->name('index');
-
 Route::get('register', [AuthController::class, 'register'])->name('register');
 Route::post('register-store', [AuthController::class, 'registerstore'])->name('register-store');
 Route::get('login', [AuthController::class, 'login'])->name('login');
@@ -26,7 +25,7 @@ Route::get('category/edit/{id}', [CategoryController::class, 'edit'])->name('cat
 Route::put('category/update/{id}', [CategoryController::class, 'update'])->name('category.update');
 Route::delete('category/delete/{id}', [CategoryController::class, 'destroy'])->name('category.destroy');
 
-Route::get('article/add', [ArticleController::class, 'addarticle'])->name('article.add');
+Route::get('article/add', [ArticleController::class, 'create'])->name('article.add');
 
 Route::get('/dashboard', function () {
     return view('dashboard');

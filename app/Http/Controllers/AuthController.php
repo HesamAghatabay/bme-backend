@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\category;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -11,7 +12,8 @@ class AuthController extends Controller
 {
     public function register()
     {
-        return view('auth.register');
+        $categories = category::all();
+        return view('auth.register', compact('categories'));
     }
     public function registerstore(Request $request)
     {
@@ -46,10 +48,12 @@ class AuthController extends Controller
     }
     public function login()
     {
-        return view('auth.login');
+        $categories = category::all();
+        return view('auth.login', compact('categories'));
     }
     public function loginstore(Request $request)
     {
+        $categories = category::all();
         $credentials = $request->validate([
             'phone' => 'required|max:255|exists:users,phone',
             'password' => 'required|min:8'

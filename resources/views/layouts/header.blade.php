@@ -66,7 +66,7 @@
                             <div class="col">
                                 <div class="dropdown vazir button-87s">
                                     <h6 class="dropdown-toggle " data-bs-toggle="dropdown" aria-expanded="false">
-                                        دسته ها
+                                        افزودن
                                     </h6>
                                     <ul class="dropdown-menu dropdown-bg">
                                         <li class="my-1 px-1"><a class="" href="{{ route('article.add') }}">افزودن
@@ -77,12 +77,7 @@
                                     </ul>
                                 </div>
                             </div>
-                            {{-- <div class="col">
-                                <a class="button-87s" href="{{ route('add-article') }}">افزودن </a>
-                            </div>
-                            <div class="col">
-                                <a class="button-87s" href="{{ route('add-article') }}">افزودن </a>
-                            </div> --}}
+                           
                         </div>
                     </div>
 
@@ -143,12 +138,7 @@
                                         دسته ها
                                     </h6>
                                     <ul class="dropdown-menu dropdown-bg">
-                                        <li><a class="dropdown-item mt-1" href="#">دسته اول</a></li>
-                                        <li><a class="dropdown-item mt-1" href="#">دسته دوم</a></li>
-                                        <li><a class="dropdown-item mt-1" href="#">دسته سوم</a></li>
-                                        <li><a class="dropdown-item mt-1" href="#">دسته چهارم</a></li>
-                                        <li><a class="dropdown-item mt-1" href="#">دسته پنجم</a></li>
-                                        <li><a class="dropdown-item mt-1" href="#">دسته ششم</a></li>
+
                                     </ul>
                                 </div>
                             </li>
@@ -162,12 +152,7 @@
                                     <ul class="dropdown-menu dropdown-bg">
                                         <li><a class="dropdown-item mt-1" href="#">مقالات پرطرفدار</a></li>
                                         <li><a class="dropdown-item mt-1" href="#">مقالات جدید</a></li>
-                                        <li><a class="dropdown-item mt-1" href="#">مقالات دسته اول</a></li>
-                                        <li><a class="dropdown-item mt-1" href="#">مقالات دسته دوم</a></li>
-                                        <li><a class="dropdown-item mt-1" href="#">مقالات دسته سوم</a></li>
-                                        <li><a class="dropdown-item mt-1" href="#">مقالات دسته چهارم</a></li>
-                                        <li><a class="dropdown-item mt-1" href="#">مقالات دسته پنجم</a></li>
-                                        <li><a class="dropdown-item mt-1" href="#">مقالات دسته ششم</a></li>
+
                                     </ul>
                                 </div>
                             </li>

@@ -21,7 +21,8 @@ class CategoryController extends Controller
      */
     public function create()
     {
-        return view('add-category');
+        $categories = category::all();
+        return view('add-category', compact('categories'));
     }
 
     /**
@@ -68,8 +69,9 @@ class CategoryController extends Controller
      */
     public function edit(category $category, $id)
     {
+        $categories = category::all();
         $category = category::findOrFail($id);
-        return view('edit-category', compact('category'));
+        return view('edit-category', compact('category','categories'));
     }
 
     /**
@@ -115,6 +117,6 @@ class CategoryController extends Controller
         if (!$destroycategory) {
             return redirect()->route('category.show', $category->id)->with('error', 'حذف' . $category->title . 'به مشکل خورد');
         }
-        return redirect()->route('index')->with('seccess', 'دسته' . $category->title . 'با موفقیت حذف شد');
+        return redirect()->route('index')->with('success', 'دسته' . $category->title . 'با موفقیت حذف شد');
     }
 }
