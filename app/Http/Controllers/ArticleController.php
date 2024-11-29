@@ -21,17 +21,13 @@ class ArticleController extends Controller
      */
     public function create()
     {
-        $categories = category::all();
-        return view('add-article', compact('categories'));
+        return view('add-article');
     }
 
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
-    {
-        //
-    }
+    public function store(Request $request) {}
 
     /**
      * Display the specified resource.

@@ -13,6 +13,7 @@ return new class extends Migration
     {
         Schema::create('articles', function (Blueprint $table) {
             $table->id();
+            $table->string('title');
             $table->string('image');
             $table->text('intro');
             $table->string('resources');
@@ -20,6 +21,7 @@ return new class extends Migration
             $table->dateTime('date');
             $table->longText('body');
             $table->integer('view')->default(0);
+            $table->integer('likes')->default(0);
             $table->boolean('activity')->default(0);
             $table->unsignedBigInteger('user_id');
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade')->onUpdate('cascade');

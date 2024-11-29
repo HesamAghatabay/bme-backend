@@ -24,6 +24,7 @@ Route::put('category/update/{id}', [CategoryController::class, 'update'])->name(
 Route::delete('category/delete/{id}', [CategoryController::class, 'destroy'])->name('category.destroy');
 
 Route::get('article/add', [ArticleController::class, 'create'])->name('article.add');
+Route::post('article/store', [ArticleController::class, 'store'])->name('article.store');
 
 Route::get('/dashboard', function () {
     return view('dashboard');

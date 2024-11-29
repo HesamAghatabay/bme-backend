@@ -4,12 +4,10 @@
             <div class="col-6 col-md-3">
                 <h3 class="text-start mb-4 my-5">دسته بندی</h3>
                 <ul class="ul-none">
-                    <li class="my-3"><a href="" class="a-bold irsan">دسته 1</a></li>
-                    <li class="my-3"><a href="" class="a-bold irsan">دسته 2</a></li>
-                    <li class="my-3"><a href="" class="a-bold irsan">دسته 3</a></li>
-                    <li class="my-3"><a href="" class="a-bold irsan">دسته 4</a></li>
-                    <li class="my-3"><a href="" class="a-bold irsan">دسته 5</a></li>
-                    <li class="my-3"><a href="" class="a-bold irsan">دسته 6</a></li>
+                    @foreach ($categories as $category)
+                        <li class="my-3"><a href="{{ route('category.show', $category->id) }}"
+                                class="a-bold irsan">{{ $category->title }}</a></li>
+                    @endforeach
                 </ul>
             </div>
             <div class="col-6 col-md-3 my-5">
@@ -17,8 +15,10 @@
                 <ul class="ul-none">
                     <li class="my-3"><a href="" class="a-bold irsan"> مقالات پرمخاطب</a></li>
                     <li class="my-3"><a href="" class="a-bold irsan"> مقالات جدید</a></li>
-                    <li class="my-3"><a href="" class="a-bold irsan"> مقالات</a></li>
-                    <li class="my-3"><a href="" class="a-bold irsan"></a></li>
+                    @foreach ($categories as $category)
+                        <li class="my-3"><a href="{{ route('category.show', $category->id) }}"
+                                class="a-bold irsan">مقالات {{ $category->title }}</a></li>
+                    @endforeach
                 </ul>
             </div>
             <div class="col-12 col-md-5 my-5 text-end">
@@ -90,7 +90,7 @@
         "imports": {
             "ckeditor5": "{{asset('CKEditor5Folder/ckeditor5/ckeditor5.js')}}",
             "ckeditor5/": "{{asset('CKEditor5Folder/ckeditor5/')}}"
-            
+
         }
     }
 </script>
