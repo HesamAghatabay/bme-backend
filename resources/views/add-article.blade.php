@@ -2,7 +2,7 @@
 @section('content')
     <h1 class="text-center mt-5 pt-5">صفحه افزودن مقاله جدید</h1>
     <section class="text-start mt-130 bg-add-article py-5">
-        <form method="POST" action="{{route('article.store')}}">
+        <form method="POST" action="{{ route('article.store') }}">
             @csrf
             <div class="container">
 
@@ -15,24 +15,24 @@
                         @enderror
 
 
-                        <label for="img" class="form-label">تصویر</label>
-                        <input type="file" class="form-control mb-2" name="img" id="img"
+                        <label for="image" class="form-label">تصویر</label>
+                        <input type="file" class="form-control mb-2" name="image" id="image"
                             placeholder="بارگذاری عکس ">
-                        @error('img')
+                        @error('image')
                             <p class="f-r mb-4">{{ $message }}</p>
                         @enderror
 
 
-                        <label for="info" class="form-label">مقدمه</label>
-                        <input type="text" class="form-control mb-2" name="info" id="info" placeholder="مقدمه">
-                        @error('info')
+                        <label for="intro" class="form-label">مقدمه</label>
+                        <input type="text" class="form-control mb-2" name="intro" id="intro" placeholder="مقدمه">
+                        @error('intro')
                             <p class="f-r mb-4">{{ $message }}</p>
                         @enderror
 
 
-                        <label for="Resources" class="form-label">منابع</label>
-                        <input type="text" class="form-control mb-2" name="Resources" id="Resources" placeholder="منابع">
-                        @error('Resources')
+                        <label for="resources" class="form-label">منابع</label>
+                        <input type="text" class="form-control mb-2" name="resources" id="resources" placeholder="منابع">
+                        @error('resources')
                             <p class="f-r mb-4">{{ $message }}</p>
                         @enderror
 
@@ -47,6 +47,19 @@
                         <label for="date" class="form-label">تاریخ</label>
                         <input type="date" class="form-control mb-2" name="date" id="date">
                         @error('date')
+                            <p class="f-r mb-4">{{ $message }}</p>
+                        @enderror
+
+
+                        <label for="category-id" class="form-label">دسته</label>
+                        <select class="form-select" id="category-id" name="category_id" aria-label="Default select example">
+                            @foreach ($categories as $category)
+                                <option value="{{ $category->id }}">{{ $category->title }}</option>
+                            @endforeach
+
+                        </select>
+                        {{-- <input type="date" class="form-control mb-2" name="date" id="date"> --}}
+                        @error('category_id')
                             <p class="f-r mb-4">{{ $message }}</p>
                         @enderror
 

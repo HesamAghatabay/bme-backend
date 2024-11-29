@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\article;
 use App\Models\category;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class ArticleController extends Controller
 {
@@ -27,7 +28,47 @@ class ArticleController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request) {}
+    public function store(Request $request)
+    {
+        $request->validate([
+            'title' => 'required|max:255',
+            'image' => 'required|image|mimes:jpeg,png,jpg,gif|max:2048',
+            'intro' => 'required',
+            'resources' => 'required|max:255',
+            'writer' => 'required|max:255',
+            'date' => 'required|date',
+            'body' => 'required'
+        ], [
+            'title.required' => 'عنوان الزامی است',
+            'title.max' => 'بیش از حد مجاز',
+            'image.required' => 'تصویر الزامی است',
+            'image.max' => 'بیش از حد مجاز',
+            'intro.required' => 'توضیحات الزامی است',
+            'resources.required' => 'نوشتن منابع الزامی است',
+            'resources.max' => 'بیش از حد مجاز',
+            'writer.required' => 'نوشتن نویسنده الزامی است',
+            'writer.max' => 'بیش از حد مجاز',
+            'date.reauired' => 'تاریخ الزامی است',
+            'body.required' => 'متن بدنه الزامی است'
+        ]);
+        $filename = time() . ' - ' . $request->image->getClientOriginalName();
+        $request->image->storeAs('/images', $filename);
+        $article = article::create([
+            'title' => $request->title,
+            'image' => $filename,
+            'intro' => $request->intro,
+            'resources' => $request->resources,
+            'writer' => $request->writer,
+            'date' => $request->date,
+            'body' => $request->body,
+            'category_id' => $request->category_id,
+            'user_id' => Auth::user()->id,
+        ]);
+        if (!$article) {
+            return redirect()->back()->with('error', 'ارسال مقاله با مشکل مواجه شد لطفا دوباره تلاش کنید');
+        }
+        return redirect()->route('index')->with('success', 'مقاله با موفقیت ثبت شد');
+    }
 
     /**
      * Display the specified resource.
