@@ -1,9 +1,7 @@
 @extends('layouts.master')
 @section('content')
     <section id="parts" class="text-center">
-        <div class="h3-div">
-            <h3>دسته ها</h3>
-        </div>
+        
         <div class="container">
             <div class="row">
 

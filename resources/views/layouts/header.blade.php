@@ -77,7 +77,7 @@
                                     </ul>
                                 </div>
                             </div>
-                           
+
                         </div>
                     </div>
 
@@ -138,7 +138,11 @@
                                         دسته ها
                                     </h6>
                                     <ul class="dropdown-menu dropdown-bg">
-
+                                        @foreach ($categories as $category)
+                                            <li><a class="dropdown-item mt-1"
+                                                    href="{{ route('category.show', $category->id) }}">{{ $category->title }}</a>
+                                            </li>
+                                        @endforeach
                                     </ul>
                                 </div>
                             </li>
@@ -152,6 +156,11 @@
                                     <ul class="dropdown-menu dropdown-bg">
                                         <li><a class="dropdown-item mt-1" href="#">مقالات پرطرفدار</a></li>
                                         <li><a class="dropdown-item mt-1" href="#">مقالات جدید</a></li>
+                                        @foreach ($categories as $category)
+                                            <li><a class="dropdown-item mt-1"
+                                                    href="{{ route('category.show', $category->id) }}">مقالات
+                                                    {{ $category->title }}</a></li>
+                                        @endforeach
 
                                     </ul>
                                 </div>

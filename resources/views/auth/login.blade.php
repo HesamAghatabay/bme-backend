@@ -54,7 +54,7 @@
             <div class="row">
                 <div class="col-12 px-5">
 
-                    <form method="POST" action="{{ route('login-store') }}">
+                    <form method="POST" action="{{ route('login.store') }}">
                         @csrf
                         <label for="phone" class="form-label">شماره تماس</label>
                         <input type="text" class="form-control mb-4" name="phone" id="phone">

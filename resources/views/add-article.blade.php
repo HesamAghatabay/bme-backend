@@ -2,7 +2,7 @@
 @section('content')
     <h1 class="text-center mt-5 pt-5">صفحه افزودن مقاله جدید</h1>
     <section class="text-start mt-130 bg-add-article py-5">
-        <form method="POST" action="{{route('add-article')}}">
+        <form method="POST" action="{{route('article.add')}}">
             @csrf
             <div class="container">
 

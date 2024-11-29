@@ -59,7 +59,7 @@
             <div class="row">
                 <div class="col-12 px-5">
 
-                    <form method="POST" action="{{ route('register-store') }}">
+                    <form method="POST" action="{{ route('register.store') }}">
                         @csrf
 
                         <label for="name" class="form-label"> نام و نام خانوادگی</label>

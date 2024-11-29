@@ -8,14 +8,12 @@ use App\Http\Controllers\ProfileController;
 use App\Models\category;
 use Illuminate\Support\Facades\Route;
 
-// Route::get('/', function () {
-//     return view('welcome');
-// });
+
 Route::get('/', [HomeController::class, 'index'])->name('index');
 Route::get('register', [AuthController::class, 'register'])->name('register');
-Route::post('register-store', [AuthController::class, 'registerstore'])->name('register-store');
+Route::post('register/store', [AuthController::class, 'registerstore'])->name('register.store');
 Route::get('login', [AuthController::class, 'login'])->name('login');
-Route::post('login-store', [AuthController::class, 'loginstore'])->name('login-store');
+Route::post('login/store', [AuthController::class, 'loginstore'])->name('login.store');
 Route::get('logout', [AuthController::class, 'logout'])->name('logout');
 
 Route::get('category/add', [CategoryController::class, 'create'])->name('category.add');
