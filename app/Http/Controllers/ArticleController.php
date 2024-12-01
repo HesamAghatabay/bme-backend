@@ -32,7 +32,7 @@ class ArticleController extends Controller
     {
         $request->validate([
             'title' => 'required|max:255',
-            'image' => 'required|image|mimes:jpeg,png,jpg,gif|max:2048',
+            'image' => 'required|max:2048',
             'intro' => 'required',
             'resources' => 'required|max:255',
             'writer' => 'required|max:255',
@@ -53,6 +53,7 @@ class ArticleController extends Controller
         ]);
         $filename = time() . ' - ' . $request->image->getClientOriginalName();
         $request->image->storeAs('/images', $filename);
+        $userid = Auth::user()->id;
         $article = article::create([
             'title' => $request->title,
             'image' => $filename,
@@ -62,7 +63,7 @@ class ArticleController extends Controller
             'date' => $request->date,
             'body' => $request->body,
             'category_id' => $request->category_id,
-            'user_id' => Auth::user()->id,
+            'user_id' => $userid,
         ]);
         if (!$article) {
             return redirect()->back()->with('error', 'ارسال مقاله با مشکل مواجه شد لطفا دوباره تلاش کنید');

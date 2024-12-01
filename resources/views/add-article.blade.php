@@ -2,7 +2,7 @@
 @section('content')
     <h1 class="text-center mt-5 pt-5">صفحه افزودن مقاله جدید</h1>
     <section class="text-start mt-130 bg-add-article py-5">
-        <form method="POST" action="{{ route('article.store') }}">
+        <form method="POST" action="{{ route('article.store') }}" enctype="multipart/form-data">
             @csrf
             <div class="container">
 
@@ -67,7 +67,8 @@
 
                     <div class="col-10 col-md-7">
                         <label for="body" class="form-label">بدنه</label>
-                        <div>
+                        <input type="text" class="form-control mb-2" name="body" id="body">
+                        {{-- <div>
                             <div class="main-container">
                                 <div class="editor-container editor-container_classic-editor" id="editor-container">
                                     <div class="editor-container__editor">
@@ -75,13 +76,13 @@
                                     </div>
                                 </div>
                             </div>
-                        </div>
-                        @error('editor')
+                        </div> --}}
+
+                        {{-- <textarea name="body" id="body" class="form-control" rows="15" cols="30"></textarea> --}}
+                        @error('body')
                             <p class="f-r mb-4">{{ $message }}</p>
                         @enderror
-                        {{-- <textarea name="body" id="body" class="form-control" rows="15" cols="30"></textarea> --}}
                     </div>
-
                 </div>
                 <div class="row justify-content-start">
                     <div class="col-3 text-end mt-4">
