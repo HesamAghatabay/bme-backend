@@ -58,7 +58,7 @@
                         </a>
                     </div>
                 @endforeach
-            
+
 
             </div>
         </div>
@@ -166,17 +166,20 @@
             </div>
             <div class="row row-cols-2 row-cols-md-5 justify-content-center align-items-center">
 
-                <div class="col align-self-center my-3">
-                    <a href="">
-                        <div class="new-card shadow">
-                            <div class="new-card-body">
-                                <h6>
-                                    This is some text within a card body.
-                                </h6>
+                @foreach ($articles as $article)
+                    <div class="col align-self-center my-3">
+                        <a href="{{route('article.show', $article->id)}}">
+                            <div class="new-card shadow"
+                                style="background-image: url('{{ asset('images/images/' . $article->image) }}')">
+                                <div class="new-card-body">
+                                    <h6>
+                                        {{ $article->intro }}
+                                    </h6>
+                                </div>
                             </div>
-                        </div>
-                    </a>
-                </div>
+                        </a>
+                    </div>
+                @endforeach
 
                 <div class="col align-self-center my-3">
                     <a href="">

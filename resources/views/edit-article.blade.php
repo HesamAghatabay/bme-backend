@@ -2,14 +2,15 @@
 @section('content')
     <h1 class="text-center mt-5 pt-5">صفحه افزودن مقاله جدید</h1>
     <section class="text-start mt-130 bg-add-article py-5">
-        <form method="POST" action="{{ route('article.store') }}" enctype="multipart/form-data">
+        <form method="POST" action="" enctype="multipart/form-data">
             @csrf
+            @method('put')
             <div class="container">
 
                 <div class="row justify-content-center align-items-start">
                     <div class="col-10 col-md-4">
                         <label for="title" class="form-label">عنوان</label>
-                        <input type="text" class="form-control mb-2" name="title" id="title" placeholder="عنوان">
+                        <input type="text" value="" class="form-control mb-2" name="title" id="title" placeholder="عنوان">
                         @error('title')
                             <p class="f-r mb-4">{{ $message }}</p>
                         @enderror
@@ -45,7 +46,7 @@
 
 
                         <label for="date" class="form-label">تاریخ</label>
-                        <input type="datetime-local" class="form-control mb-2" name="date" id="date">
+                        <input type="date" class="form-control mb-2" name="date" id="date">
                         @error('date')
                             <p class="f-r mb-4">{{ $message }}</p>
                         @enderror
