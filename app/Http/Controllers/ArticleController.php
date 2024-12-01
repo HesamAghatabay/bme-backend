@@ -32,7 +32,7 @@ class ArticleController extends Controller
     {
         $request->validate([
             'title' => 'required|max:255',
-            'image' => 'required|max:2048',
+            'image' => 'required|image|mimes:jpeg,png,jpg,gif|max:2048',
             'intro' => 'required',
             'resources' => 'required|max:255',
             'writer' => 'required|max:255',
