@@ -181,123 +181,13 @@
                     </div>
                 @endforeach
 
-                <div class="col align-self-center my-3">
-                    <a href="">
-                        <div class="new-card shadow">
-                            <div class="new-card-body">
-                                <h6>
-                                    This is some text within a card body.
-                                </h6>
-                            </div>
-                        </div>
-                    </a>
-                </div>
-
-                <div class="col align-self-center my-3">
-                    <a href="">
-                        <div class="new-card shadow">
-                            <div class="new-card-body">
-                                <h6>
-                                    This is some text within a card body.
-                                </h6>
-                            </div>
-                        </div>
-                    </a>
-                </div>
-
-                <div class="col align-self-center my-3">
-                    <a href="">
-                        <div class="new-card shadow">
-                            <div class="new-card-body">
-                                <h6>
-                                    This is some text within a card body.
-                                </h6>
-                            </div>
-                        </div>
-                    </a>
-                </div>
-
-                <div class="col align-self-center my-3">
-                    <a href="">
-                        <div class="new-card shadow">
-                            <div class="new-card-body">
-                                <h6>
-                                    This is some text within a card body.
-                                </h6>
-                            </div>
-                        </div>
-                    </a>
-                </div>
-
-                <div class="col align-self-center my-3">
-                    <a href="">
-                        <div class="new-card shadow">
-                            <div class="new-card-body">
-                                <h6>
-                                    This is some text within a card body.
-                                </h6>
-                            </div>
-                        </div>
-                    </a>
-                </div>
-
-                <div class="col align-self-center my-3">
-                    <a href="">
-                        <div class="new-card shadow">
-                            <div class="new-card-body">
-                                <h6>
-                                    This is some text within a card body.
-                                </h6>
-                            </div>
-                        </div>
-                    </a>
-                </div>
-
-                <div class="col align-self-center my-3">
-                    <a href="">
-                        <div class="new-card shadow">
-                            <div class="new-card-body">
-                                <h6>
-                                    This is some text within a card body.
-                                </h6>
-                            </div>
-                        </div>
-                    </a>
-                </div>
-
-                <div class="col align-self-center my-3">
-                    <a href="">
-                        <div class="new-card shadow">
-                            <div class="new-card-body">
-                                <h6>
-                                    This is some text within a card body.
-                                </h6>
-                            </div>
-                        </div>
-                    </a>
-                </div>
-
-                <div class="col align-self-center my-3">
-                    <a href="">
-                        <div class="new-card shadow">
-                            <div class="new-card-body">
-                                <h6>
-                                    This is some text within a card body.
-                                </h6>
-                            </div>
-                        </div>
-                    </a>
-                </div>
-
             </div>
-
-
         </div>
     </section>
 
 
     <!-- ////////////part-1-articles//////////// -->
-    @foreach ($categories as $category)
+    @foreach ($categoryHasArticle as $category)
         <section id="" class="text-center mt-130">
             <div class="container">
                 <div class="h3-div d-flex justify-content-between align-items-center">
@@ -309,7 +199,8 @@
                     @foreach ($category->articles as $article)
                         <div class="col align-self-center my-3">
                             <a href="">
-                                <div class="new-card shadow">
+                                <div
+                                    class="new-card shadow"style="background-image: url('{{ asset('images/images/' . $article->image) }}')">
                                     <div class="new-card-body">
                                         <h6>
                                             {{ $article->intro }}

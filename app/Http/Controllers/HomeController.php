@@ -13,12 +13,13 @@ class HomeController extends Controller
     {
         $articles = article::all();
         // $categories = category::find(2);
-        $categories = Category::with('articles')->get();
+        $categories = category::all();
+        $categoryHasArticle = Category::has('articles')->with('articles')->get();
         // dd($categories->articles);
 
         // foreach ($categories as $categories) {
         //     $articles = DB::table('articles')->where('category_id', $categories->id)->get();
         // }
-        return view('index', compact('categories', 'articles'));
+        return view('index', compact('categories', 'articles', 'categoryHasArticle'));
     }
 }
