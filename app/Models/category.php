@@ -11,4 +11,8 @@ class category extends Model
         'image',
         'info',
     ];
+    public function articles()
+    {
+        return $this->hasMany(article::class);
+    }
 }

@@ -11,8 +11,7 @@
                                     <h6 class="text-start">{{ $article->writer }}</h6>
                                     <h6 class="text-start">رشتش</h6>
                                 </div>
-                                <img class="writer-img rounded shadow m-3"
-                                    src="" alt="">
+                                <img class="writer-img rounded shadow m-3" src="" alt="">
                             </div>
                             <p class="mt-4">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ab sunt ut doloribus
                                 quisquam dolor enim temporibus assumenda dignissimos minus dolore voluptatem, consequuntur
@@ -206,6 +205,10 @@
                                     <h1>{{ $article->title }}</h1>
                                     <p class="my-2">نویسنده: {{ $article->writer }}</p>
                                     <p>تاریخ: {{ $article->date }}</p>
+                                    <div class="py-3 px-1">
+                                        <span class="">بازدید</span><span class="mx-5"><a href="">پسندیدن<i
+                                                    class="bi bi-emoji-heart-eyes-fill f-r"></i></a></span>
+                                    </div>
                                 </div>
                                 <div class="col-12 col-md-7">
                                     <img class="article-img rounded shadow"
