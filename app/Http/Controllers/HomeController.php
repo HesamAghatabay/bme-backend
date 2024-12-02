@@ -11,12 +11,14 @@ class HomeController extends Controller
 {
     public function index()
     {
-        $categories = category::all();
-        // dd($categories->count());
-        // $articles = article::all();
-        foreach ($categories as $categories) {
-            $articles = DB::table('articles')->where('category_id', $categories->id)->get();
-        }
+        $articles = article::all();
+        // $categories = category::find(2);
+        $categories = Category::with('articles')->get();
+        // dd($categories->articles);
+
+        // foreach ($categories as $categories) {
+        //     $articles = DB::table('articles')->where('category_id', $categories->id)->get();
+        // }
         return view('index', compact('categories', 'articles'));
     }
 }
