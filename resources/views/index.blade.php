@@ -168,7 +168,7 @@
 
                 @foreach ($articles as $article)
                     <div class="col align-self-center my-3">
-                        <a href="{{route('article.show', $article->id)}}">
+                        <a href="{{ route('article.show', $article->id) }}">
                             <div class="new-card shadow"
                                 style="background-image: url('{{ asset('images/images/' . $article->image) }}')">
                                 <div class="new-card-body">
@@ -297,551 +297,96 @@
 
 
     <!-- ////////////part-1-articles//////////// -->
-    <section id="part-1-articles" class="text-center mt-130">
-        <div class="container">
-            <div class="h3-div d-flex justify-content-between align-items-center">
-                <h3 class="text-start">مقالات دسته اول</h3>
-                <a href="" class="text-end button-71 shadow">مشاهده همه</a>
+    @foreach ($categories as $category)
+        <section id="" class="text-center mt-130">
+            <div class="container">
+                <div class="h3-div d-flex justify-content-between align-items-center">
+                    <h3 class="text-start">مقالات دسته {{ $category->title }}</h3>
+                    <a href="" class="text-end button-71 shadow">مشاهده همه</a>
+                </div>
+                <div class="row row-cols-2 row-cols-md-4 justify-content-center align-items-center">
+
+                    <div class="col align-self-center my-3">
+                        <a href="">
+                            <div class="new-card shadow">
+                                <div class="new-card-body">
+                                    <h6>
+                                        This is some text within a card body.
+                                    </h6>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+
+                    <div class="col align-self-center my-3">
+                        <a href="">
+                            <div class="new-card shadow">
+                                <div class="new-card-body">
+                                    <h6>
+                                        This is some text within a card body.
+                                    </h6>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+
+
+                    <div class="col align-self-center my-3">
+                        <a href="">
+                            <div class="new-card shadow">
+                                <div class="new-card-body">
+                                    <h6>
+                                        This is some text within a card body.
+                                    </h6>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+
+
+                    <div class="col align-self-center my-3">
+                        <a href="">
+                            <div class="new-card shadow">
+                                <div class="new-card-body">
+                                    <h6>
+                                        This is some text within a card body.
+                                    </h6>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+
+
+                    <div class="col align-self-center my-3">
+                        <a href="">
+                            <div class="new-card shadow">
+                                <div class="new-card-body">
+                                    <h6>
+                                        This is some text within a card body.
+                                    </h6>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+
+
+                    <div class="col align-self-center my-3">
+                        <a href="">
+                            <div class="new-card shadow">
+                                <div class="new-card-body">
+                                    <h6>
+                                        This is some text within a card body.
+                                    </h6>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+
+
+                </div>
             </div>
-            <div class="row row-cols-2 row-cols-md-4 justify-content-center align-items-center">
-
-                <div class="col align-self-center my-3">
-                    <a href="">
-                        <div class="new-card shadow">
-                            <div class="new-card-body">
-                                <h6>
-                                    This is some text within a card body.
-                                </h6>
-                            </div>
-                        </div>
-                    </a>
-                </div>
-
-                <div class="col align-self-center my-3">
-                    <a href="">
-                        <div class="new-card shadow">
-                            <div class="new-card-body">
-                                <h6>
-                                    This is some text within a card body.
-                                </h6>
-                            </div>
-                        </div>
-                    </a>
-                </div>
-
-
-                <div class="col align-self-center my-3">
-                    <a href="">
-                        <div class="new-card shadow">
-                            <div class="new-card-body">
-                                <h6>
-                                    This is some text within a card body.
-                                </h6>
-                            </div>
-                        </div>
-                    </a>
-                </div>
-
-
-                <div class="col align-self-center my-3">
-                    <a href="">
-                        <div class="new-card shadow">
-                            <div class="new-card-body">
-                                <h6>
-                                    This is some text within a card body.
-                                </h6>
-                            </div>
-                        </div>
-                    </a>
-                </div>
-
-
-                <div class="col align-self-center my-3">
-                    <a href="">
-                        <div class="new-card shadow">
-                            <div class="new-card-body">
-                                <h6>
-                                    This is some text within a card body.
-                                </h6>
-                            </div>
-                        </div>
-                    </a>
-                </div>
-
-
-                <div class="col align-self-center my-3">
-                    <a href="">
-                        <div class="new-card shadow">
-                            <div class="new-card-body">
-                                <h6>
-                                    This is some text within a card body.
-                                </h6>
-                            </div>
-                        </div>
-                    </a>
-                </div>
-
-
-            </div>
-        </div>
-    </section>
-
-
-    <!-- ////////////part-2-articles//////////// -->
-    <section id="part-2-articles" class="text-center mt-130">
-        <div class="container">
-            <div class="h3-div d-flex justify-content-between align-items-center">
-                <h3 class="text-start">مقالات دسته دوم</h3>
-                <a href="" class="text-end button-71 shadow">مشاهده همه</a>
-            </div>
-            <div class="row row-cols-2 row-cols-md-4 justify-content-center align-items-center">
-
-                <div class="col align-self-center my-3">
-                    <a href="">
-                        <div class="new-card shadow">
-                            <div class="new-card-body">
-                                <h6>
-                                    This is some text within a card body.
-                                </h6>
-                            </div>
-                        </div>
-                    </a>
-                </div>
-
-                <div class="col align-self-center my-3">
-                    <a href="">
-                        <div class="new-card shadow">
-                            <div class="new-card-body">
-                                <h6>
-                                    This is some text within a card body.
-                                </h6>
-                            </div>
-                        </div>
-                    </a>
-                </div>
-
-
-                <div class="col align-self-center my-3">
-                    <a href="">
-                        <div class="new-card shadow">
-                            <div class="new-card-body">
-                                <h6>
-                                    This is some text within a card body.
-                                </h6>
-                            </div>
-                        </div>
-                    </a>
-                </div>
-
-
-                <div class="col align-self-center my-3">
-                    <a href="">
-                        <div class="new-card shadow">
-                            <div class="new-card-body">
-                                <h6>
-                                    This is some text within a card body.
-                                </h6>
-                            </div>
-                        </div>
-                    </a>
-                </div>
-
-
-                <div class="col align-self-center my-3">
-                    <a href="">
-                        <div class="new-card shadow">
-                            <div class="new-card-body">
-                                <h6>
-                                    This is some text within a card body.
-                                </h6>
-                            </div>
-                        </div>
-                    </a>
-                </div>
-
-
-                <div class="col align-self-center my-3">
-                    <a href="">
-                        <div class="new-card shadow">
-                            <div class="new-card-body">
-                                <h6>
-                                    This is some text within a card body.
-                                </h6>
-                            </div>
-                        </div>
-                    </a>
-                </div>
-
-
-            </div>
-        </div>
-    </section>
-
-
-    <!-- ////////////part-3-articles//////////// -->
-    <section id="part-3-articles" class="text-center mt-130">
-        <div class="container">
-            <div class="h3-div d-flex justify-content-between align-items-center">
-                <h3 class="text-start">مقالات دسته سوم</h3>
-                <a href="" class="text-end button-71 shadow">مشاهده همه</a>
-            </div>
-            <div class="row row-cols-2 row-cols-md-4 justify-content-center align-items-center">
-
-                <div class="col align-self-center my-3">
-                    <a href="">
-                        <div class="new-card shadow">
-                            <div class="new-card-body">
-                                <h6>
-                                    This is some text within a card body.
-                                </h6>
-                            </div>
-                        </div>
-                    </a>
-                </div>
-
-                <div class="col align-self-center my-3">
-                    <a href="">
-                        <div class="new-card shadow">
-                            <div class="new-card-body">
-                                <h6>
-                                    This is some text within a card body.
-                                </h6>
-                            </div>
-                        </div>
-                    </a>
-                </div>
-
-
-                <div class="col align-self-center my-3">
-                    <a href="">
-                        <div class="new-card shadow">
-                            <div class="new-card-body">
-                                <h6>
-                                    This is some text within a card body.
-                                </h6>
-                            </div>
-                        </div>
-                    </a>
-                </div>
-
-
-                <div class="col align-self-center my-3">
-                    <a href="">
-                        <div class="new-card shadow">
-                            <div class="new-card-body">
-                                <h6>
-                                    This is some text within a card body.
-                                </h6>
-                            </div>
-                        </div>
-                    </a>
-                </div>
-
-
-                <div class="col align-self-center my-3">
-                    <a href="">
-                        <div class="new-card shadow">
-                            <div class="new-card-body">
-                                <h6>
-                                    This is some text within a card body.
-                                </h6>
-                            </div>
-                        </div>
-                    </a>
-                </div>
-
-
-                <div class="col align-self-center my-3">
-                    <a href="">
-                        <div class="new-card shadow">
-                            <div class="new-card-body">
-                                <h6>
-                                    This is some text within a card body.
-                                </h6>
-                            </div>
-                        </div>
-                    </a>
-                </div>
-
-
-            </div>
-        </div>
-    </section>
-
-
-    <!-- ////////////part-4-articles//////////// -->
-    <section id="part-4-articles" class="text-center mt-130">
-        <div class="container">
-            <div class="h3-div d-flex justify-content-between align-items-center">
-                <h3 class="text-start">مقالات دسته چهارم</h3>
-                <a href="" class="text-end button-71 shadow">مشاهده همه</a>
-            </div>
-            <div class="row row-cols-2 row-cols-md-4 justify-content-center align-items-center">
-
-                <div class="col align-self-center my-3">
-                    <a href="">
-                        <div class="new-card shadow">
-                            <div class="new-card-body">
-                                <h6>
-                                    This is some text within a card body.
-                                </h6>
-                            </div>
-                        </div>
-                    </a>
-                </div>
-
-                <div class="col align-self-center my-3">
-                    <a href="">
-                        <div class="new-card shadow">
-                            <div class="new-card-body">
-                                <h6>
-                                    This is some text within a card body.
-                                </h6>
-                            </div>
-                        </div>
-                    </a>
-                </div>
-
-
-                <div class="col align-self-center my-3">
-                    <a href="">
-                        <div class="new-card shadow">
-                            <div class="new-card-body">
-                                <h6>
-                                    This is some text within a card body.
-                                </h6>
-                            </div>
-                        </div>
-                    </a>
-                </div>
-
-
-                <div class="col align-self-center my-3">
-                    <a href="">
-                        <div class="new-card shadow">
-                            <div class="new-card-body">
-                                <h6>
-                                    This is some text within a card body.
-                                </h6>
-                            </div>
-                        </div>
-                    </a>
-                </div>
-
-
-                <div class="col align-self-center my-3">
-                    <a href="">
-                        <div class="new-card shadow">
-                            <div class="new-card-body">
-                                <h6>
-                                    This is some text within a card body.
-                                </h6>
-                            </div>
-                        </div>
-                    </a>
-                </div>
-
-
-                <div class="col align-self-center my-3">
-                    <a href="">
-                        <div class="new-card shadow">
-                            <div class="new-card-body">
-                                <h6>
-                                    This is some text within a card body.
-                                </h6>
-                            </div>
-                        </div>
-                    </a>
-                </div>
-
-
-            </div>
-        </div>
-    </section>
-
-
-
-    <!-- ////////////part-5-articles//////////// -->
-    <section id="part-5-articles" class="text-center mt-130">
-        <div class="container">
-            <div class="h3-div d-flex justify-content-between align-items-center">
-                <h3 class="text-start">مقالات دسته پنجم</h3>
-                <a href="" class="text-end button-71 shadow">مشاهده همه</a>
-            </div>
-            <div class="row row-cols-2 row-cols-md-4 justify-content-center align-items-center">
-
-                <div class="col align-self-center my-3">
-                    <a href="">
-                        <div class="new-card shadow">
-                            <div class="new-card-body">
-                                <h6>
-                                    This is some text within a card body.
-                                </h6>
-                            </div>
-                        </div>
-                    </a>
-                </div>
-
-                <div class="col align-self-center my-3">
-                    <a href="">
-                        <div class="new-card shadow">
-                            <div class="new-card-body">
-                                <h6>
-                                    This is some text within a card body.
-                                </h6>
-                            </div>
-                        </div>
-                    </a>
-                </div>
-
-
-                <div class="col align-self-center my-3">
-                    <a href="">
-                        <div class="new-card shadow">
-                            <div class="new-card-body">
-                                <h6>
-                                    This is some text within a card body.
-                                </h6>
-                            </div>
-                        </div>
-                    </a>
-                </div>
-
-
-                <div class="col align-self-center my-3">
-                    <a href="">
-                        <div class="new-card shadow">
-                            <div class="new-card-body">
-                                <h6>
-                                    This is some text within a card body.
-                                </h6>
-                            </div>
-                        </div>
-                    </a>
-                </div>
-
-
-                <div class="col align-self-center my-3">
-                    <a href="">
-                        <div class="new-card shadow">
-                            <div class="new-card-body">
-                                <h6>
-                                    This is some text within a card body.
-                                </h6>
-                            </div>
-                        </div>
-                    </a>
-                </div>
-
-
-                <div class="col align-self-center my-3">
-                    <a href="">
-                        <div class="new-card shadow">
-                            <div class="new-card-body">
-                                <h6>
-                                    This is some text within a card body.
-                                </h6>
-                            </div>
-                        </div>
-                    </a>
-                </div>
-
-
-            </div>
-        </div>
-    </section>
-
-
-
-    <!-- ////////////part-6-articles//////////// -->
-    <section id="part-6-articles" class="text-center mt-130">
-        <div class="container">
-            <div class="h3-div d-flex justify-content-between align-items-center">
-                <h3 class="text-start">مقالات دسته ششم</h3>
-                <a href="" class="text-end button-71 shadow">مشاهده همه</a>
-            </div>
-            <div class="row row-cols-2 row-cols-md-4 justify-content-center align-items-center">
-
-                <div class="col align-self-center my-3">
-                    <a href="">
-                        <div class="new-card shadow">
-                            <div class="new-card-body">
-                                <h6>
-                                    This is some text within a card body.
-                                </h6>
-                            </div>
-                        </div>
-                    </a>
-                </div>
-
-                <div class="col align-self-center my-3">
-                    <a href="">
-                        <div class="new-card shadow">
-                            <div class="new-card-body">
-                                <h6>
-                                    This is some text within a card body.
-                                </h6>
-                            </div>
-                        </div>
-                    </a>
-                </div>
-
-
-                <div class="col align-self-center my-3">
-                    <a href="">
-                        <div class="new-card shadow">
-                            <div class="new-card-body">
-                                <h6>
-                                    This is some text within a card body.
-                                </h6>
-                            </div>
-                        </div>
-                    </a>
-                </div>
-
-
-                <div class="col align-self-center my-3">
-                    <a href="">
-                        <div class="new-card shadow">
-                            <div class="new-card-body">
-                                <h6>
-                                    This is some text within a card body.
-                                </h6>
-                            </div>
-                        </div>
-                    </a>
-                </div>
-
-
-                <div class="col align-self-center my-3">
-                    <a href="">
-                        <div class="new-card shadow">
-                            <div class="new-card-body">
-                                <h6>
-                                    This is some text within a card body.
-                                </h6>
-                            </div>
-                        </div>
-                    </a>
-                </div>
-
-
-                <div class="col align-self-center my-3">
-                    <a href="">
-                        <div class="new-card shadow">
-                            <div class="new-card-body">
-                                <h6>
-                                    This is some text within a card body.
-                                </h6>
-                            </div>
-                        </div>
-                    </a>
-                </div>
-
-
-            </div>
-        </div>
-    </section>
+        </section>
+    @endforeach
 
 
 

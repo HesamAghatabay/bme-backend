@@ -213,10 +213,9 @@
                                 </div>
                             </div>
                             <div class="article-text">
-                                <p>{{ $article->body }}</p>
+                                <p class="mb-5">{{ $article->body }}</pcl>
                             </div>
                         </div>
-                        <p>...pagination 1 2 3</p>
                     </div>
                 </div>
             </div>
