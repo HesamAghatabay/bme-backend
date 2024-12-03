@@ -3,14 +3,24 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\ProfileUpdateRequest;
+use App\Models\User;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\View\View;
 
 class ProfileController extends Controller
 {
+    public function index()
+    {
+        $userAuth = Auth::user();
+        // $user = DB::table('users')->where('id', $userAuth)->get();
+        // $profile = DB::table('profile')->where()
+        return view('dashboard', compact('userAuth'));
+    }
+
     /**
      * Display the user's profile form.
      */

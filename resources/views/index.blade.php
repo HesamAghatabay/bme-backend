@@ -89,19 +89,6 @@
                     </a>
                 @endforeach
 
-                <a href="#" class="button-92 my-5">
-                    <div class="col-6 w-100">
-                        <div class="card text-start">
-                            <img src="{{ asset('imgs/img-2.jpg') }}" class="card-img-top" alt="...">
-                            <div class="card-body shadow">
-                                <h5 class="card-title">Card title</h5>
-                                <p class="card-text my-3">Some quick example text to build on the card title and
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                </a>
-
 
             </div>
         </div>

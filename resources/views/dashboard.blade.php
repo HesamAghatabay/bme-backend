@@ -1,17 +1,103 @@
-<x-app-layout>
-    <x-slot name="header">
-        <h2 class="font-semibold text-xl text-gray-800 dark:text-gray-200 leading-tight">
-            {{ __('Dashboard') }}
-        </h2>
-    </x-slot>
+@extends('layouts.master')
+@section('content')
+    <section class="text-start mt-130">
+        <div class="container text-start">
+            <div class="row justify-content-center align-items-center">
+                <div class="col-8 px-5">
+                    <p class="profile-info">{{ $userAuth->name }}</p>
+                    <p class="profile-info">دانشگاه و رشتش و تحصیلات</p>
+                    <p>توضیحات</p>
+                    <a href="">ویرایش پروفایل</a>
+                </div>
+                <div class="col-4">
+                    <div class="card">
+                        <div class="card-body">
+                            <img src="" alt="عکس پروفایلش">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row mt-5 px-5">
+                <div class="h3-div d-flex justify-content-between align-items-center">
+                    <h4 class="text-start">مقالات اضافه شده</h4>
+                </div>
 
-    <div class="py-12">
-        <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
-            <div class="bg-white dark:bg-gray-800 overflow-hidden shadow-sm sm:rounded-lg">
-                <div class="p-6 text-gray-900 dark:text-gray-100">
-                    {{ __("You're logged in!") }}
+                <div class="row row-cols-2 row-cols-md-4 justify-content-center">
+
+                    <div class="col align-self-center my-3">
+                        <a href="">
+                            <div class="new-card shadow">
+                                <div class="new-card-body">
+                                    <h6>
+                                        This is some text within a card body.
+                                    </h6>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+
+                    <div class="col align-self-center my-3">
+                        <a href="">
+                            <div class="new-card shadow">
+                                <div class="new-card-body">
+                                    <h6>
+                                        This is some text within a card body.
+                                    </h6>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+
+                    <div class="col align-self-center my-3">
+                        <a href="">
+                            <div class="new-card shadow">
+                                <div class="new-card-body">
+                                    <h6>
+                                        This is some text within a card body.
+                                    </h6>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+
+                    <div class="col align-self-center my-3">
+                        <a href="">
+                            <div class="new-card shadow">
+                                <div class="new-card-body">
+                                    <h6>
+                                        This is some text within a card body.
+                                    </h6>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+
+                    <div class="col align-self-center my-3">
+                        <a href="">
+                            <div class="new-card shadow">
+                                <div class="new-card-body">
+                                    <h6>
+                                        This is some text within a card body.
+                                    </h6>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+
+                    <div class="col align-self-center my-3">
+                        <a href="">
+                            <div class="new-card shadow">
+                                <div class="new-card-body">
+                                    <h6>
+                                        This is some text within a card body.
+                                    </h6>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+
                 </div>
             </div>
         </div>
-    </div>
-</x-app-layout>
+    </section>
+@endsection

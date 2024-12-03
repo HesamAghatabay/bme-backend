@@ -27,10 +27,7 @@ Route::get('article/add', [ArticleController::class, 'create'])->name('article.a
 Route::post('article/store', [ArticleController::class, 'store'])->name('article.store');
 Route::get('article/show/{id}', [ArticleController::class, 'show'])->name('article.show');
 
-Route::get('/dashboard', function () {
-    return view('dashboard');
-})->middleware(['auth', 'verified'])->name('dashboard');
-
+Route::get('/dashboard', [ProfileController::class, 'index'])->middleware(['auth', 'verified'])->name('dashboard');
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');

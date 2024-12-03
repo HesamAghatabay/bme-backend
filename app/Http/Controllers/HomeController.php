@@ -13,7 +13,7 @@ class HomeController extends Controller
     {
         $articles = article::all();
         $newarticles = article::latest()->take(8)->get();
-        $bestarticles = DB::table('articles')->where('likes', 1)->take(6)->get();
+        $bestarticles = DB::table('articles')->orderBy('likes', 'desc')->take(6)->get();
         // $categories = category::find(2);
         $categories = category::all();
         $categoryHasArticle = Category::take(8)->has('articles')->with('articles')->get();
