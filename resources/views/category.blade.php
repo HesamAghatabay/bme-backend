@@ -1,7 +1,7 @@
 @extends('layouts.master')
 @section('content')
     <section id="parts" class="text-center">
-        
+
         <div class="container">
             <div class="row">
 
@@ -258,111 +258,22 @@
                 <div class="col-12 col-md-9">
                     <div class="card px-4 py-2">
                         <div class="card-body">
-                            <div class="row row-cols-md-3 justify-content-center align-items-center">
+                            <div class="row row-cols-md-4 px-3 pb-5 justify-content-center align-items-center">
 
-
-                                <a href="" class="gx-3 gy-5 article-part">
-                                    <div class="card shadow">
-                                        <img src="./imgs/img-3.jpg" class="card-img-top" alt="...">
-                                        <div class="card-body">
-                                            <h5 class="f-b-25">Card title</h5>
+                                @foreach ($thiscategory->articles as $article)
+                                    <a href="" class="gx-3 gy-5 article-part">
+                                        <div class="card shadow">
+                                            <img src="{{ asset('images/images/' . $article->image) }}"
+                                                class="card-img-top" alt="...">
+                                            <div class="card-body">
+                                                <h5 class="f-b-25">{{ $article->title }}</h5>
+                                            </div>
                                         </div>
-                                    </div>
-                                </a>
-
-
-
-                                <a href="" class="gx-3 gy-5 article-part">
-                                    <div class="card shadow">
-                                        <img src="./imgs/img-3.jpg" class="card-img-top" alt="...">
-                                        <div class="card-body">
-                                            <h5 class="f-b-25">Card title</h5>
-                                        </div>
-                                    </div>
-                                </a>
-
-
-
-                                <a href="" class="gx-3 gy-5 article-part">
-                                    <div class="card shadow">
-                                        <img src="./imgs/img-3.jpg" class="card-img-top" alt="...">
-                                        <div class="card-body">
-                                            <h5 class="f-b-25">Card title</h5>
-                                        </div>
-                                    </div>
-                                </a>
-
-
-
-                                <a href="" class="gx-3 gy-5 article-part">
-                                    <div class="card shadow">
-                                        <img src="./imgs/img-3.jpg" class="card-img-top" alt="...">
-                                        <div class="card-body">
-                                            <h5 class="f-b-25">Card title</h5>
-                                        </div>
-                                    </div>
-                                </a>
-
-
-
-                                <a href="" class="gx-3 gy-5 article-part">
-                                    <div class="card shadow">
-                                        <img src="./imgs/img-3.jpg" class="card-img-top" alt="...">
-                                        <div class="card-body">
-                                            <h5 class="f-b-25">Card title</h5>
-                                        </div>
-                                    </div>
-                                </a>
-
-
-
-                                <a href="" class="gx-3 gy-5 article-part">
-                                    <div class="card shadow">
-                                        <img src="./imgs/img-3.jpg" class="card-img-top" alt="...">
-                                        <div class="card-body">
-                                            <h5 class="f-b-25">Card title</h5>
-                                        </div>
-                                    </div>
-                                </a>
-
-
-
-                                <a href="" class="gx-3 gy-5 article-part">
-                                    <div class="card shadow">
-                                        <img src="./imgs/img-3.jpg" class="card-img-top" alt="...">
-                                        <div class="card-body">
-                                            <h5 class="f-b-25">Card title</h5>
-                                        </div>
-                                    </div>
-                                </a>
-
-
-
-                                <a href="" class="gx-3 gy-5 article-part">
-                                    <div class="card shadow">
-                                        <img src="./imgs/img-3.jpg" class="card-img-top" alt="...">
-                                        <div class="card-body">
-                                            <h5 class="f-b-25">Card title</h5>
-                                        </div>
-                                    </div>
-                                </a>
-
-
-
-                                <a href="" class="gx-3 gy-5 article-part">
-                                    <div class="card shadow">
-                                        <img src="./imgs/img-3.jpg" class="card-img-top" alt="...">
-                                        <div class="card-body">
-                                            <h5 class="f-b-25">Card title</h5>
-                                        </div>
-                                    </div>
-                                </a>
-
-
+                                    </a>
+                                @endforeach
 
                             </div>
                         </div>
-                        <p>...pagination 1 2 3</p>
                     </div>
                 </div>
             </div>

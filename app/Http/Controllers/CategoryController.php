@@ -60,8 +60,8 @@ class CategoryController extends Controller
     public function show($id)
     {
         $thiscategory = Category::findOrFail($id);
-        $categories = category::all();
-        return view('category', compact('thiscategory', 'categories'));
+        // $categories = category::all();
+        return view('category', compact('thiscategory'));
     }
 
     /**
@@ -71,7 +71,7 @@ class CategoryController extends Controller
     {
         $categories = category::all();
         $category = category::findOrFail($id);
-        return view('edit-category', compact('category','categories'));
+        return view('edit-category', compact('category', 'categories'));
     }
 
     /**
