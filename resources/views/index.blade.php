@@ -74,18 +74,20 @@
             </div>
             <div class="row row-cols-2 row-cols-md-6">
 
-                <a href="#" class="button-92 my-5">
-                    <div class="col-6 w-100">
-                        <div class="card text-start">
-                            <img src="{{ asset('imgs/img-2.jpg') }}" class="card-img-top" alt="...">
-                            <div class="card-body shadow">
-                                <h5 class="card-title">Card title</h5>
-                                <p class="card-text my-3">Some quick example text to build on the card title and
-                                </p>
+                @foreach ($bestarticles as $bestarticles)
+                    <a href="#" class="button-92 my-5">
+                        <div class="col-6 w-100">
+                            <div class="card text-start">
+                                <img src="{{ asset('imgs/img-2.jpg') }}" class="card-img-top" alt="...">
+                                <div class="card-body shadow">
+                                    <h5 class="card-title">{{ $bestarticles->title }}</h5>
+                                    <p class="card-text my-3">Some quick example text to build on the card title and
+                                    </p>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                </a>
+                    </a>
+                @endforeach
 
                 <a href="#" class="button-92 my-5">
                     <div class="col-6 w-100">
@@ -100,57 +102,6 @@
                     </div>
                 </a>
 
-                <a href="#" class="button-92 my-5">
-                    <div class="col-6 w-100">
-                        <div class="card text-start">
-                            <img src="{{ asset('imgs/img-2.jpg') }}" class="card-img-top" alt="...">
-                            <div class="card-body shadow">
-                                <h5 class="card-title">Card title</h5>
-                                <p class="card-text my-3">Some quick example text to build on the card title and
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                </a>
-
-                <a href="#" class="button-92 my-5">
-                    <div class="col-6 w-100">
-                        <div class="card text-start">
-                            <img src="{{ asset('imgs/img-2.jpg') }}" class="card-img-top" alt="...">
-                            <div class="card-body shadow">
-                                <h5 class="card-title">Card title</h5>
-                                <p class="card-text my-3">Some quick example text to build on the card title and
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                </a>
-
-                <a href="#" class="button-92 my-5">
-                    <div class="col-6 w-100">
-                        <div class="card text-start">
-                            <img src="{{ asset('imgs/img-2.jpg') }}" class="card-img-top" alt="...">
-                            <div class="card-body shadow">
-                                <h5 class="card-title">Card title</h5>
-                                <p class="card-text my-3">Some quick example text to build on the card title and
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                </a>
-
-                <a href="#" class="button-92 my-5">
-                    <div class="col-6 w-100">
-                        <div class="card text-start">
-                            <img src="{{ asset('imgs/img-2.jpg') }}" class="card-img-top" alt="...">
-                            <div class="card-body shadow">
-                                <h5 class="card-title">Card title</h5>
-                                <p class="card-text my-3">Some quick example text to build on the card title and
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                </a>
 
             </div>
         </div>
@@ -166,7 +117,7 @@
             </div>
             <div class="row row-cols-2 row-cols-md-5 justify-content-center align-items-center">
 
-                @foreach ($articles as $article)
+                @foreach ($newarticles as $article)
                     <div class="col align-self-center my-3">
                         <a href="{{ route('article.show', $article->id) }}">
                             <div class="new-card shadow"
@@ -192,7 +143,8 @@
             <div class="container">
                 <div class="h3-div d-flex justify-content-between align-items-center">
                     <h3 class="text-start">مقالات دسته {{ $category->title }}</h3>
-                    <a href="" class="text-end button-71 shadow">مشاهده همه</a>
+                    <a href="{{ route('category.show', $category->id) }}" class="text-end button-71 shadow">مشاهده
+                        همه</a>
                 </div>
                 <div class="row row-cols-2 row-cols-md-4 justify-content-center align-items-center">
 
