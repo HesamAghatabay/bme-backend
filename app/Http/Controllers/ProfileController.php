@@ -63,8 +63,9 @@ class ProfileController extends Controller
             'phone' => $request->phone,
             'email' => $request->email,
         ]);
-        $profile = profile::fondOrFail($user);
-        dd($profile);
+
+        // $profileId = $user->user_id;
+        // dd($user->);
     }
 
     /**
