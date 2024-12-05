@@ -59,9 +59,9 @@
             <div class="row">
                 <div class="col-12 px-5">
 
-                    <form method="POST" action="{{ route('profile.edit', $userAuth->id) }}">
+                    <form method="POST" action="{{ route('profiles.update', $userAuth->id) }}">
                         @csrf
-
+                        @method('put')
                         <label for="name" class="form-label"> نام و نام خانوادگی</label>
                         <input type="text" class="form-control mb-4" value="{{ $userAuth->name }}" name="name"
                             id="name" placeholder="نام و نام خانوادگی خود را وارد کنید">
@@ -91,7 +91,7 @@
                         <label for="password-confirmation" class="form-label"></label>
                         <input type="password" name="password_confirmation" class="form-control" id="password-confirmation"> --}}
 
-                        <button type="submit" class="btn btn-info">ثبت نام</button>
+                        <button type="submit" class="btn btn-info">ویرایش اطلاعات</button>
 
                     </form>
                 </div>

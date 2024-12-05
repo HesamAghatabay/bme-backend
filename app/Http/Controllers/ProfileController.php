@@ -20,13 +20,6 @@ class ProfileController extends Controller
         // $user = DB::table('users')->where('id', $userAuth)->get();
         // $profile = DB::table('profile')->where()
 
-            $profile = profile::create([
-                'study' => 'رشته وارد نشده است',
-                'photo' => 'تصویر پروفایل درج نشده است',
-                'info' => 'اطلاعاتی وارد نشده است',
-                'user_id' => $userAuth->id,
-            ]);
-        
         return view('dashboard', compact('userAuth'));
     }
 
@@ -43,17 +36,35 @@ class ProfileController extends Controller
     /**
      * Update the user's profile information.
      */
-    public function update(ProfileUpdateRequest $request): RedirectResponse
+    public function update(Request $request, $id, User $user)
     {
-        $request->user()->fill($request->validated());
+        // $request->validate([
+        //     'name' => 'required|max:255',
+        //     'phone' => 'required|max:255|unique:users',
+        //     'email' => 'max:255|email',
+        //     'study' => 'required',
+        //     'info' => 'required',
+        //     'photo' => 'required',
+        // ], [
 
-        if ($request->user()->isDirty('email')) {
-            $request->user()->email_verified_at = null;
-        }
-
-        $request->user()->save();
-
-        return Redirect::route('profile.edit')->with('status', 'profile-updated');
+        //     'name.required' => '*نام و نام خانوادگی الزامی است*',
+        //     'name.max' => '*بیش از حد مجاز*',
+        //     'phone.required' => '*شماره تماس الزامی است*',
+        //     'phone.max' => '*بیش از حد مجاز*',
+        //     'email.max' => '*بیش از حد مجاز*',
+        //     'email.email' => '*ایمیل خود را به صورت صحیح وارد کنید*',
+        //     'stydy.required' => 'رشته تحصیلی الزامی است',
+        //     'info.required' => 'یه اینفوگرافی ریز الزامی است',
+        //     'photo.required' => 'تصویر پروفایل الزامی است',
+        // ]);
+        $user = User::findOrFail($id);
+        $updateUser = $user->update([
+            'name' => $request->name,
+            'phone' => $request->phone,
+            'email' => $request->email,
+        ]);
+        $profile = profile::fondOrFail($user);
+        dd($profile);
     }
 
     /**

@@ -42,7 +42,13 @@ class AuthController extends Controller
             'email' => $request->email,
             'password' => Hash::make($request->password),
         ]);
-        
+        $profile = profile::create([
+            'study' => 'رشته وارد نشده است',
+            'photo' => 'تصویر پروفایل درج نشده است',
+            'info' => 'اطلاعاتی وارد نشده است',
+            'user_id' => $user->id,
+        ]);
+    
         if (!$user) {
             return redirect()->back()->with('error', $request->name . 'ثبت نام با مشکل مواجه شد!');
         }
