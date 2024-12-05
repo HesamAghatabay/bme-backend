@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\ProfileUpdateRequest;
+use App\Models\profile;
 use App\Models\User;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
@@ -18,17 +19,25 @@ class ProfileController extends Controller
         $userAuth = Auth::user();
         // $user = DB::table('users')->where('id', $userAuth)->get();
         // $profile = DB::table('profile')->where()
+
+            $profile = profile::create([
+                'study' => 'رشته وارد نشده است',
+                'photo' => 'تصویر پروفایل درج نشده است',
+                'info' => 'اطلاعاتی وارد نشده است',
+                'user_id' => $userAuth->id,
+            ]);
+        
         return view('dashboard', compact('userAuth'));
     }
 
     /**
      * Display the user's profile form.
      */
-    public function edit(Request $request): View
+    public function edit(Request $request)
     {
-        return view('profile.edit', [
-            'user' => $request->user(),
-        ]);
+        $userAuth = Auth::user();
+        // dd($userAuth->profile->info);
+        return view('profile.edit', compact('userAuth'));
     }
 
     /**
