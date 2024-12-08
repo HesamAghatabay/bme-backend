@@ -65,25 +65,42 @@
                         <label for="name" class="form-label"> نام و نام خانوادگی</label>
                         <input type="text" class="form-control mb-4" value="{{ $userAuth->name }}" name="name"
                             id="name" placeholder="نام و نام خانوادگی خود را وارد کنید">
+                        @error('name')
+                            <p class="f-r mb-4">{{ $message }}</p>
+                        @enderror
 
                         <label for="field" class="form-label"> رشته تحصیلی</label>
                         <input type="text" class="form-control mb-4" value="{{ $userAuth->profile->study }}"
                             id="study" name="study" placeholder="رشته تحضیلی خود را وارد کنید">
-
+                        @error('study')
+                            <p class="f-r mb-4">{{ $message }}</p>
+                        @enderror
 
                         <label for="phone" class="form-label">شماره تماس</label>
                         <input type="text" class="form-control mb-4" value="{{ $userAuth->phone }}" name="phone"
                             id="phone">
+                        @error('phone')
+                            <p class="f-r mb-4">{{ $message }}</p>
+                        @enderror
 
                         <label for="email" class="form-label">ایمیل</label>
                         <input type="email" class="form-control mb-4" value="{{ $userAuth->email }}" name="email"
                             id="email">
+                        @error('email')
+                            <p class="f-r mb-4">{{ $message }}</p>
+                        @enderror
 
                         <label for="photo">بارگذاری عکس پروفایل</label>
                         <input type="file" name="photo" class="form-control mb-4 mt-2" id="photo">
+                        @error('photo')
+                            <p class="f-r mb-4">{{ $message }}</p>
+                        @enderror
 
-                        <label for="itro" class="form-label">توضیحات</label>
-                        <textarea name="itro" id="itro" class="form-control mb-4">{{ $userAuth->profile->info }}</textarea>
+                        <label for="info" class="form-label">توضیحات</label>
+                        <textarea name="info" id="info" class="form-control mb-4">{{ $userAuth->profile->info }}</textarea>
+                        @error('info')
+                            <p class="f-r mb-4">{{ $message }}</p>
+                        @enderror
                         {{--
                         <label for="password" class="form-label">رمز عبور</label>
                         <input type="password" name="password" id="password" class="form-control mb-4">

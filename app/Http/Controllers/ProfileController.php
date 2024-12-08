@@ -10,6 +10,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Redirect;
+use Illuminate\Validation\Rule;
 use Illuminate\View\View;
 
 class ProfileController extends Controller
@@ -38,34 +39,40 @@ class ProfileController extends Controller
      */
     public function update(Request $request, $id, User $user)
     {
-        // $request->validate([
-        //     'name' => 'required|max:255',
-        //     'phone' => 'required|max:255|unique:users',
-        //     'email' => 'max:255|email',
-        //     'study' => 'required',
-        //     'info' => 'required',
-        //     'photo' => 'required',
-        // ], [
+        $request->validate([
+            'name' => 'required|max:255',
+            'phone' => 'required|max:255',Rule::unique('users')->ignore($user),
+            'email' => 'max:255|email',
+            'study' => 'required',
+            'info' => 'required',
+            'photo' => 'required',
+        ], [
 
-        //     'name.required' => '*نام و نام خانوادگی الزامی است*',
-        //     'name.max' => '*بیش از حد مجاز*',
-        //     'phone.required' => '*شماره تماس الزامی است*',
-        //     'phone.max' => '*بیش از حد مجاز*',
-        //     'email.max' => '*بیش از حد مجاز*',
-        //     'email.email' => '*ایمیل خود را به صورت صحیح وارد کنید*',
-        //     'stydy.required' => 'رشته تحصیلی الزامی است',
-        //     'info.required' => 'یه اینفوگرافی ریز الزامی است',
-        //     'photo.required' => 'تصویر پروفایل الزامی است',
-        // ]);
+            'name.required' => '*نام و نام خانوادگی الزامی است*',
+            'name.max' => '*بیش از حد مجاز*',
+            'phone.required' => '*شماره تماس الزامی است*',
+            'phone.max' => '*بیش از حد مجاز*',
+            'email.max' => '*بیش از حد مجاز*',
+            'email.email' => '*ایمیل خود را به صورت صحیح وارد کنید*',
+            'stydy.required' => 'رشته تحصیلی الزامی است',
+            'info.required' => 'یه اینفوگرافی ریز الزامی است',
+            'photo.required' => 'تصویر پروفایل الزامی است',
+        ]);
         $user = User::findOrFail($id);
         $updateUser = $user->update([
             'name' => $request->name,
             'phone' => $request->phone,
             'email' => $request->email,
         ]);
-
-        // $profileId = $user->user_id;
-        // dd($user->);
+        $updateProfile = $user->profile->update([
+            'study' => $request->study,
+            'photo' => $request->photo,
+            'info' => $request->info,
+        ]);
+        if (!$updateProfile) {
+            return redirect()->back()->with('error', 'ویرایش پروفایل با خطا مواجه شد. لطفا دئباره تلاش نمایید');
+        }
+        return redirect()->route('index')->with('success', $request->name . 'عزیز پروفایل شما با موفقیت به روزرسانی شد.');
     }
 
     /**
