@@ -5,9 +5,9 @@
             <div class="row justify-content-center align-items-center">
                 <div class="col-8 px-5">
                     <p class="profile-info">{{ $userAuth->name }}</p>
-                    <p class="profile-info">دانشگاه و رشتش و تحصیلات</p>
-                    <p>توضیحات</p>
-                    <a href="{{ route('profile.edit') }}">ویرایش پروفایل</a>
+                    <p class="profile-info">{{ $userAuth->profile->study }}</p>
+                    <p>{{$userAuth->profile->info}}</p>
+                    <a class="" href="{{ route('profile.edit') }}">ویرایش پروفایل</a>
                 </div>
                 <div class="col-4">
                     <div class="card">

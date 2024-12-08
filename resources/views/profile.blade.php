@@ -4,9 +4,9 @@
         <div class="container text-start">
             <div class="row justify-content-center align-items-center">
                 <div class="col-8 px-5">
-                    <p class="profile-info">اسم و فامیلش</p>
-                    <p class="profile-info">دانشگاه و رشتش و تحصیلات</p>
-                    <p>توضیحات</p>
+                    <p class="profile-info">{{ $userAuth->name }}</p>
+                    <p class="profile-info">{{ $userAuth->phone }}</p>
+                    <p>{{ $userAuth->name }}</p>
                     <a href="">ویرایش پروفایل</a>
                 </div>
                 <div class="col-4">

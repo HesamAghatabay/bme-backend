@@ -269,12 +269,14 @@ h3{
   }
 }
 
-
+.ss{
+    border-bottom: 3px orangered dashed;
+}
 .button-92 {
   --c: #fff;
   /* text color */
   background: linear-gradient(90deg, #0000 33%, #fff5, #0000 67%) var(--_p,100%)/300% no-repeat,
-    #45bbf1;
+    rgb(255, 187, 0);
   /* background color */
   border-radius: 21px;
   color: #0000;

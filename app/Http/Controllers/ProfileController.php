@@ -20,7 +20,6 @@ class ProfileController extends Controller
         $userAuth = Auth::user();
         // $user = DB::table('users')->where('id', $userAuth)->get();
         // $profile = DB::table('profile')->where()
-
         return view('dashboard', compact('userAuth'));
     }
 

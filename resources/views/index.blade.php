@@ -15,7 +15,7 @@
     <div class="div-header text-center">
         <div class="container-fluid">
             <div class="row justify-content-center">
-                <div class="col-6 name-header animate__animated animate__fadeInUp">
+                <div class="col-6 pb-3 name-header ss animate__animated animate__fadeInUp">
                     <h1>مهندسی پزشکی شاهرود</h1>
                     <h6>وبسایت رسمی مقالات مهندسی پزشکی و کمک توانبخشی دانشگاه صنعتی شاهرود</h6>
                 </div>
@@ -69,16 +69,17 @@
     <section id="best-articles" class="text-center">
         <div class="container-fluid best-articles-bg px-5">
             <div class="d-flex h3-div justify-content-between align-items-center">
-                <h3 class="text-start">مقالات پرمخاطب</h3>
+                <h3 class="text-start">مقالات پربازدید</h3>
                 <a href="" class="text-end button-71 shadow">مشاهده همه</a>
             </div>
             <div class="row row-cols-2 row-cols-md-6">
 
                 @foreach ($bestarticles as $bestarticles)
-                    <a href="#" class="button-92 my-5">
+                    <a href="{{ route('article.show', $bestarticles->id) }}" class="button-92 mb-5">
                         <div class="col-6 w-100">
                             <div class="card text-start">
-                                <img src="{{ asset('imgs/img-2.jpg') }}" class="card-img-top" alt="...">
+                                <img src="{{ asset('images/images/' . $bestarticles->image) }}" class="card-img-top"
+                                    alt="...">
                                 <div class="card-body shadow">
                                     <h5 class="card-title">{{ $bestarticles->title }}</h5>
                                     <p class="card-text my-3">Some quick example text to build on the card title and

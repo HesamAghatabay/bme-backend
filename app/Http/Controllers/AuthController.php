@@ -48,7 +48,7 @@ class AuthController extends Controller
             'info' => 'اطلاعاتی وارد نشده است',
             'user_id' => $user->id,
         ]);
-    
+
         if (!$user) {
             return redirect()->back()->with('error', $request->name . 'ثبت نام با مشکل مواجه شد!');
         }
