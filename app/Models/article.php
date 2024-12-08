@@ -24,4 +24,8 @@ class article extends Model
         return $this->belongsTo(category::class);
     }
     // protected $guarded = [];
+    public function user()
+    {
+        return $this->belongsTo(User::class);
+    }
 }

@@ -59,7 +59,7 @@
             <div class="row">
                 <div class="col-12 px-5">
 
-                    <form method="POST" action="{{ route('profiles.update', $userAuth->id) }}">
+                    <form method="POST" action="{{ route('profiles.update', $userAuth->id) }}" enctype="multipart/form-data">
                         @csrf
                         @method('put')
                         <label for="name" class="form-label"> نام و نام خانوادگی</label>

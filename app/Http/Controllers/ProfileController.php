@@ -40,7 +40,8 @@ class ProfileController extends Controller
     {
         $request->validate([
             'name' => 'required|max:255',
-            'phone' => 'required|max:255',Rule::unique('users')->ignore($user),
+            'phone' => 'required|max:255',
+            Rule::unique('users')->ignore($user),
             'email' => 'max:255|email',
             'study' => 'required',
             'info' => 'required',
@@ -57,6 +58,10 @@ class ProfileController extends Controller
             'info.required' => 'یه اینفوگرافی ریز الزامی است',
             'photo.required' => 'تصویر پروفایل الزامی است',
         ]);
+        if ($request->hasFile('photo')) {
+            $profilPhoto = time() . ' - ' . $request->photo->getClientOriginalName();
+            $request->photo->storeAs('/images', $profilPhoto);
+        }
         $user = User::findOrFail($id);
         $updateUser = $user->update([
             'name' => $request->name,
@@ -65,7 +70,7 @@ class ProfileController extends Controller
         ]);
         $updateProfile = $user->profile->update([
             'study' => $request->study,
-            'photo' => $request->photo,
+            'photo' => $profilPhoto,
             'info' => $request->info,
         ]);
         if (!$updateProfile) {

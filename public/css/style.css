@@ -272,6 +272,9 @@ h3{
 .ss{
     border-bottom: 3px orangered dashed;
 }
+.profile-img{
+    width: 100%;
+}
 .button-92 {
   --c: #fff;
   /* text color */
@@ -416,7 +419,7 @@ h5{
 .new-card-part{
   width: 130px;
   height: 100px;
-  background-image: url("../imgs/img-3.jpg");
+  /* background-image: url("../imgs/img-3.jpg"); */
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
