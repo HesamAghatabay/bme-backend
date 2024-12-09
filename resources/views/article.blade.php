@@ -79,8 +79,10 @@
                                     <p class="my-2">نویسنده: {{ $article->writer }}</p>
                                     <p>تاریخ: {{ $article->date }}</p>
                                     <div class="py-3 px-1">
-                                        <span class="">بازدید</span><span class="mx-5"><a href="">پسندیدن<i
-                                                    class="bi bi-emoji-heart-eyes-fill f-r"></i></a></span>
+                                        <span class=""> <i class="bi bi-eye-fill"></i> {{ $article->view }}</span>
+                                        <span class="mx-5"><a href=""><i
+                                                    class="bi bi-emoji-heart-eyes-fill f-r"></i></a>
+                                        </span>
                                     </div>
                                 </div>
                                 <div class="col-12 col-md-7">

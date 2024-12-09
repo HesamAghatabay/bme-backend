@@ -6,6 +6,7 @@ use App\Models\article;
 use App\Models\category;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Cookie;
 use Illuminate\Support\Facades\DB;
 
 class ArticleController extends Controller
@@ -80,6 +81,11 @@ class ArticleController extends Controller
         $newArticles = article::latest()->take(8)->get();
         $bestArticles = DB::table('articles')->orderBy('likes', 'desc')->take(6)->get();
         $article = article::findOrFail($id);
+        $cookieName = 'viewed_article_' . $id;
+        if (!Cookie::get($cookieName)) {
+            $article->increment('view');
+            Cookie::queue($cookieName, 'true', 120);
+        }
         return view('article', compact('article', 'newArticles', 'bestArticles'));
     }
 

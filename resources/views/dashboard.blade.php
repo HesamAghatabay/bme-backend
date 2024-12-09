@@ -28,7 +28,8 @@
                     @foreach ($userAuth->articles as $article)
                         <div class="col align-self-center my-3">
                             <a href="{{ route('article.show', $article->id) }}">
-                                <div class="new-card shadow">
+                                <div class="new-card shadow"
+                                    style="background-image: url('{{ asset('images/images/' . $article->image) }}')">
                                     <div class="new-card-body">
                                         <h6>
                                             {{ $article->intro }}
