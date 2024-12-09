@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\article;
 use App\Models\category;
+use App\Models\view;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Cookie;
@@ -81,14 +82,23 @@ class ArticleController extends Controller
         $newArticles = article::latest()->take(8)->get();
         $bestArticles = DB::table('articles')->orderBy('likes', 'desc')->take(6)->get();
         $article = article::findOrFail($id);
-        $cookieName = 'viewed_article_' . $id;
-        if (!Cookie::get($cookieName)) {
+        $articleCookieName = 'viewed_article_' . $id;
+        if (!Cookie::get($articleCookieName)) {
             $article->increment('view');
-            Cookie::queue($cookieName, 'true', 120);
+            Cookie::queue($articleCookieName, 'true', 120);
         }
         return view('article', compact('article', 'newArticles', 'bestArticles'));
     }
-
+    public function liks($id)
+    {
+        $article = article::findOrFail($id);
+        $articleViewCookieName = 'liked_article_' . $id;
+        if (!Cookie::get($articleViewCookieName)) {
+            $article->increment('likes');
+            Cookie::queue($articleViewCookieName, 'true', 120);
+        }
+        return redirect()->route('article.show', $article->id)->with('article', $article);
+    }
     /**
      * Show the form for editing the specified resource.
      */
