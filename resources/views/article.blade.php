@@ -80,8 +80,8 @@
                                     <p>تاریخ: {{ $article->date }}</p>
                                     <div class="py-3 px-1">
                                         <span class=""> <i class="bi bi-eye-fill"></i> {{ $article->view }}</span>
-                                        <span class="mx-5"><a href="{{ route('article.liks', $article->id) }}"><i
-                                                    class="bi bi-emoji-heart-eyes-fill f-r"> {{ $article->likes }} </i></a>
+                                        <span class="mx-5"><a href=""><i class="bi bi-emoji-heart-eyes-fill f-r">
+                                                    {{ $article->likes }} </i></a>
                                         </span>
                                     </div>
                                 </div>

@@ -26,7 +26,7 @@ Route::delete('category/delete/{id}', [CategoryController::class, 'destroy'])->n
 Route::get('article/add', [ArticleController::class, 'create'])->name('article.add');
 Route::post('article/store', [ArticleController::class, 'store'])->name('article.store');
 Route::get('article/show/{id}', [ArticleController::class, 'show'])->name('article.show');
-Route::get('article/showw/{id}', [ArticleController::class, 'liks'])->name('article.liks');
+// Route::get('article/showw/{id}', [ArticleController::class, 'liks'])->name('article.liks');
 
 Route::get('/dashboard', [ProfileController::class, 'index'])->middleware(['auth', 'verified'])->name('dashboard');
 Route::middleware('auth')->group(function () {

@@ -260,8 +260,8 @@
                         <div class="card-body">
                             <div class="row row-cols-md-4 px-3 pb-5 justify-content-center align-items-center">
 
-                                @foreach ($thiscategory->articles as $article)
-                                    <a href="" class="gx-3 gy-5 article-part">
+                                @foreach ($thiscategory->articles as $article)`
+                                    <a href="{{ route('article.show', $article->id) }}" class="gx-3 gy-5 article-part">
                                         <div class="card shadow">
                                             <img src="{{ asset('images/images/' . $article->image) }}"
                                                 class="card-img-top" alt="...">
