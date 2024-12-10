@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\article;
 use App\Models\category;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Storage;
 
 class CategoryController extends Controller
@@ -57,11 +59,14 @@ class CategoryController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show($id)
+    public function show(article $article, $id)
     {
+        $newArticles = article::latest()->take(8)->get();
+        $bestArticles = DB::table('articles')->orderBy('likes', 'desc')->take(6)->get();
         $thiscategory = Category::findOrFail($id);
         // $categories = category::all();
-        return view('category', compact('thiscategory'));
+        // dd($newArticles);
+        return view('category', compact('thiscategory', 'newArticles', 'bestArticles'));
     }
 
     /**

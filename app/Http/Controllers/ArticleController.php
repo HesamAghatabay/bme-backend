@@ -89,16 +89,7 @@ class ArticleController extends Controller
         }
         return view('article', compact('article', 'newArticles', 'bestArticles'));
     }
-    // public function liks($id)
-    // {
-    //     $article = article::findOrFail($id);
-    //     $articleViewCookieName = 'liked_article_' . $id;
-    //     if (!Cookie::get($articleViewCookieName)) {
-    //         $article->increment('likes');
-    //         Cookie::queue($articleViewCookieName, 'true', 120);
-    //     }
-    //     return redirect()->route('article.show', $article->id)->with('article', $article);
-    // }
+
     /**
      * Show the form for editing the specified resource.
      */

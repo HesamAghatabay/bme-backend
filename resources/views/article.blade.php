@@ -8,7 +8,7 @@
                         <div class="card-body">
                             <div class="writer-profile d-flex justify-content-between align-items-center">
                                 <div class="">
-                                    <h6 class="text-start">{{ $article->writer }}</h6>
+                                    <h6 class="text-start">{{ $article->user->name }}</h6>
                                     <h6 class="text-start">{{ $article->user->profile->study }}</h6>
                                 </div>
                                 <img class="writer-img rounded shadow m-3"
@@ -25,14 +25,14 @@
                             </div>
                             <div class="row row-cols-2 justify-content-center align-items-center">
 
-                                @foreach ($bestArticles as $article)
+                                @foreach ($bestArticles as $bArticle)
                                     <div class="col align-self-center my-3">
-                                        <a href="{{ route('article.show', $article->id) }}">
+                                        <a href="{{ route('article.show', $bArticle->id) }}">
                                             <div class="new-card-part shadow"
-                                                style="background-image: url('{{ asset('images/images/' . $article->image) }}')">
+                                                style="background-image: url('{{ asset('images/images/' . $bArticle->image) }}')">
                                                 <div class="new-card-body-part">
                                                     <h6>
-                                                        {{ $article->title }}
+                                                        {{ $bArticle->title }}
                                                     </h6>
                                                 </div>
                                             </div>
@@ -51,14 +51,14 @@
                             </div>
                             <div class="row row-cols-2 justify-content-center align-items-center">
 
-                                @foreach ($newArticles as $article)
+                                @foreach ($newArticles as $nArticle)
                                     <div class="col align-self-center my-3">
-                                        <a href="{{ route('article.show', $article->id) }}">
+                                        <a href="{{ route('article.show', $nArticle->id) }}">
                                             <div class="new-card-part shadow"
-                                                style="background-image: url('{{ asset('images/images/' . $article->image) }}')">
+                                                style="background-image: url('{{ asset('images/images/' . $nArticle->image) }}')">
                                                 <div class="new-card-body-part">
                                                     <h6>
-                                                        {{ $article->title }}
+                                                        {{ $nArticle->title }}
                                                     </h6>
                                                 </div>
                                             </div>

@@ -83,84 +83,20 @@
                             </div>
                             <div class="row row-cols-2 justify-content-center align-items-center">
 
-                                <div class="col align-self-center my-3">
-                                    <a href="">
-                                        <div class="new-card-part shadow">
-                                            <div class="new-card-body-part">
-                                                <h6>
-                                                    This is some text within a card body.
-                                                </h6>
+                                @foreach ($bestArticles as $nArticle)
+                                    <div class="col align-self-center my-3">
+                                        <a href="{{ route('article.show', $nArticle->id) }}">
+                                            <div class="new-card-part shadow"
+                                                style="background-image: url('{{ asset('images/images/' . $nArticle->image) }}')">
+                                                <div class="new-card-body-part">
+                                                    <h6>
+                                                        {{ $nArticle->title }}
+                                                    </h6>
+                                                </div>
                                             </div>
-                                        </div>
-                                    </a>
-                                </div>
-
-                                <div class="col align-self-center my-3">
-                                    <a href="">
-                                        <div class="new-card-part shadow">
-                                            <div class="new-card-body-part">
-                                                <h6>
-                                                    This is some text within a card body.
-                                                </h6>
-                                            </div>
-                                        </div>
-                                    </a>
-                                </div>
-
-
-                                <div class="col align-self-center my-3">
-                                    <a href="">
-                                        <div class="new-card-part shadow">
-                                            <div class="new-card-body-part">
-                                                <h6>
-                                                    This is some text within a card body.
-                                                </h6>
-                                            </div>
-                                        </div>
-                                    </a>
-                                </div>
-
-
-                                <div class="col align-self-center my-3">
-                                    <a href="">
-                                        <div class="new-card-part shadow">
-                                            <div class="new-card-body-part">
-                                                <h6>
-                                                    This is some text within a card body.
-                                                </h6>
-                                            </div>
-                                        </div>
-                                    </a>
-                                </div>
-
-
-                                <div class="col align-self-center my-3">
-                                    <a href="">
-                                        <div class="new-card-part shadow">
-                                            <div class="new-card-body-part">
-                                                <h6>
-                                                    This is some text within a card body.
-                                                </h6>
-                                            </div>
-                                        </div>
-                                    </a>
-                                </div>
-
-
-                                <div class="col align-self-center my-3">
-                                    <a href="">
-                                        <div class="new-card-part shadow">
-                                            <div class="new-card-body-part">
-                                                <h6>
-                                                    This is some text within a card body.
-                                                </h6>
-                                            </div>
-                                        </div>
-                                    </a>
-                                </div>
-
-
-
+                                        </a>
+                                    </div>
+                                @endforeach
 
                             </div>
                         </div>
@@ -172,84 +108,20 @@
                             </div>
                             <div class="row row-cols-2 justify-content-center align-items-center">
 
-                                <div class="col align-self-center my-3">
-                                    <a href="">
-                                        <div class="new-card-part shadow">
-                                            <div class="new-card-body-part">
-                                                <h6>
-                                                    This is some text within a card body.
-                                                </h6>
+                                @foreach ($newArticles as $nArticles)
+                                    <div class="col align-self-center my-3">
+                                        <a href="{{ route('article.show', $nArticles->id) }}">
+                                            <div class="new-card-part shadow"
+                                                style="background-image: url('{{ asset('images/images/' . $nArticles->image) }}')">
+                                                <div class="new-card-body-part">
+                                                    <h6>
+                                                        {{ $nArticles->title }}
+                                                    </h6>
+                                                </div>
                                             </div>
-                                        </div>
-                                    </a>
-                                </div>
-
-                                <div class="col align-self-center my-3">
-                                    <a href="">
-                                        <div class="new-card-part shadow">
-                                            <div class="new-card-body-part">
-                                                <h6>
-                                                    This is some text within a card body.
-                                                </h6>
-                                            </div>
-                                        </div>
-                                    </a>
-                                </div>
-
-
-                                <div class="col align-self-center my-3">
-                                    <a href="">
-                                        <div class="new-card-part shadow">
-                                            <div class="new-card-body-part">
-                                                <h6>
-                                                    This is some text within a card body.
-                                                </h6>
-                                            </div>
-                                        </div>
-                                    </a>
-                                </div>
-
-
-                                <div class="col align-self-center my-3">
-                                    <a href="">
-                                        <div class="new-card-part shadow">
-                                            <div class="new-card-body-part">
-                                                <h6>
-                                                    This is some text within a card body.
-                                                </h6>
-                                            </div>
-                                        </div>
-                                    </a>
-                                </div>
-
-
-                                <div class="col align-self-center my-3">
-                                    <a href="">
-                                        <div class="new-card-part shadow">
-                                            <div class="new-card-body-part">
-                                                <h6>
-                                                    This is some text within a card body.
-                                                </h6>
-                                            </div>
-                                        </div>
-                                    </a>
-                                </div>
-
-
-                                <div class="col align-self-center my-3">
-                                    <a href="">
-                                        <div class="new-card-part shadow">
-                                            <div class="new-card-body-part">
-                                                <h6>
-                                                    This is some text within a card body.
-                                                </h6>
-                                            </div>
-                                        </div>
-                                    </a>
-                                </div>
-
-
-
+                                        </a>
+                                    </div>
+                                @endforeach
 
                             </div>
                         </div>
@@ -260,13 +132,15 @@
                         <div class="card-body">
                             <div class="row row-cols-md-4 px-3 pb-5 justify-content-center align-items-center">
 
-                                @foreach ($thiscategory->articles as $article)`
+                                @foreach ($thiscategory->articles as $article)
                                     <a href="{{ route('article.show', $article->id) }}" class="gx-3 gy-5 article-part">
                                         <div class="card shadow">
-                                            <img src="{{ asset('images/images/' . $article->image) }}"
-                                                class="card-img-top" alt="...">
+                                            <img src="{{ asset('images/images/' . $article->image) }}" class="card-img-top"
+                                                alt="...">
                                             <div class="card-body">
                                                 <h5 class="f-b-25">{{ $article->title }}</h5>
+                                                <span class=""> <i class="bi bi-eye-fill"></i>
+                                                    {{ $article->view }}</span>
                                             </div>
                                         </div>
                                     </a>
