@@ -94,6 +94,42 @@
                                 <p class="mb-5">{{ $article->body }}</pcl>
                             </div>
                         </div>
+                        <div class="row justify-content-center my-4">
+                            <div class="col-10 mb-5">
+
+                                <div class="card text-start p-2">
+                                    <p class="f-b">ss</p>
+                                    <div class="card-body">
+                                        This is some text within a card body.
+                                    </div>
+                                </div>
+
+                            </div>
+                            <div class="col-9 text-start p-5">
+                                <form action="">
+                                    <div class="row">
+                                        <div class="col-10 col-md-6 text-center">
+
+
+                                            <input type="text" class="form-control mb-4"
+                                                placeholder="نام و نام خانوادگی خود را وارد کنید" id="name"
+                                                name="name">
+                                            @error('name')
+                                                <p class="f-r mb-4">{{ $message }}</p>
+                                            @enderror
+
+                                            <button class="btn btn-info px-5"> ثبت نظر</button>
+                                        </div>
+                                        <div class="col-10 col-md-6">
+                                            <textarea name="body" class="form-control" placeholder="نظرتان را اینجا بنویسید" id="body" cols="35" rows="10"></textarea>
+                                            @error('body')
+                                                <p class="f-r mb-4">{{ $message }}</p>
+                                            @enderror
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
