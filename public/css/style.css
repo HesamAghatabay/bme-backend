@@ -50,6 +50,9 @@ header a{
     border-radius: 14px;
     width: 6vw;
 }
+.f-black{
+    color: #000;
+}
 .div-header{
     /* position: absolute; */
     /* top: 50px; */

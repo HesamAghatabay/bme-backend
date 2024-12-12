@@ -135,7 +135,7 @@
                             <!-- <li class="mx-4"><a class="a-bold" href="#parts">دسته ها</a></li> -->
                             <li class="mx-4">
                                 <div class="dropdown vazir">
-                                    <h6 class="dropdown-toggle h6-dropdown" data-bs-toggle="dropdown"
+                                    <h6 class="dropdown-toggle f-black h6-dropdown" data-bs-toggle="dropdown"
                                         aria-expanded="false">
                                         دسته ها
                                     </h6>
@@ -151,7 +151,7 @@
                             <!-- <li class="mx-4"><a class="a-bold" href="#articles">مقالات</a></li> -->
                             <li class="mx-4">
                                 <div class="dropdown vazir">
-                                    <h6 class="dropdown-toggle h6-dropdown" data-bs-toggle="dropdown"
+                                    <h6 class="dropdown-toggle f-black h6-dropdown" data-bs-toggle="dropdown"
                                         aria-expanded="false">
                                         مقالات
                                     </h6>
