@@ -84,17 +84,9 @@
     integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous">
 </script>
 
+<script type="module" src="{{ asset('wproofreader/index.js') }}"></script>
 
-<script type="importmap">
-    {
-        "imports": {
-            "ckeditor5": "{{asset('CKEditor5Folder/ckeditor5/ckeditor5.js')}}",
-            "ckeditor5/": "{{asset('CKEditor5Folder/ckeditor5/')}}"
 
-        }
-    }
-</script>
-<script type="module" src="{{ asset('CKEditor5Folder/main.js') }}"></script>
 <!-- A friendly reminder to run on a server, remove this during the integration. -->
 <script>
     window.onload = function() {

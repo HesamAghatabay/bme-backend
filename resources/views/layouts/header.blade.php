@@ -20,8 +20,9 @@
         sizes="167x167">
     <link rel="apple-touch-icon" type="image/png" href="https://ckeditor.com/assets/images/favicons/180x180.png"
         sizes="180x180">
-    <link rel="stylesheet" href="{{ asset('CKEditor5Folder/style.css') }}">
-    <link rel="stylesheet" href="{{ asset('CKEditor5Folder/ckeditor5/ckeditor5.css') }}">
+
+    <link rel="stylesheet" href="{{ asset('wproofreader/demo.css') }}" />
+    <link rel="stylesheet" href="{{ asset('wproofreader/content.css') }}" />
 
     <link rel="stylesheet" href="{{ asset('css/reset.css') }}">
     <link rel="stylesheet" href="{{ asset('css/style.css') }}">
