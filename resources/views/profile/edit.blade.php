@@ -97,16 +97,10 @@
                         @enderror
 
                         <label for="info" class="form-label">توضیحات</label>
-                        <textarea name="info" id="info" class="form-control mb-4">{{ $userAuth->profile->info }}</textarea>
+                        <textarea name="info" id="editor1" class="ckeditor mb-4">{{ $userAuth->profile->info }}</textarea>
                         @error('info')
                             <p class="f-r mb-4">{{ $message }}</p>
                         @enderror
-                        {{--
-                        <label for="password" class="form-label">رمز عبور</label>
-                        <input type="password" name="password" id="password" class="form-control mb-4">
-
-                        <label for="password-confirmation" class="form-label"></label>
-                        <input type="password" name="password_confirmation" class="form-control" id="password-confirmation"> --}}
 
                         <button type="submit" class="btn btn-info">ویرایش اطلاعات</button>
 
