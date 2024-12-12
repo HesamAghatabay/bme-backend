@@ -84,17 +84,8 @@
     integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous">
 </script>
 
-<script type="module" src="{{ asset('wproofreader/index.js') }}"></script>
-
-
-<!-- A friendly reminder to run on a server, remove this during the integration. -->
-<script>
-    window.onload = function() {
-        if (window.location.protocol === "file:") {
-            alert("This sample requires an HTTP server. Please serve this file with a web server.");
-        }
-    };
-</script>
+<script type="module" src="{{ asset('ckeditor/ckeditor.js') }}"></script>
+<script type="module" src="{{ asset('ckeditor/samples/js/sample.js') }}"></script>
 
 <script src="{{ asset('js/custom.js') }}"></script>
 
