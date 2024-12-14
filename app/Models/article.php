@@ -14,6 +14,7 @@ class article extends Model
         'resources',
         'writer',
         'date',
+        'activity',
         'body',
         'user_id',
         'category_id',

@@ -12,7 +12,7 @@ class HomeController extends Controller
 {
     public function index()
     {
-        $articles = article::all();
+        $articles = article::where('activity', 1)->get();
         $newarticles = article::latest()->take(8)->get();
         $bestarticles = DB::table('articles')->orderBy('likes', 'desc')->take(6)->get();
         // $categories = category::find(2);

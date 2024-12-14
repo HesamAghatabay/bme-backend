@@ -81,7 +81,10 @@ class ArticleController extends Controller
     {
         $newArticles = article::latest()->take(8)->get();
         $bestArticles = DB::table('articles')->orderBy('likes', 'desc')->take(6)->get();
-        $article = article::findOrFail($id);
+        $article = Article::where('id', $id)->where('activity', 1)->first();
+        if (!$article) {
+            return redirect()->route('index')->with('error', 'مقاله مورد نظر یافت نشد');
+        }
         $comments = $article->comments()->where('activity', 1)->get();
         $articleCookieName = 'viewed_article_' . $id;
         if (!Cookie::get($articleCookieName)) {
