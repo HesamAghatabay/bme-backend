@@ -96,17 +96,19 @@
                         </div>
                         <div class="row justify-content-center my-4">
                             <div class="col-10 mb-5">
-
+                                @foreach ($article->comment as $comment)
+                                @endforeach
                                 <div class="card text-start p-2">
-                                    <p class="f-b">ss</p>
+                                    <p class="f-b mb-2">{{ $comment->name }}</p>
                                     <div class="card-body">
-                                        This is some text within a card body.
+                                        <p>{{ $comment->body }}</p>
                                     </div>
                                 </div>
 
                             </div>
                             <div class="col-9 text-start p-5">
-                                <form action="">
+                                <form action="{{ route('comment.store', $article->id) }}" method="POST">
+                                    @csrf
                                     <div class="row">
                                         <div class="col-10 col-md-6 text-center">
 
@@ -118,10 +120,11 @@
                                                 <p class="f-r mb-4">{{ $message }}</p>
                                             @enderror
 
-                                            <button class="btn btn-info px-5"> ثبت نظر</button>
+                                            <button type="submit" class="btn btn-info px-5"> ثبت نظر</button>
                                         </div>
                                         <div class="col-10 col-md-6">
-                                            <textarea name="body" class="form-control" placeholder="نظرتان را اینجا بنویسید" id="body" cols="35" rows="10"></textarea>
+                                            <textarea name="body" class="form-control" placeholder="نظرتان را اینجا بنویسید" id="body" cols="35"
+                                                rows="10"></textarea>
                                             @error('body')
                                                 <p class="f-r mb-4">{{ $message }}</p>
                                             @enderror

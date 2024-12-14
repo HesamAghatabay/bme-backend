@@ -32,4 +32,8 @@ class article extends Model
     {
         return $this->hasMany(view::class);
     }
+    public function comment()
+    {
+        return $this->hasMany(comment::class);
+    }
 }
