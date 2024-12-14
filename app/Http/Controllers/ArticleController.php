@@ -82,12 +82,13 @@ class ArticleController extends Controller
         $newArticles = article::latest()->take(8)->get();
         $bestArticles = DB::table('articles')->orderBy('likes', 'desc')->take(6)->get();
         $article = article::findOrFail($id);
+        $comments = $article->comments()->where('activity', 1)->get();
         $articleCookieName = 'viewed_article_' . $id;
         if (!Cookie::get($articleCookieName)) {
             $article->increment('view');
             Cookie::queue($articleCookieName, 'true', 120);
         }
-        return view('article', compact('article', 'newArticles', 'bestArticles'));
+        return view('article', compact('article', 'comments', 'newArticles', 'bestArticles'));
     }
 
     /**

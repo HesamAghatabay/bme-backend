@@ -16,4 +16,5 @@ class comment extends Model
     {
         return $this->belongsTo(article::class);
     }
+    
 }

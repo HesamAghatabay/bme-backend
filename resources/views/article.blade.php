@@ -96,14 +96,14 @@
                         </div>
                         <div class="row justify-content-center my-4">
                             <div class="col-10 mb-5">
-                                @foreach ($article->comment as $comment)
-                                @endforeach
-                                <div class="card text-start p-2">
-                                    <p class="f-b mb-2">{{ $comment->name }}</p>
-                                    <div class="card-body">
-                                        <p>{{ $comment->body }}</p>
+                                @foreach ($comments as $comment)
+                                    <div class="card text-start p-2">
+                                        <p class="f-b mb-2">{{ $comment->name }}</p>
+                                        <div class="card-body">
+                                            <p>{{ $comment->body }}</p>
+                                        </div>
                                     </div>
-                                </div>
+                                @endforeach
 
                             </div>
                             <div class="col-9 text-start p-5">
