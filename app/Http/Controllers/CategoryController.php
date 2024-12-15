@@ -43,12 +43,14 @@ class CategoryController extends Controller
             'image.max' => 'بیش از حد مجاز',
             'info.required' => 'توضیحات الزامی است',
         ]);
+        $userIp = $request->ip();
         $filename = time() . ' - ' . $request->image->getClientOriginalName();
         $request->image->storeAs('/images', $filename);
         $category = category::create([
             'title' => $request->title,
             'image' => $filename,
             'info' => $request->info,
+            'userip' => $userIp,
         ]);
         if (!$category) {
             return redirect()->back()->with('error', 'ایجاد دسته با مشکل مواجه شد!');
@@ -122,6 +124,6 @@ class CategoryController extends Controller
         if (!$destroycategory) {
             return redirect()->route('category.show', $category->id)->with('error', 'حذف' . $category->title . 'به مشکل خورد');
         }
-        return redirect()->route('index')->with('success', 'دسته' . $category->title . 'با موفقیت حذف شد');
+        return redirect()->route('index')->with('success', 'دسته' .  $category->title  . ' با موفقیت حذف شد ');
     }
 }

@@ -41,11 +41,13 @@ class CommentController extends Controller
             ]
         );
         $userId = Auth::user()->id;
+        $userIp = $request->ip();
         $comment = comment::create([
             'name' => $request->name,
             'body' => $request->body,
             'user_id' => $userId,
             'article_id' => $id,
+            'userip' => $userIp
         ]);
         if (!$comment) {
             return redirect()->back()->with('error', ' نظر ثبت نشد لطفا دوباره سعی کنید');

@@ -57,6 +57,7 @@ class ArticleController extends Controller
         $filename = time() . ' - ' . $request->image->getClientOriginalName();
         $request->image->storeAs('/images', $filename);
         $userid = Auth::user()->id;
+        $userIp = $request->ip();
         $article = article::create([
             'title' => $request->title,
             'image' => $filename,
@@ -67,6 +68,7 @@ class ArticleController extends Controller
             'body' => $request->body,
             'category_id' => $request->category_id,
             'user_id' => $userid,
+            'userip' => $userIp
         ]);
         if (!$article) {
             return redirect()->back()->with('error', 'ارسال مقاله با مشکل مواجه شد لطفا دوباره تلاش کنید');

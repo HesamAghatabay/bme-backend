@@ -26,7 +26,7 @@
 
 
                         <label for="info" class="form-label"> بدنه و توضیحات </label>
-                        <textarea name="info" id="info" class="form-control" placeholder="توضیحات مختصر در مورد دسته" rows="15"
+                        <textarea name="info" id="editor1" class="ckeditor" placeholder="توضیحات مختصر در مورد دسته" rows="15"
                             cols="30">{{ $category->info }}</textarea>
                         @error('info')
                             <p class="f-r mb-4">{{ $message }}</p>

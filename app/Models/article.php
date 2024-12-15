@@ -4,9 +4,12 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 use App\Models\category;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 class article extends Model
 {
+    use HasFactory, SoftDeletes;
     protected $fillable = [
         'title',
         'image',
@@ -18,6 +21,7 @@ class article extends Model
         'body',
         'user_id',
         'category_id',
+        'userip'
     ];
 
     public function category()

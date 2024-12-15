@@ -68,18 +68,7 @@
 
                     <div class="col-10 col-md-7">
                         <label for="body" class="form-label">بدنه</label>
-                        <input type="text" class="form-control mb-2" name="body" id="body">
-                        {{-- <div>
-                            <div class="main-container">
-                                <div class="editor-container editor-container_classic-editor" id="editor-container">
-                                    <div class="editor-container__editor">
-                                        <div id="editor"></div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div> --}}
-
-                        {{-- <textarea name="body" id="body" class="form-control" rows="15" cols="30"></textarea> --}}
+                        <textarea class="ckeditor mb-2" name="body" id="editor1"></textarea>
                         @error('body')
                             <p class="f-r mb-4">{{ $message }}</p>
                         @enderror
