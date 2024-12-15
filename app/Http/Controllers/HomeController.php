@@ -17,14 +17,16 @@ class HomeController extends Controller
         $bestarticles = DB::table('articles')->where('activity', 1)->orderBy('likes', 'desc')->take(6)->get();
         // $categories = category::find(2);
         $categories = category::all();
-        // $categoryHasArticle = Category::limit(10)->has('articles')->get();
         // dd($categories->articles);
-        $categoryHasArticle = Category::with(['articles' => function ($query) {
-            $query->where('activity', 1);
-        }])->get();
-        $categoryHasArticle = $categoryHasArticle->filter(function ($category) {
-            return $category->articles->isNotEmpty();
-        });
+
+        $categoryHasArticle = Category::limit(10)->has('articles')->get();
+        // $categoryHasArticle = Category::with(['articles' => function ($query) {
+        //     $query->where('activity', 1);
+        // }])->get();
+        // $categoryHasArticle = $categoryHasArticle->filter(function ($category) {
+        //     return $category->articles->isNotEmpty();
+        // });
+
         // foreach ($categories as $categories) {
         //     $articles = DB::table('articles')->where('category_id', $categories->id)->get();
         // }
