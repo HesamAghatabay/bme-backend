@@ -34,7 +34,7 @@
                             <div class="d-flex justify-content-between align-items-center">
                                 <h5 class="text-start">{{ $thiscategory->title }}</h5>
                             </div>
-                            <p>{{ $thiscategory->info }}</p>
+                            <p>{!! $thiscategory->info !!}</p>
                         </div>
                         <div class="row row-cols-2 justify-content-center mx-5 p-2 mt-4">
                             <div class="col">

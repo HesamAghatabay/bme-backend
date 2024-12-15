@@ -91,14 +91,14 @@
                                 </div>
                             </div>
                             <div class="article-text">
-                                <p class="mb-5">{{ $article->body }}</pcl>
+                                <p class="mb-5">{!! $article->body !!}</p>
                             </div>
                         </div>
                         <div class="row justify-content-center my-4">
                             <div class="col-10 mb-5">
                                 @foreach ($comments as $comment)
                                     <div class="card text-start p-2">
-                                        <p class="f-b mb-2">{{ $comment->name }}</p>
+                                        <p class="f-b mb-2">از طرف {{ $comment->name }}</p>
                                         <div class="card-body">
                                             <p>{{ $comment->body }}</p>
                                         </div>
