@@ -15,7 +15,7 @@ return new class extends Migration
             $table->id();
             $table->text('body');
             $table->boolean('activity')->default(0);
-            $table->unsignedBigInteger('user_id');
+            $table->unsignedBigInteger('user_id')->nullable();
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade')->onUpdate('cascade');
             $table->unsignedBigInteger('article_id');
             $table->foreign('article_id')->references('id')->on('articles')->onDelete('cascade')->onUpdate('cascade');

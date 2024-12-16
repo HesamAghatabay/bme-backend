@@ -26,8 +26,6 @@ class AppServiceProvider extends ServiceProvider
         View::composer('*', function ($view) {
             $view->with('categories', category::all());
         });
-        Gate::define('comment', function (comment $comment) {
-            return $comment->activity == 1;
-        });
+        
     }
 }
