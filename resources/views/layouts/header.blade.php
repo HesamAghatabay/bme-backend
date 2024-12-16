@@ -123,9 +123,10 @@
                             <a class="button-87" href="{{ route('login') }}">ورود</a>
                         @endguest
                         @auth
-                            <a class="button-87" href="{{ route('article.add') }}">افزودن مقاله</a>
-                            <a class="button-87" href="{{ route('category.add') }}">افزودن دسته</a>
+                            <a class="button-87" href="{{ route('article.add') }}">+ مقاله</a>
+                            <a class="button-87" href="{{ route('category.add') }}">+ دسته</a>
                             <a class="button-87" href="{{ route('dashboard') }}">پروفایل</a>
+                            <a class="button-87" href="{{ route('roles') }}">نقش ها</a>
                             <a class="button-87" href="{{ route('logout') }}">خروج</a>
                         @endauth
                     </div>

@@ -82,8 +82,7 @@
                                     alt="...">
                                 <div class="card-body shadow">
                                     <h5 class="card-title">{{ $bestarticles->title }}</h5>
-                                    <p class="card-text my-3">Some quick example text to build on the card title and
-                                    </p>
+                                    {{-- <p class="card-text my-3">{{$bestarticles->intro}}</p> --}}
                                 </div>
                             </div>
                         </div>

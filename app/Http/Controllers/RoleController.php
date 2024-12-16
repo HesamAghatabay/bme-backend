@@ -3,7 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\Models\role;
+use App\Models\User;
+use App\Models\view;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class RoleController extends Controller
 {
@@ -12,7 +15,12 @@ class RoleController extends Controller
      */
     public function index()
     {
-        //
+        $isAdmin = Auth::user()->is_admin;
+        $allUsers = User::all();
+        if ($isAdmin) {
+            return view('roles', compact('allUsers'));
+        }
+        return redirect()->route('index')->with('error', 'مجوز دسترسی ندارید ');
     }
 
     /**
