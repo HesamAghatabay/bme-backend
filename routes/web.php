@@ -12,6 +12,8 @@ use Illuminate\Support\Facades\Route;
 
 
 Route::get('/', [HomeController::class, 'index'])->name('index');
+Route::delete('/user.destroy/{id}', [HomeController::class, 'destroy'])->name('user.destroy');
+
 Route::get('register', [AuthController::class, 'register'])->name('register');
 Route::post('register/store', [AuthController::class, 'registerstore'])->name('register.store');
 Route::get('login', [AuthController::class, 'login'])->name('login');

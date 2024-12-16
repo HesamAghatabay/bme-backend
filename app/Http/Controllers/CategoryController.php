@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\article;
 use App\Models\category;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Storage;
 
@@ -43,6 +44,7 @@ class CategoryController extends Controller
             'image.max' => 'بیش از حد مجاز',
             'info.required' => 'توضیحات الزامی است',
         ]);
+        $userId = Auth::id();
         $userIp = $request->ip();
         $filename = time() . ' - ' . $request->image->getClientOriginalName();
         $request->image->storeAs('/images', $filename);
@@ -51,6 +53,7 @@ class CategoryController extends Controller
             'image' => $filename,
             'info' => $request->info,
             'userip' => $userIp,
+            'user_id' => $userId,
         ]);
         if (!$category) {
             return redirect()->back()->with('error', 'ایجاد دسته با مشکل مواجه شد!');

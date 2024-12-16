@@ -32,4 +32,8 @@ class HomeController extends Controller
         // }
         return view('index', compact('categories', 'articles', 'bestarticles', 'categoryHasArticle', 'newarticles'));
     }
+    public function destroy(Request $request, $id)
+    {
+        dd($id);
+    }
 }

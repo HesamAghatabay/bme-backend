@@ -13,10 +13,15 @@ class category extends Model
         'title',
         'image',
         'info',
-        'userip'
+        'userip',
+        'user_id',
     ];
     public function articles()
     {
         return $this->hasMany(Article::class);
+    }
+    public function user()
+    {
+        return $this->belongsToMany(User::class);
     }
 }
