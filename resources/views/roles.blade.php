@@ -10,7 +10,7 @@
 
     <div class="btn-group m-5" role="group" aria-label="Basic outlined example">
         <button type="button" class="btn btn-outline-primary">افزودن کاربر</button>
-        <button type="button" class="btn btn-outline-primary">افزودن نقش</button>
+        <a class="btn btn-outline-primary" href="{{ route('role.add') }}">افزودن نقش</a>
     </div>
 
     <div class="container-fluid">
@@ -36,38 +36,7 @@
                         <td>{{ $user->categories->count($user->id) }}</td>
                         <td>{{ $user->roles }}</td>
                         <td>
-                            <a class="btn btn-warning" href="">edit</a>
-
-                            <!-- Button trigger modal -->
-                            <button type="button" class="btn btn-danger" data-bs-toggle="modal"
-                                data-bs-target="#exampleModal">
-                                حذف
-                            </button>
-
-                            <!-- Modal -->
-                            <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"
-                                aria-hidden="true">
-                                <div class="modal-dialog">
-                                    <div class="modal-content">
-                                        <div class="modal-header">
-                                            <h1 class="modal-title fs-5" id="exampleModalLabel">آیا
-                                                {{ $user->name }} را حذف می کنید؟</h1>
-                                            <button type="button" class="btn-close" data-bs-dismiss="modal"
-                                                aria-label="Close"></button>
-                                        </div>
-                                        <div class="modal-footer">
-                                            <button type="button" class="btn btn-secondary"
-                                                data-bs-dismiss="modal">لغو</button>
-                                            <form method="POST" action="{{ route('user.destroy', $user->id) }}">
-                                                @csrf
-                                                @method('delete')
-                                                <button type="submit" class="btn btn-danger">حذف</button>
-                                            </form>
-
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
+                            <a class="btn btn-warning mx-1" href="">edit</a>
                         </td>
                     </tr>
                 @endforeach

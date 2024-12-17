@@ -28,7 +28,11 @@ class RoleController extends Controller
      */
     public function create()
     {
-        //
+        $isAdmin = Auth::user()->is_admin;
+        if ($isAdmin) {
+            return view('add-role');
+        }
+        return redirect()->route('index')->with('error', 'مجوز دسترسی ندارید ');
     }
 
     /**
@@ -36,7 +40,19 @@ class RoleController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $isAdmin = Auth::user()->is_admin;
+        $request->validate([
+            'name' => 'required'
+        ], [
+            'name.required' => 'فیلد الزامی است',
+        ]);
+        if ($isAdmin) {
+            $role = role::create([
+                'name' => $request->name,
+            ]);
+            return redirect()->route('roles')->with('success', 'نقش با موفقیت ایجاد شد');
+        }
+        return redirect()->route('index')->with('error', 'مجوز دسترسی ندارید ');
     }
 
     /**

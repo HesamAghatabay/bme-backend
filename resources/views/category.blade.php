@@ -36,8 +36,8 @@
                             </div>
                             <p>{!! $thiscategory->info !!}</p>
                         </div>
-                        <div class="row row-cols-2 justify-content-center mx-5 p-2 mt-4">
-                            <div class="col">
+                        <div class="d-flex justify-content-center mx-5 p-2 mt-4">
+                            <div class="">
                                 <a href="{{ route('category.edit', $thiscategory->id) }}" class="btn btn-warning">ویرایش
                                 </a>
                             </div>
@@ -49,8 +49,8 @@
                                 </button>
 
                                 <!-- Modal -->
-                                <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"
-                                    aria-hidden="true">
+                                <div class="modal fade bg-transparent" id="exampleModal" tabindex="-1"
+                                    aria-labelledby="exampleModalLabel" aria-hidden="true">
                                     <div class="modal-dialog">
                                         <div class="modal-content">
                                             <div class="modal-header">
@@ -73,6 +73,7 @@
                                         </div>
                                     </div>
                                 </div>
+
                             </div>
                         </div>
                     </div>
