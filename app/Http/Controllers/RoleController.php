@@ -50,7 +50,7 @@ class RoleController extends Controller
             $role = role::create([
                 'name' => $request->name,
             ]);
-            return redirect()->route('roles')->with('success', 'نقش با موفقیت ایجاد شد');
+            return redirect()->route('roles')->with('success', 'نقش ' . $request->name . ' با موفقیت ایجاد شد');
         }
         return redirect()->route('index')->with('error', 'مجوز دسترسی ندارید ');
     }
@@ -66,17 +66,34 @@ class RoleController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(role $role)
+    public function edit(role $role, $id)
     {
-        //
+        $isAdmin = Auth::user()->is_admin;
+        if (!$isAdmin) {
+            return redirect()->route('index')->with('error', 'مجوز دسترسی ندارید ');
+        }
+        $theUser = user::findOrFail($id);
+        // dd($theUser->name);
+
+        return view('edit-role', compact('theUser'));
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, role $role)
+    public function update(Request $request, role $role, $id)
     {
-        //
+        $isAdmin = Auth::user()->is_admin;
+        if (!$isAdmin) {
+            return redirect()->route('index')->with('error', 'مجوز دسترسی ندارید ');
+        }
+        $request->validate([
+            'name' => 'required'
+        ], [
+            'name.required' => 'فیلد الزامی است',
+        ]);
+        $user = User::findOrFail($id);
+        $updateRole = 
     }
 
     /**

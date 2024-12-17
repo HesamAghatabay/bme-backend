@@ -40,8 +40,10 @@ Route::middleware('auth')->group(function () {
 });
 
 Route::get('/roles', [RoleController::class, 'index'])->name('roles');
-Route::get('/role.add', [RoleController::class , 'create'])->name('role.add');
+Route::get('/role.add', [RoleController::class, 'create'])->name('role.add');
 Route::post('/role.store', [RoleController::class, 'store'])->name('role.store');
+Route::get('/role.edit/{id}', [RoleController::class, 'edit'])->name('role.edit');
+Route::put('/role.update/{id}', [RoleController::class, 'update'])->name('role.update');
 
 Route::post('comment.store/{id}', [CommentController::class, 'store'])->name('comment.store');
 require __DIR__ . '/auth.php';

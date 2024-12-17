@@ -7,6 +7,7 @@ use App\Models\profile;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
 
 class AuthController extends Controller
@@ -48,6 +49,7 @@ class AuthController extends Controller
             'info' => 'اطلاعاتی وارد نشده است',
             'user_id' => $user->id,
         ]);
+        // $role = DB::table('role_user')->insert($user->id);
 
         if (!$user) {
             return redirect()->back()->with('error', $request->name . 'ثبت نام با مشکل مواجه شد!');

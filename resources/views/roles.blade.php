@@ -9,7 +9,7 @@
 
 
     <div class="btn-group m-5" role="group" aria-label="Basic outlined example">
-        <button type="button" class="btn btn-outline-primary">افزودن کاربر</button>
+        <a class="btn btn-outline-primary" href="">افزودن کاربر</a>
         <a class="btn btn-outline-primary" href="{{ route('role.add') }}">افزودن نقش</a>
     </div>
 
@@ -34,9 +34,12 @@
                         <td>{{ $user->phone }}</td>
                         <td>{{ $user->articles->count($user->id) }}</td>
                         <td>{{ $user->categories->count($user->id) }}</td>
-                        <td>{{ $user->roles }}</td>
+                        @foreach ($user->roles as $role)
+                            <td>{{ $role->name }}</td>
+                        @endforeach
+
                         <td>
-                            <a class="btn btn-warning mx-1" href="">edit</a>
+                            <a class="btn btn-warning mx-1" href="{{ route('role.edit', $user->id) }}">edit</a>
                         </td>
                     </tr>
                 @endforeach
