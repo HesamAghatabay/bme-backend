@@ -11,7 +11,8 @@
                     <div class="col-10 col-md-10">
 
                         <label for="title" class="form-label">نام نقش</label>
-                        <input type="text" class="form-control mb-2" name="name" id="name" placeholder="نام نقش">
+                        <input type="text" value="{{ $theUser->roles }}" class="form-control mb-2" name="name"
+                            id="name" placeholder="نام نقش">
                         @error('name')
                             <p class="f-r mb-4">{{ $message }}</p>
                         @enderror

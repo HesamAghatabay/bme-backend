@@ -93,7 +93,16 @@ class RoleController extends Controller
             'name.required' => 'فیلد الزامی است',
         ]);
         $user = User::findOrFail($id);
-        $updateRole = 
+        $updateRole = $user->roles;
+        // dd($request);
+        dd($updateRole);
+        $updateRole->update([
+            'name' => $request->name,
+        ]);
+        if (!$updateRole) {
+            return redirect()->back()->with('error', ' اعمال تغییرات با مشکل مواجه شد ');
+        }
+        return redirect()->route('roles')->with('success', 'تغییرات با موفقیت اعمال شد ');
     }
 
     /**

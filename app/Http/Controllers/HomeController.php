@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\article;
 use App\Models\category;
+use App\Models\view;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
@@ -31,6 +32,14 @@ class HomeController extends Controller
         //     $articles = DB::table('articles')->where('category_id', $categories->id)->get();
         // }
         return view('index', compact('categories', 'articles', 'bestarticles', 'categoryHasArticle', 'newarticles'));
+    }
+    public function create()
+    {
+        $isAdmin = Auth::user()->is_admin;
+        if (!$isAdmin) {
+            return redirect()->route('index')->with('error', 'مجوز دسترسی ندارید ');
+        }
+        return view('create-client');
     }
     public function destroy(Request $request, $id)
     {
