@@ -30,7 +30,8 @@ class RoleController extends Controller
     {
         $isAdmin = Auth::user()->is_admin;
         if ($isAdmin) {
-            return view('add-role');
+            $roles = role::all();
+            return view('add-role', compact('roles'));
         }
         return redirect()->route('index')->with('error', 'مجوز دسترسی ندارید ');
     }
@@ -74,8 +75,9 @@ class RoleController extends Controller
         }
         $theUser = user::findOrFail($id);
         // dd($theUser->name);
+        $roles = role::all();
 
-        return view('edit-role', compact('theUser'));
+        return view('edit-role', compact('theUser', 'roles'));
     }
 
     /**
@@ -94,8 +96,8 @@ class RoleController extends Controller
         ]);
         $user = User::findOrFail($id);
         $updateRole = $user->roles;
-        // dd($request);
-        dd($updateRole);
+        dd($request);
+        // dd($updateRole);
         $updateRole->update([
             'name' => $request->name,
         ]);

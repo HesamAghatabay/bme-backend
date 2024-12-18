@@ -23,6 +23,14 @@
                     </div>
                 </div>
             </form>
+            <div class="shadow m-3 p-4">
+                <h5 class="my-2">نقش های موجود</h5>
+                <ul class="px-3">
+                    @foreach ($roles as $role)
+                        <li class="p-1">{{ $role->name }}</li>
+                    @endforeach
+                </ul>
+            </div>
         </div>
     </section>
 @endsection

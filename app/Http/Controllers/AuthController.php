@@ -41,6 +41,7 @@ class AuthController extends Controller
             'name' => $request->name,
             'phone' => $request->phone,
             'email' => $request->email,
+            'userip' => $request->ip(),
             'password' => Hash::make($request->password),
         ]);
         $profile = profile::create([
@@ -48,7 +49,6 @@ class AuthController extends Controller
             'photo' => '',
             'info' => '',
             'user_id' => $user->id,
-            'userip' => $request->ip(),
         ]);
         // $role = DB::table('role_user')->insert($user->id);
 
