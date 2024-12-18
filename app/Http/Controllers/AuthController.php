@@ -44,10 +44,11 @@ class AuthController extends Controller
             'password' => Hash::make($request->password),
         ]);
         $profile = profile::create([
-            'study' => 'رشته وارد نشده است',
-            'photo' => 'تصویر پروفایل درج نشده است',
-            'info' => 'اطلاعاتی وارد نشده است',
+            'study' => '',
+            'photo' => '',
+            'info' => '',
             'user_id' => $user->id,
+            'userip' => $request->ip(),
         ]);
         // $role = DB::table('role_user')->insert($user->id);
 

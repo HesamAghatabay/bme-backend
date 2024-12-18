@@ -87,7 +87,7 @@
                             <p class="f-r mb-4">{{ $message }}</p>
                         @enderror
 
-                        <label for="password-confirmation" class="form-label"></label>
+                        <label for="password-confirmation" class="form-label">تایید رمز عبور</label>
                         <input type="password" name="password_confirmation" class="form-control" id="password-confirmation">
                         @error('password-confirmation')
                             <p class="f-r mb-4">{{ $message }}</p>

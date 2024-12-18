@@ -4,10 +4,13 @@ namespace App\Http\Controllers;
 
 use App\Models\article;
 use App\Models\category;
+use App\Models\profile;
+use App\Models\User;
 use App\Models\view;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Hash;
 
 class HomeController extends Controller
 {
@@ -40,6 +43,46 @@ class HomeController extends Controller
             return redirect()->route('index')->with('error', 'مجوز دسترسی ندارید ');
         }
         return view('create-client');
+    }
+    public function store(Request $request)
+    {
+        $request->validate([
+            'name' => 'required|max:255',
+            'phone' => 'required|max:255|unique:users',
+            'email' => 'max:255|email',
+            'password' => 'required|min:8|confirmed',
+            'password_confirmation' => 'required'
+        ], [
+            'name.required' => '*نام و نام خانوادگی الزامی است*',
+            'name.max' => '*بیش از حد مجاز*',
+            'phone.required' => '*شماره تماس الزامی است*',
+            'phone.max' => '*بیش از حد مجاز*',
+            'email.max' => '*بیش از حد مجاز*',
+            'email.email' => '*ایمیل خود را به صورت صحیح وارد کنید*',
+            'password.required' => '*ایجاد رمز الزامی است*',
+            'password.min' => '*حداقل 8 کارکتر*',
+            'password_confirmation.required' => '*تاییده رمز الزامی است*',
+            'password_confirmation.password_confirmation' => 'تاییده رمز را به صورت صحیح وارد کنید'
+        ]);
+        $user = User::create([
+            'name' => $request->name,
+            'phone' => $request->phone,
+            'email' => $request->email,
+            'password' => Hash::make($request->password),
+        ]);
+        $profile = profile::create([
+            'study' => '',
+            'photo' => '',
+            'info' => '',
+            'user_id' => $user->id,
+            'userip' => $request->ip(),
+        ]);
+        // $role = DB::table('role_user')->insert($user->id);
+
+        if (!$user) {
+            return redirect()->back()->with('error', $request->name . 'ثبت نام با مشکل مواجه شد!');
+        }
+        return redirect()->route('index')->with('success', $request->name . 'ثبت نام با موفقیت انجام شد . لطفا برای دسترسی به سایت اقدام به ورود نمایید!');
     }
     public function destroy(Request $request, $id)
     {
