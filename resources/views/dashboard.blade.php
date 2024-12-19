@@ -7,7 +7,7 @@
                     <p class="profile-info">{{ $userAuth->name }}</p>
                     <p class="profile-info">{{ $userAuth->profile->study }}</p>
                     <p>{{ $userAuth->profile->info }}</p>
-                    <a class="" href="{{ route('profile.edit') }}">ویرایش پروفایل</a>
+                    <a class="btn btn-sm btn-info" href="{{ route('profile.edit') }}">ویرایش پروفایل</a>
                 </div>
                 <div class="col-5">
                     <div class="card">

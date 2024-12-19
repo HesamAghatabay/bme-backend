@@ -15,7 +15,7 @@
                                     src="{{ asset('images/images/' . $article->user->profile->photo) }}"
                                     alt="{{ $article->user->name }}">
                             </div>
-                            <p class="mt-4">{{ $article->user->profile->info }}</p>
+                            <p class="mt-4">{!! $article->user->profile->info !!}</p>
                         </div>
                     </div>
                     <div class="card d-none d-md-flex mb-2 shadow">
