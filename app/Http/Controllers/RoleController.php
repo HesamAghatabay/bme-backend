@@ -3,10 +3,12 @@
 namespace App\Http\Controllers;
 
 use App\Models\role;
+use App\Models\role_user;
 use App\Models\User;
 use App\Models\view;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 
 class RoleController extends Controller
 {
@@ -95,12 +97,23 @@ class RoleController extends Controller
             'name.required' => 'فیلد الزامی است',
         ]);
         $user = User::findOrFail($id);
-        $updateRole = $user->roles;
+        $roleName = role::where('name', $request->name)->first();
+        $user->roles->role_id = $roleName->id;
+        // $ss = role_user::where('user_id', $id)->first();
+        // $ss = DB::table('role_users')->where('user_id', $id)->first();
+        // dd($user->roles);
+        $ss = DB::table('role_users')->where('user_id', $id)->first();
+        dd($ss);
+        $updateRole = $user->save();
+        // $updateRole = $user->roles;
         // dd($request);
         // dd($updateRole);
-        $updateRole->update([
-            'name' => $request->name,
-        ]);
+        // $roleName = DB::table('roles')->where('name', $request->name)->get();
+        // $roleId = $roleName->id;
+        // dd($roleId);
+        // $roleUser->update([
+        // 'role_id' => $roleId,
+        // ]);
         if (!$updateRole) {
             return redirect()->back()->with('error', ' اعمال تغییرات با مشکل مواجه شد ');
         }

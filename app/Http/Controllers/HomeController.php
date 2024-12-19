@@ -86,6 +86,15 @@ class HomeController extends Controller
     }
     public function destroy(Request $request, $id)
     {
-        dd($id);
+        $isAdmin = Auth::user()->is_admin;
+        if (!$isAdmin) {
+            return redirect()->route('index')->with('error', 'مجوز دسترسی ندارید ');
+        }
+        $user = User::findOrFail($id);
+        $destroyUser = $user->delete();
+        if (!$destroyUser) {
+            return redirect()->back()->with('error', 'تلاش مجدد');
+        }
+        return redirect()->route('roles')->with('success', ' کاربر ' . $user->name . 'با موفقیت حذف شد ');
     }
 }
