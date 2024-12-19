@@ -96,7 +96,7 @@ class RoleController extends Controller
         ]);
         $user = User::findOrFail($id);
         $updateRole = $user->roles;
-        dd($request);
+        // dd($request);
         // dd($updateRole);
         $updateRole->update([
             'name' => $request->name,
