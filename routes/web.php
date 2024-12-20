@@ -20,6 +20,10 @@ Route::get('/client.add', [HomeController::class, 'create'])->name('client.add')
 Route::post('/client.store', [HomeController::class, 'store'])->name('client.store');
 Route::delete('/client.destroy/{id}', [HomeController::class, 'destroy'])->name('client.destroy');
 
+Route::get('/about', function () {
+    return view('about');
+})->name('about');
+
 Route::get('register', [AuthController::class, 'register'])->name('register');
 Route::post('register/store', [AuthController::class, 'registerstore'])->name('register.store');
 Route::get('login', [AuthController::class, 'login'])->name('login');

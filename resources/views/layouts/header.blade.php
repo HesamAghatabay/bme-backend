@@ -170,7 +170,7 @@
                                     </ul>
                                 </div>
                             </li>
-                            <li class="mx-4"><a class="vazir" href="#about">درباره ما</a></li>
+                            <li class="mx-4"><a class="vazir" href="{{ route('about') }}">درباره ما</a></li>
                         </ul>
                     </div>
                     <div class="col col-3">
