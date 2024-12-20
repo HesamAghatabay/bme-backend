@@ -8,13 +8,15 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\RoleController;
 use App\Models\category;
+use App\Models\view;
 use GuzzleHttp\Promise\Create;
 use Illuminate\Support\Facades\Route;
 
 
 Route::get('/', [HomeController::class, 'index'])->name('index');
+Route::get('/best-articles', [HomeController::class, 'bestarticles'])->name('best-articles');
 Route::get('/client.add', [HomeController::class, 'create'])->name('client.add');
-Route::post('/client.store' , [HomeController::class, 'store'])->name('client.store');
+Route::post('/client.store', [HomeController::class, 'store'])->name('client.store');
 Route::delete('/client.destroy/{id}', [HomeController::class, 'destroy'])->name('client.destroy');
 
 Route::get('register', [AuthController::class, 'register'])->name('register');

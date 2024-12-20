@@ -66,8 +66,8 @@ class CategoryController extends Controller
      */
     public function show(article $article, $id)
     {
-        $newArticles = article::latest()->take(8)->get();
-        $bestArticles = DB::table('articles')->orderBy('likes', 'desc')->take(6)->get();
+        $newArticles = article::latest()->where('activity', 1)->take(8)->get();
+        $bestArticles = DB::table('articles')->where('activity', 1)->orderBy('likes', 'desc')->take(6)->get();
         $thiscategory = Category::findOrFail($id);
         // $categories = category::all();
         // dd($newArticles);

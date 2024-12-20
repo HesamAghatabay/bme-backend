@@ -157,7 +157,7 @@
                                         مقالات
                                     </h6>
                                     <ul class="dropdown-menu dropdown-bg">
-                                        <li><a class="dropdown-item mt-1" href="#">مقالات پرطرفدار</a></li>
+                                        <li><a class="dropdown-item mt-1" href="{{route('best-articles')}}">مقالات پرطرفدار</a></li>
                                         <li><a class="dropdown-item mt-1" href="#">مقالات جدید</a></li>
                                         @foreach ($categories as $category)
                                             <li><a class="dropdown-item mt-1"
