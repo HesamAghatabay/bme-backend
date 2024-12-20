@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\allarticles;
 use App\Models\article;
 use App\Models\category;
 use App\Models\view;
@@ -70,7 +71,19 @@ class ArticleController extends Controller
             'user_id' => $userid,
             'userip' => $userIp
         ]);
-        if (!$article) {
+        $allArticles = allarticles::create([
+            'title' => $request->title,
+            'image' => $filename,
+            'intro' => $request->intro,
+            'resources' => $request->resources,
+            'writer' => $request->writer,
+            'date' => $request->date,
+            'body' => $request->body,
+            'category_id' => $request->category_id,
+            'user_id' => $userid,
+            'userip' => $userIp
+        ]);
+        if (!$article || !$allArticles) {
             return redirect()->back()->with('error', 'ارسال مقاله با مشکل مواجه شد لطفا دوباره تلاش کنید');
         }
         return redirect()->route('index')->with('success', 'مقاله با موفقیت ثبت شد');
