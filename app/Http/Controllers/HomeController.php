@@ -103,4 +103,9 @@ class HomeController extends Controller
         $bestarticles = DB::table('articles')->where('activity', 1)->orderBy('likes', 'desc')->take(6)->get();
         return view('best-articles', compact('bestarticles', 'newarticles'));
     }
+    public function lastestarticles(){
+        $newarticles = article::latest()->where('activity', 1)->take(10)->get();
+        $bestarticles = DB::table('articles')->where('activity', 1)->orderBy('likes', 'desc')->take(6)->get();
+        return view('lastest-articles', compact('bestarticles', 'newarticles'));
+    }
 }

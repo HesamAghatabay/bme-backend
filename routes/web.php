@@ -15,6 +15,7 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', [HomeController::class, 'index'])->name('index');
 Route::get('/best-articles', [HomeController::class, 'bestarticles'])->name('best-articles');
+Route::get('/lastest-articles', [HomeController::class, 'lastestarticles'])->name('lastest-articles');
 Route::get('/client.add', [HomeController::class, 'create'])->name('client.add');
 Route::post('/client.store', [HomeController::class, 'store'])->name('client.store');
 Route::delete('/client.destroy/{id}', [HomeController::class, 'destroy'])->name('client.destroy');
