@@ -391,7 +391,7 @@ h4 {
     font-weight: bold;
 }
 .video {
-    width: 60%;
+    width: 80%;
 }
 .seener-ostadha {
     font-size: 20px;
@@ -406,6 +406,12 @@ h4 {
 .bg-transparent {
     background: transparent;
 }
+.mb-250{
+    margin-bottom: 250px;
+}
+
+
+
 
 /* //////////////////part//////////////////// */
 
