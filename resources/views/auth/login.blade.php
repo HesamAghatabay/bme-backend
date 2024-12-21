@@ -68,7 +68,10 @@
                             <p class="f-r mb-4">{{ $message }}</p>
                         @enderror
 
-                        <button type="submit" class="btn btn-info">ورود</button>
+                        <div class="d-flex align-items-center">
+                            <button type="submit" class="btn btn-info mx-4">ورود</button>
+                            <a href="{{route('forgot.password')}}"> رمز خود را فراموش کرده اید. </a>
+                        </div>
 
                     </form>
                 </div>

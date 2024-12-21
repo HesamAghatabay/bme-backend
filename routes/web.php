@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\ArticleController;
+use App\Http\Controllers\Auth\NewPasswordController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\CommentController;
@@ -29,6 +30,9 @@ Route::post('register/store', [AuthController::class, 'registerstore'])->name('r
 Route::get('login', [AuthController::class, 'login'])->name('login');
 Route::post('login/store', [AuthController::class, 'loginstore'])->name('login.store');
 Route::get('logout', [AuthController::class, 'logout'])->name('logout');
+
+Route::get('/forgot.password', [NewPasswordController::class, 'create'])->name('forgot.password');
+Route::post('/forgot.password.store', [NewPasswordController::class, 'store'])->name('forgot.password.store');
 
 Route::get('category/add', [CategoryController::class, 'create'])->name('category.add');
 Route::post('/category/store', [categoryController::class, 'store'])->name('category.store');
