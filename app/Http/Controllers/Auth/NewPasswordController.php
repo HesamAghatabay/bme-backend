@@ -49,7 +49,7 @@ class NewPasswordController extends Controller
             return redirect()->back()->with('error', 'دوباره تلاش نمایید');
         }
         dd($newPassword);
-        // return redirect()->route('login')->with('success ', 'رمز تغغیر کرد'.$newPassword);
+        // return redirect()->route('login')->with('success ', 'رمز تغیر کرد'.$newPassword);
     }
     public function edit()
     {
@@ -60,15 +60,15 @@ class NewPasswordController extends Controller
     {
         $request->validate([
             'oldpassword' => 'required|min:8',
-            'newpassword' => 'required|min:8|confirmed',
-            'password_confirmation' => 'required'
+            'newpassword' => 'required|min:8',
+            // 'password_confirmation' => 'required'
         ], [
             'oldpassword.required' => '*رمز قبلی خود را وارد نمایید*',
             'oldpassword.min' => '*حداقل 8 کارکتر*',
             'newpassword.required' => '*رمز جدید خود را وارد نمایید*',
             'newpassword.min' => '*حداقل 8 کارکتر*',
             'newpassword.confirmed' => 'تاییده رمز را به صورت صحیح وارد کنید',
-            'password_confirmation.required' => '*تاییده رمز الزامی است*',
+            // 'password_confirmation.required' => '*تاییده رمز الزامی است*',
 
         ]);
         $user = User::findOrFail($id);
@@ -76,6 +76,7 @@ class NewPasswordController extends Controller
         if (!$checkOldPassword) {
             return redirect()->route('dashboard')->with('error', 'اطلاعات ورودی همخوانی ندارد');
         }
+        // dd('hi');
         $updatePassword = $user->update([
             'password' => Hash::make($request->newpassword),
         ]);

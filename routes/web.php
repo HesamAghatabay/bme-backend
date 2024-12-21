@@ -36,7 +36,7 @@ Route::get('logout', [AuthController::class, 'logout'])->name('logout');
 Route::get('/forgot.password', [NewPasswordController::class, 'create'])->name('forgot.password');
 Route::post('/forgot.password.store', [NewPasswordController::class, 'store'])->name('forgot.password.store');
 Route::get('/password.edit', [NewPasswordController::class, 'edit'])->name('password.edit');
-Route::put('/password.update/{id}', [NewPasswordController::class, 'update'])->name('password.update');
+Route::put('/password.updates/{id}', [NewPasswordController::class, 'update'])->name('password.updates');
 
 Route::get('category/add', [CategoryController::class, 'create'])->name('category.add');
 Route::post('/category/store', [categoryController::class, 'store'])->name('category.store');
