@@ -399,19 +399,18 @@ h4 {
 }
 
 /* ////////////////other//////////////// */
-
+.mt-70 {
+    margin-top: 70px;
+}
 .mt-130 {
     margin-top: 130px;
 }
 .bg-transparent {
     background: transparent;
 }
-.mb-250{
+.mb-250 {
     margin-bottom: 250px;
 }
-
-
-
 
 /* //////////////////part//////////////////// */
 

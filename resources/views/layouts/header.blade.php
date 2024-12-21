@@ -157,6 +157,8 @@
                                         مقالات
                                     </h6>
                                     <ul class="dropdown-menu dropdown-bg">
+                                        <li><a class="dropdown-item mt-1"
+                                            href="{{ route('all.articles') }}">تمام مقالات</a></li>
                                         <li><a class="dropdown-item mt-1" href="{{ route('best-articles') }}">مقالات
                                                 پرطرفدار</a></li>
                                         <li><a class="dropdown-item mt-1"

@@ -15,6 +15,8 @@ use Illuminate\Support\Facades\Route;
 
 
 Route::get('/', [HomeController::class, 'index'])->name('index');
+Route::get('/all.articles', [HomeController::class, 'allarticles'])->name('all.articles');
+// Route::get()
 Route::get('/best-articles', [HomeController::class, 'bestarticles'])->name('best-articles');
 Route::get('/lastest-articles', [HomeController::class, 'lastestarticles'])->name('lastest-articles');
 Route::get('/client.add', [HomeController::class, 'create'])->name('client.add');

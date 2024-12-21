@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\allarticles;
 use App\Models\article;
 use App\Models\category;
 use App\Models\profile;
@@ -97,13 +98,21 @@ class HomeController extends Controller
         }
         return redirect()->route('roles')->with('success', ' کاربر ' . $user->name . 'با موفقیت حذف شد ');
     }
+    public function allarticles()
+    {
+        $allArticles = allarticles::latest()->where('activity', 1)->get();
+        $newarticles = article::latest()->where('activity', 1)->take(10)->get();
+        $bestarticles = DB::table('articles')->where('activity', 1)->orderBy('likes', 'desc')->take(6)->get();
+        return view('all-articles', compact('bestarticles', 'newarticles', 'allArticles'));
+    }
     public function bestarticles()
     {
         $newarticles = article::latest()->where('activity', 1)->take(10)->get();
         $bestarticles = DB::table('articles')->where('activity', 1)->orderBy('likes', 'desc')->take(6)->get();
         return view('best-articles', compact('bestarticles', 'newarticles'));
     }
-    public function lastestarticles(){
+    public function lastestarticles()
+    {
         $newarticles = article::latest()->where('activity', 1)->take(10)->get();
         $bestarticles = DB::table('articles')->where('activity', 1)->orderBy('likes', 'desc')->take(6)->get();
         return view('lastest-articles', compact('bestarticles', 'newarticles'));
