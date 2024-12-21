@@ -7,7 +7,8 @@
                     <p class="profile-info">{{ $userAuth->name }}</p>
                     <p class="profile-info">{{ $userAuth->profile->study }}</p>
                     <p>{!! $userAuth->profile->info !!}</p>
-                    <a class="btn btn-sm btn-info mt-3" href="{{ route('profile.edit') }}">ویرایش پروفایل</a>
+                    <a class="btn btn-sm btn-info mt-3" href="{{ route('profile.edit') }}"> ویرایش پروفایل </a>
+                    <a class="btn btn-sm btn-danger mt-3" href="{{ route('password.edit') }}"> تغییر رمز </a>
                 </div>
                 <div class="col-5">
                     <div class="card">

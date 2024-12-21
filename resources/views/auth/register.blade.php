@@ -89,11 +89,11 @@
 
                         <label for="password-confirmation" class="form-label">تایید رمز عبور</label>
                         <input type="password" name="password_confirmation" class="form-control" id="password-confirmation">
-                        @error('password-confirmation')
+                        @error('password_confirmation')
                             <p class="f-r mb-4">{{ $message }}</p>
                         @enderror
 
-                        <button type="submit" class="btn btn-info">ثبت نام</button>
+                        <button type="submit" class="btn btn-sm btn-info mt-3">ثبت نام</button>
 
                     </form>
                 </div>
