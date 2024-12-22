@@ -11,6 +11,8 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Cookie;
 use Illuminate\Support\Facades\DB;
 
+use function Laravel\Prompts\confirm;
+
 class ArticleController extends Controller
 {
     /**
@@ -94,21 +96,27 @@ class ArticleController extends Controller
      */
     public function show(article $article, $id)
     {
-        $reader = Auth::user()->roles;
-        dd($reader);
+        $userRole = Auth::user()->roleUsers->role_id;
+        // dd($userRole);
         $newArticles = article::latest()->take(8)->get();
         $bestArticles = DB::table('articles')->orderBy('likes', 'desc')->take(6)->get();
         $article = Article::where('id', $id)->where('activity', 1)->first();
+        $latestArticleWithoutActivity = article::where('id', $id)->where('activity', 0)->first();
+        if ($latestArticleWithoutActivity && ($userRole == 1 || $userRole == 2)) {
+            return view('latestarticle', compact('newArticles', 'bestArticles', 'latestArticleWithoutActivity'));
+            // dd($latestArticleWithoutActivity->title);
+        }
         if (!$article) {
             return redirect()->route('index')->with('error', 'مقاله مورد نظر تایید نشده است لطفا منتظر بمانید');
         }
-        if (!$article)
-            $comments = $article->comments()->where('activity', 1)->get();
+        $comments = $article->comments()->where('activity', 1)->get();
+
         $articleCookieName = 'viewed_article_' . $id;
         if (!Cookie::get($articleCookieName)) {
             $article->increment('view');
             Cookie::queue($articleCookieName, 'true', 120);
         }
+
         return view('article', compact('article', 'comments', 'newArticles', 'bestArticles'));
     }
 
@@ -134,5 +142,20 @@ class ArticleController extends Controller
     public function destroy(article $article)
     {
         //
+    }
+    public function confirm($id)
+    {
+        $userRole = Auth::user()->roleUsers->role_id;
+        if ($userRole = ! (1 && 2)) {
+            return redirect()->route('index')->with('error', 'مجوز دسترسی ندارید');
+        }
+        $article = article::findOrFail($id);
+        $confirm = $article->update([
+            'activity' => 1,
+        ]);
+        if (!$confirm) {
+            return redirect()->back()->with('error', 'دوباره تلاش نمایید');
+        }
+        return redirect()->route('index')->with('success', 'مقاله تایید شد');
     }
 }
