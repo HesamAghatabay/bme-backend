@@ -101,7 +101,7 @@ class CategoryController extends Controller
             'info.required' => 'توضیحات الزامی است',
         ]);
         if ($request->hasFile('image')) {
-            // Storage::delete('/images/images/', $category->image);
+            Storage::delete('/images/images/'. $category->image);
             $filename = time() . ' - ' . $request->image->getClientOriginalName();
             $request->image->storeAs('/images', $filename);
         }

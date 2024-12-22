@@ -10,6 +10,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Redirect;
+use Illuminate\Support\Facades\Storage;
 use Illuminate\Validation\Rule;
 use Illuminate\View\View;
 
@@ -59,6 +60,7 @@ class ProfileController extends Controller
             'photo.required' => 'تصویر پروفایل الزامی است',
         ]);
         if ($request->hasFile('photo')) {
+            Storage::delete('/images/images/'. $user->photo);
             $profilPhoto = time() . ' - ' . $request->photo->getClientOriginalName();
             $request->photo->storeAs('/images', $profilPhoto);
         }

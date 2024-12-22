@@ -24,7 +24,8 @@ class HomeController extends Controller
         $categories = category::all();
         // dd($categories->articles);
 
-        $categoryHasArticle = Category::limit(10)->has('articles')->get();
+        $categoryHasArticle = Category::has('articles')->get();
+        $latestArticleWithoutActivity = article::where('activity', 0)->limit(10)->get();
         // $categoryHasArticle = Category::with(['articles' => function ($query) {
         //     $query->where('activity', 1);
         // }])->get();
@@ -35,7 +36,7 @@ class HomeController extends Controller
         // foreach ($categories as $categories) {
         //     $articles = DB::table('articles')->where('category_id', $categories->id)->get();
         // }
-        return view('index', compact('categories', 'articles', 'bestarticles', 'categoryHasArticle', 'newarticles'));
+        return view('index', compact('categories', 'articles', 'bestarticles', 'categoryHasArticle', 'newarticles', 'latestArticleWithoutActivity'));
     }
     public function create()
     {

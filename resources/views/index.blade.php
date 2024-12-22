@@ -70,7 +70,7 @@
         <div class="container-fluid best-articles-bg px-5">
             <div class="d-flex h3-div justify-content-between align-items-center">
                 <h3 class="text-start">مقالات پربازدید</h3>
-                <a href="" class="text-end button-71 shadow">مشاهده همه</a>
+                <a href="{{route('best-articles')}}" class="text-end button-71 shadow">مشاهده همه</a>
             </div>
             <div class="row row-cols-2 row-cols-md-6">
 
@@ -100,7 +100,7 @@
         <div class="container">
             <div class="h3-div d-flex justify-content-between align-items-center">
                 <h3 class="text-start">مقالات جدید</h3>
-                <a href="" class="text-end button-71 shadow">مشاهده همه</a>
+                <a href="{{route('lastest-articles')}}" class="text-end button-71 shadow">مشاهده همه</a>
             </div>
             <div class="row row-cols-2 row-cols-md-5 justify-content-center align-items-center">
 
@@ -135,7 +135,7 @@
                 </div>
                 <div class="row row-cols-2 row-cols-md-4 justify-content-center align-items-center">
 
-                    @foreach ($category->articles as $article)
+                    @foreach ($category->articles->where('activity', 1) as $article)
                         <div class="col align-self-center my-3">
                             <a href="{{ route('article.show', $article->id) }}">
                                 <div
@@ -155,6 +155,34 @@
         </section>
     @endforeach
 
+
+
+    <!-- latest-articles-without-activity -->
+    <section id="new-articles" class="text-center">
+        <div class="container">
+            <div class="h3-div d-flex justify-content-between align-items-center">
+                <h3 class="text-start">مقالات در انتظار تایید</h3>
+            </div>
+            <div class="row row-cols-2 row-cols-md-5 justify-content-center align-items-center">
+
+                @foreach ($latestArticleWithoutActivity as $article)
+                    <div class="col align-self-center my-3">
+                        <a href="{{ route('article.show', $article->id) }}">
+                            <div class="new-card shadow"
+                                style="background-image: url('{{ asset('images/images/' . $article->image) }}')">
+                                <div class="new-card-body">
+                                    <h6>
+                                        {{ $article->intro }}
+                                    </h6>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                @endforeach
+
+            </div>
+        </div>
+    </section>
 
 
     <!-- //////////////about//////////////// -->
