@@ -41,4 +41,8 @@ class article extends Model
     {
         return $this->hasMany(comment::class);
     }
+    public function confirm()
+    {
+        return $this->hasOne(confirm::class);
+    }
 }

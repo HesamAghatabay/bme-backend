@@ -93,6 +93,10 @@
                             <div class="article-text">
                                 <p class="mb-5">{!! $article->body !!}</p>
                             </div>
+                            <div class="text-end">
+                                <p>تایید شده توسط : {{ $confirm->user->name }}</p>
+                                <p>تاریخ : {{ $confirm->date }}</p>
+                            </div>
                         </div>
                         <div class="row justify-content-center my-4">
                             <div class="col-10 mb-5">

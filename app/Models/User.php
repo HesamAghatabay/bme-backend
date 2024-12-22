@@ -68,4 +68,8 @@ class User extends Authenticatable
     {
         return $this->hasMany(category::class);
     }
+    public function confirmes()
+    {
+        return $this->hasMany(confirm::class);
+    }
 }

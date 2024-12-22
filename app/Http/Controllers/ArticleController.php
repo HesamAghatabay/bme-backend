@@ -5,7 +5,9 @@ namespace App\Http\Controllers;
 use App\Models\allarticles;
 use App\Models\article;
 use App\Models\category;
+use App\Models\confirm;
 use App\Models\view;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Cookie;
@@ -96,15 +98,19 @@ class ArticleController extends Controller
      */
     public function show(article $article, $id)
     {
-        $userRole = Auth::user()->roleUsers->role_id;
         // dd($userRole);
         $newArticles = article::latest()->take(8)->get();
         $bestArticles = DB::table('articles')->orderBy('likes', 'desc')->take(6)->get();
         $article = Article::where('id', $id)->where('activity', 1)->first();
         $latestArticleWithoutActivity = article::where('id', $id)->where('activity', 0)->first();
-        if ($latestArticleWithoutActivity && ($userRole == 1 || $userRole == 2)) {
-            return view('latestarticle', compact('newArticles', 'bestArticles', 'latestArticleWithoutActivity'));
-            // dd($latestArticleWithoutActivity->title);
+        $confirm = $article->confirm;
+        // dd($confirm);
+        if (Auth::check()) {
+            $userRole = Auth::user()->roleUsers->role_id;
+            if ($latestArticleWithoutActivity && ($userRole == 1 || $userRole == 2)) {
+                return view('latestarticle', compact('newArticles', 'bestArticles', 'latestArticleWithoutActivity'));
+                // dd($latestArticleWithoutActivity->title);
+            }
         }
         if (!$article) {
             return redirect()->route('index')->with('error', 'مقاله مورد نظر تایید نشده است لطفا منتظر بمانید');
@@ -117,7 +123,7 @@ class ArticleController extends Controller
             Cookie::queue($articleCookieName, 'true', 120);
         }
 
-        return view('article', compact('article', 'comments', 'newArticles', 'bestArticles'));
+        return view('article', compact('article', 'confirm', 'comments', 'newArticles', 'bestArticles'));
     }
 
     /**
@@ -145,15 +151,22 @@ class ArticleController extends Controller
     }
     public function confirm($id)
     {
+        $user = Auth::user();
         $userRole = Auth::user()->roleUsers->role_id;
-        if ($userRole = ! (1 && 2)) {
+        if ($userRole != (1 && 2)) {
             return redirect()->route('index')->with('error', 'مجوز دسترسی ندارید');
         }
         $article = article::findOrFail($id);
-        $confirm = $article->update([
+        $activity = $article->update([
             'activity' => 1,
         ]);
-        if (!$confirm) {
+        $confirm = confirm::create([
+            'userIp' => $user->userip,
+            'date' => Carbon::now(),
+            'user_id' => $user->id,
+            'article_id' => $id,
+        ]);
+        if (!$activity && !$confirm) {
             return redirect()->back()->with('error', 'دوباره تلاش نمایید');
         }
         return redirect()->route('index')->with('success', 'مقاله تایید شد');

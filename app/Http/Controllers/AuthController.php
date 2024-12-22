@@ -79,7 +79,7 @@ class AuthController extends Controller
             $user = Auth::user()->name;
             return redirect()->route('index')->with('success', $user . 'خوش آمدید');
         }
-        return redirect()->back()->with('index', 'ورود به سایت با خطا مواجه شد .لطفا دوباره تلاش کنید!');
+        return redirect()->back()->with('error', 'رمز ورود اشتباه است . دوباره تلاش کنید');
     }
     public function logout(Request $request)
     {
