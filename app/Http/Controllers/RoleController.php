@@ -97,14 +97,19 @@ class RoleController extends Controller
             'name.required' => 'فیلد الزامی است',
         ]);
         $user = User::findOrFail($id);
+        $userRoleId = $user->roleUsers;
         $roleName = role::where('name', $request->name)->first();
-        $user->roles->role_id = $roleName->id;
+        // dd($userRoleId);
+        $roleId = $roleName->id;
+        $updateRole = $userRoleId->update([
+            'role_id' => $roleId,
+        ]);
         // $ss = role_user::where('user_id', $id)->first();
         // $ss = DB::table('role_users')->where('user_id', $id)->first();
         // dd($user->roles);
-        $ss = DB::table('role_users')->where('user_id', $id)->first();
-        dd($ss);
-        $updateRole = $user->save();
+        // $ss = DB::table('role_users')->where('user_id', $id)->first();
+        // dd($roleName->id);
+        // $updateRole = $user->save();
         // $updateRole = $user->roles;
         // dd($request);
         // dd($updateRole);
