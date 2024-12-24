@@ -116,6 +116,8 @@ class ArticleController extends Controller
             return redirect()->route('index')->with('error', 'مقاله مورد نظر تایید نشده است لطفا منتظر بمانید');
         }
         $comments = $article->comments()->where('activity', 1)->get();
+        $commentsWithoutActivity = $article->comments()->where('activity', 0)->get();
+        // dd($commentsWithoutActivity);
 
         $articleCookieName = 'viewed_article_' . $id;
         if (!Cookie::get($articleCookieName)) {
@@ -123,7 +125,7 @@ class ArticleController extends Controller
             Cookie::queue($articleCookieName, 'true', 120);
         }
 
-        return view('article', compact('article', 'confirm', 'comments', 'newArticles', 'bestArticles'));
+        return view('article', compact('article', 'confirm', 'commentsWithoutActivity', 'comments', 'newArticles', 'bestArticles'));
     }
 
     /**
@@ -153,7 +155,7 @@ class ArticleController extends Controller
     {
         $user = Auth::user();
         $userRole = Auth::user()->roleUsers->role_id;
-        if ($userRole != (1 && 2)) {
+        if ($userRole != 1) {
             return redirect()->route('index')->with('error', 'مجوز دسترسی ندارید');
         }
         $article = article::findOrFail($id);

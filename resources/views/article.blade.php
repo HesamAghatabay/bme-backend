@@ -107,6 +107,9 @@
                                             <p>{{ $comment->body }}</p>
                                         </div>
                                     </div>
+                                    <div>
+                                        <a href="" class="btn btn-sm btn-danger">حذف نظر</a>
+                                    </div>
                                 @endforeach
 
                             </div>
@@ -136,10 +139,30 @@
                                     </div>
                                 </form>
                             </div>
+
+                            @foreach ($commentsWithoutActivity as $comment)
+                                <div class="row">
+                                    <div class="col-10">
+
+                                        <div class="card text-start p-2">
+                                            <p class="f-b mb-2">از طرف {{ $comment->name }}</p>
+                                            <div class="card-body">
+                                                <p>{{ $comment->body }}</p>
+                                            </div>
+                                        </div>
+                                        <div>
+                                            <a href="{{ route('confirm.comments', $comment->id) }}"
+                                                class="btn btn-sm btn-success">تایید</a>
+                                            <a href="" class="btn btn-sm btn-danger">حذف نظر</a>
+                                        </div>
+                            @endforeach
+
                         </div>
                     </div>
                 </div>
             </div>
+        </div>
+        </div>
         </div>
     </section>
 @endsection
