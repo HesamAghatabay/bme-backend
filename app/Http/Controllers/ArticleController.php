@@ -103,7 +103,6 @@ class ArticleController extends Controller
         $bestArticles = DB::table('articles')->orderBy('likes', 'desc')->take(6)->get();
         $article = Article::where('id', $id)->where('activity', 1)->first();
         $latestArticleWithoutActivity = article::where('id', $id)->where('activity', 0)->first();
-        $confirm = $article->confirm;
         // dd($confirm);
         if (Auth::check()) {
             $userRole = Auth::user()->roleUsers->role_id;
@@ -112,6 +111,7 @@ class ArticleController extends Controller
                 // dd($latestArticleWithoutActivity->title);
             }
         }
+        $confirm = $article->confirm;
         if (!$article) {
             return redirect()->route('index')->with('error', 'مقاله مورد نظر تایید نشده است لطفا منتظر بمانید');
         }
