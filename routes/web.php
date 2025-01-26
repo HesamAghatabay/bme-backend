@@ -9,19 +9,20 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\RoleController;
 use App\Models\category;
+use App\Models\User;
 use App\Models\view;
 use GuzzleHttp\Promise\Create;
 use Illuminate\Support\Facades\Route;
-
+use Spatie\Permission\Models\Permission;
+use Spatie\Permission\Models\Role;
 
 Route::get('/', [HomeController::class, 'index'])->name('index');
-Route::get('/all.articles', [HomeController::class, 'allarticles'])->name('all.articles');
-// Route::get()
-Route::get('/best-articles', [HomeController::class, 'bestarticles'])->name('best-articles');
-Route::get('/lastest-articles', [HomeController::class, 'lastestarticles'])->name('lastest-articles');
 Route::get('/client.add', [HomeController::class, 'create'])->name('client.add');
 Route::post('/client.store', [HomeController::class, 'store'])->name('client.store');
 Route::delete('/client.destroy/{id}', [HomeController::class, 'destroy'])->name('client.destroy');
+Route::get('/all.articles', [HomeController::class, 'allarticles'])->name('all.articles');
+Route::get('/best-articles', [HomeController::class, 'bestarticles'])->name('best-articles');
+Route::get('/lastest-articles', [HomeController::class, 'lastestarticles'])->name('lastest-articles');
 
 Route::get('/about', function () {
     return view('about');
@@ -65,4 +66,18 @@ Route::put('/role.update/{id}', [RoleController::class, 'update'])->name('role.u
 
 Route::post('comment.store/{id}', [CommentController::class, 'store'])->name('comment.store');
 Route::get('/confirm.comments/{id}', [CommentController::class, 'show'])->name('confirm.comments');
+
+Route::get('/permission', function () {
+    $role = Role::create(['name' => 'admin']);
+    $permission = Permission::create(['name' => 'edit articles']);
+});
+Route::get('/testa', function(){
+    $user = User::findOrFail(1);
+
+   return $user->assignRole('admin');
+});
+Route::get('/test', function () {
+    $user = User::findOrFail(1);
+    $user->assignRole('admin');
+});
 require __DIR__ . '/auth.php';
