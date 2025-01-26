@@ -81,3 +81,4 @@ Route::get('/test', function () {
     $user->assignRole('admin');
 });
 require __DIR__ . '/auth.php';
+
