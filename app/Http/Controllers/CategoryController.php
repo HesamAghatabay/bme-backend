@@ -77,7 +77,7 @@ class CategoryController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(category $category, $id)
+    public function edit($id)
     {
         $categories = category::all();
         $category = category::findOrFail($id);
@@ -87,7 +87,7 @@ class CategoryController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, category $category, $id)
+    public function update(Request $request, $id)
     {
         $request->validate([
             'title' => 'required|max:255',
@@ -100,12 +100,12 @@ class CategoryController extends Controller
             'image.max' => 'بیش از حد مجاز',
             'info.required' => 'توضیحات الزامی است',
         ]);
+        $category = category::findOrFail($id);
         if ($request->hasFile('image')) {
             Storage::delete('/images/images/'. $category->image);
             $filename = time() . ' - ' . $request->image->getClientOriginalName();
             $request->image->storeAs('/images', $filename);
         }
-        $category = category::findOrFail($id);
         $updatedcategory = $category->update([
             'title' => $request->title,
             'image' => $filename,
@@ -120,7 +120,7 @@ class CategoryController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(category $category, $id)
+    public function destroy($id)
     {
         $category = category::findOrFail($id);
         $destroycategory = $category->delete();

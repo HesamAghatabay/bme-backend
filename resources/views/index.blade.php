@@ -47,7 +47,7 @@
 
                 @foreach ($categories as $category)
                     <div class="col-4 col-md-2">
-                        <a href="{{ route('category.show', $category->id) }}" class="">
+                        <a href="/category/{{ $category->id }}" class="">
                             <div class="parts-card mt-5">
                                 <img src="{{ asset('images/images/' . $category->image) }}"
                                     class="card-img-top card-img shadow" alt="...">
@@ -70,7 +70,7 @@
         <div class="container-fluid best-articles-bg px-5">
             <div class="d-flex h3-div justify-content-between align-items-center">
                 <h3 class="text-start">مقالات پربازدید</h3>
-                <a href="{{route('best-articles')}}" class="text-end button-71 shadow">مشاهده همه</a>
+                <a href="{{ route('best-articles') }}" class="text-end button-71 shadow">مشاهده همه</a>
             </div>
             <div class="row row-cols-2 row-cols-md-6">
 
@@ -100,7 +100,7 @@
         <div class="container">
             <div class="h3-div d-flex justify-content-between align-items-center">
                 <h3 class="text-start">مقالات جدید</h3>
-                <a href="{{route('lastest-articles')}}" class="text-end button-71 shadow">مشاهده همه</a>
+                <a href="{{ route('lastest-articles') }}" class="text-end button-71 shadow">مشاهده همه</a>
             </div>
             <div class="row row-cols-2 row-cols-md-5 justify-content-center align-items-center">
 

@@ -48,9 +48,10 @@ Route::resource('category', CategoryController::class);
 // Route::put('category/update/{id}', [CategoryController::class, 'update'])->name('category.update');
 // Route::delete('category/delete/{id}', [CategoryController::class, 'destroy'])->name('category.destroy');
 
-Route::get('article/add', [ArticleController::class, 'create'])->name('article.add');
-Route::post('article/store', [ArticleController::class, 'store'])->name('article.store');
-Route::get('article/show/{id}', [ArticleController::class, 'show'])->name('article.show');
+// Route::get('article/add', [ArticleController::class, 'create'])->name('article.add');
+// Route::post('article/store', [ArticleController::class, 'store'])->name('article.store');
+// Route::get('article/show/{id}', [ArticleController::class, 'show'])->name('article.show');
+Route::resource('article', articleController::class);
 Route::get('/confirm.article/{id}', [ArticleController::class, 'confirm'])->name('confirm.article');
 
 Route::get('/dashboard', [ProfileController::class, 'index'])->middleware(['auth', 'verified'])->name('dashboard');

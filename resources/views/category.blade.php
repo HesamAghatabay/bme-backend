@@ -7,7 +7,7 @@
 
                 @foreach ($categories as $category)
                     <div class="col-4 col-md-2">
-                        <a href="{{ route('category.show', $category->id) }}" class="">
+                        <a href="/category/{{ $category->id }}" class="">
                             <div class="parts-card mt-5">
                                 <img src="{{ asset('images/images/' . $category->image) }}"
                                     class="card-img-top card-img shadow" alt="...">
@@ -38,7 +38,7 @@
                         </div>
                         <div class="d-flex justify-content-center mx-5 p-2 mt-4">
                             <div class="">
-                                <a href="{{ route('category.edit', $thiscategory->id) }}" class="btn btn-warning">ویرایش
+                                <a href="/category/{{ $thiscategory->id }}/edit" class="btn btn-warning">ویرایش
                                 </a>
                             </div>
                             <div class="col">
@@ -62,8 +62,7 @@
                                             <div class="modal-footer">
                                                 <button type="button" class="btn btn-secondary"
                                                     data-bs-dismiss="modal">لغو</button>
-                                                <form method="POST"
-                                                    action="{{ route('category.destroy', $thiscategory->id) }}">
+                                                <form method="POST" action="/category/{{ $thiscategory->id }}">
                                                     @csrf
                                                     @method('delete')
                                                     <button type="submit" class="btn btn-danger">حذف</button>

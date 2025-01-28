@@ -4,7 +4,7 @@
     <section class="text-start mt-130 bg-add-article py-5">
         <div class="container">
 
-            <form method="POST" action="{{ route('category.update', $category->id) }}" enctype="multipart/form-data">
+            <form method="POST" action="/category/{{ $category->id }}" enctype="multipart/form-data">
                 @csrf
                 @method('put')
                 <div class="row justify-content-center align-items-start">
