@@ -72,9 +72,9 @@
                                     <ul class="dropdown-menu dropdown-bg">
                                         <li class="my-1 px-1"><a class="" href="{{ route('article.add') }}">افزودن
                                                 مقاله</a></li>
-                                        <li class="my-1 px-1"><a class=""
+                                        {{-- <li class="my-1 px-1"><a class=""
                                                 href="{{ route('category.add') }}">افزودن
-                                                دسته</a></li>
+                                                دسته</a></li> --}}
                                     </ul>
                                 </div>
                             </div>
@@ -124,7 +124,7 @@
                         @endguest
                         @auth
                             <a class="button-87" href="{{ route('article.add') }}">+ مقاله</a>
-                            <a class="button-87" href="{{ route('category.add') }}">+ دسته</a>
+                            <a class="button-87" href="/category/create">+ دسته</a>
                             <a class="button-87" href="{{ route('dashboard') }}">پروفایل</a>
                             <a class="button-87" href="{{ route('roles') }}">نقش ها</a>
                             <a class="button-87" href="{{ route('logout') }}">خروج</a>
@@ -157,8 +157,8 @@
                                         مقالات
                                     </h6>
                                     <ul class="dropdown-menu dropdown-bg">
-                                        <li><a class="dropdown-item mt-1"
-                                            href="{{ route('all.articles') }}">تمام مقالات</a></li>
+                                        <li><a class="dropdown-item mt-1" href="{{ route('all.articles') }}">تمام
+                                                مقالات</a></li>
                                         <li><a class="dropdown-item mt-1" href="{{ route('best-articles') }}">مقالات
                                                 پرطرفدار</a></li>
                                         <li><a class="dropdown-item mt-1"

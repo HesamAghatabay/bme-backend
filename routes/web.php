@@ -20,6 +20,7 @@ Route::get('/', [HomeController::class, 'index'])->name('index');
 Route::get('/client.add', [HomeController::class, 'create'])->name('client.add');
 Route::post('/client.store', [HomeController::class, 'store'])->name('client.store');
 Route::delete('/client.destroy/{id}', [HomeController::class, 'destroy'])->name('client.destroy');
+
 Route::get('/all.articles', [HomeController::class, 'allarticles'])->name('all.articles');
 Route::get('/best-articles', [HomeController::class, 'bestarticles'])->name('best-articles');
 Route::get('/lastest-articles', [HomeController::class, 'lastestarticles'])->name('lastest-articles');
@@ -39,12 +40,13 @@ Route::post('/forgot.password.store', [NewPasswordController::class, 'store'])->
 Route::get('/password.edit', [NewPasswordController::class, 'edit'])->name('password.edit');
 Route::put('/password.updates/{id}', [NewPasswordController::class, 'update'])->name('password.updates');
 
-Route::get('category/add', [CategoryController::class, 'create'])->name('category.add');
-Route::post('/category/store', [categoryController::class, 'store'])->name('category.store');
-Route::get('category/show/{id}', [CategoryController::class, 'show'])->name('category.show');
-Route::get('category/edit/{id}', [CategoryController::class, 'edit'])->name('category.edit');
-Route::put('category/update/{id}', [CategoryController::class, 'update'])->name('category.update');
-Route::delete('category/delete/{id}', [CategoryController::class, 'destroy'])->name('category.destroy');
+Route::resource('category', CategoryController::class);
+// Route::get('category/add', [CategoryController::class, 'create'])->name('category.add');
+// Route::post('/category/store', [categoryController::class, 'store'])->name('category.store');
+// Route::get('category/show/{id}', [CategoryController::class, 'show'])->name('category.show');
+// Route::get('category/edit/{id}', [CategoryController::class, 'edit'])->name('category.edit');
+// Route::put('category/update/{id}', [CategoryController::class, 'update'])->name('category.update');
+// Route::delete('category/delete/{id}', [CategoryController::class, 'destroy'])->name('category.destroy');
 
 Route::get('article/add', [ArticleController::class, 'create'])->name('article.add');
 Route::post('article/store', [ArticleController::class, 'store'])->name('article.store');
@@ -71,14 +73,13 @@ Route::get('/permission', function () {
     $role = Role::create(['name' => 'admin']);
     $permission = Permission::create(['name' => 'edit articles']);
 });
-Route::get('/testa', function(){
+Route::get('/testa', function () {
     $user = User::findOrFail(1);
 
-   return $user->assignRole('admin');
+    return $user->assignRole('admin');
 });
 Route::get('/test', function () {
     $user = User::findOrFail(1);
     $user->assignRole('admin');
 });
 require __DIR__ . '/auth.php';
-
