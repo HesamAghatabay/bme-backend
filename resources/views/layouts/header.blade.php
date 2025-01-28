@@ -69,13 +69,13 @@
                                     <h6 class="dropdown-toggle " data-bs-toggle="dropdown" aria-expanded="false">
                                         افزودن
                                     </h6>
-                                    <ul class="dropdown-menu dropdown-bg">
+                                    {{-- <ul class="dropdown-menu dropdown-bg">
                                         <li class="my-1 px-1"><a class="" href="{{ route('article.add') }}">افزودن
                                                 مقاله</a></li>
-                                        {{-- <li class="my-1 px-1"><a class=""
+                                        <li class="my-1 px-1"><a class=""
                                                 href="{{ route('category.add') }}">افزودن
-                                                دسته</a></li> --}}
-                                    </ul>
+                                                دسته</a></li>
+                                    </ul> --}}
                                 </div>
                             </div>
 

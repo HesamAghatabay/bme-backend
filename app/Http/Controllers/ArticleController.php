@@ -96,7 +96,7 @@ class ArticleController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(article $article, $id)
+    public function show($id)
     {
         // dd($userRole);
         $newArticles = article::latest()->take(8)->get();

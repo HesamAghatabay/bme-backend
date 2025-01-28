@@ -75,7 +75,7 @@
             <div class="row row-cols-2 row-cols-md-6">
 
                 @foreach ($bestarticles as $bestarticles)
-                    <a href="{{ route('article.show', $bestarticles->id) }}" class="button-92 mb-5">
+                    <a href="/article/{{ $bestarticles->id }}" class="button-92 mb-5">
                         <div class="col-6 w-100">
                             <div class="card text-start">
                                 <img src="{{ asset('images/images/' . $bestarticles->image) }}" class="card-img-top"
@@ -106,7 +106,7 @@
 
                 @foreach ($newarticles as $article)
                     <div class="col align-self-center my-3">
-                        <a href="{{ route('article.show', $article->id) }}">
+                        <a href="/article/{{ $article->id }}">
                             <div class="new-card shadow"
                                 style="background-image: url('{{ asset('images/images/' . $article->image) }}')">
                                 <div class="new-card-body">
@@ -130,14 +130,14 @@
             <div class="container">
                 <div class="h3-div d-flex justify-content-between align-items-center">
                     <h3 class="text-start">مقالات دسته {{ $category->title }}</h3>
-                    <a href="{{ route('category.show', $category->id) }}" class="text-end button-71 shadow">مشاهده
+                    <a href="/category/{{ $category->id }}" class="text-end button-71 shadow">مشاهده
                         همه</a>
                 </div>
                 <div class="row row-cols-2 row-cols-md-4 justify-content-center align-items-center">
 
                     @foreach ($category->articles->where('activity', 1) as $article)
                         <div class="col align-self-center my-3">
-                            <a href="{{ route('article.show', $article->id) }}">
+                            <a href="/article/{{ $article->id }}">
                                 <div
                                     class="new-card shadow"style="background-image: url('{{ asset('images/images/' . $article->image) }}')">
                                     <div class="new-card-body">
@@ -167,7 +167,7 @@
 
                 @foreach ($latestArticleWithoutActivity as $article)
                     <div class="col align-self-center my-3">
-                        <a href="{{ route('article.show', $article->id) }}">
+                        <a href="/article/{{ $article->id }}">
                             <div class="new-card shadow"
                                 style="background-image: url('{{ asset('images/images/' . $article->image) }}')">
                                 <div class="new-card-body">
