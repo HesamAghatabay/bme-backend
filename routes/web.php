@@ -79,8 +79,18 @@ require __DIR__ . '/auth.php';
 Route::get('spatie', function () {
 
 
-    $role = Role::create(['name' => 'writer']);
-    $permission = Permission::create(['name' => 'edit articles']);
+    $role0 = Role::create(['name' => 'superAdmin']);
+    $role1 = Role::create(['name' => 'admin']);
+    $role2 = Role::create(['name' => 'reader']);
+    $role3 = Role::create(['name' => 'user']);
 
-    
+    $permission1 = Permission::create(['name' => 'create articles']);
+    $permission2 = Permission::create(['name' => 'edit articles']);
+    $permission3 = Permission::create(['name' => 'update articles']);
+    $permission4 = Permission::create(['name' => 'delete articles']);
+
+    $permission5 = Permission::create(['name' => 'create category']);
+    $permission5 = Permission::create(['name' => 'edit category']);
+    $permission5 = Permission::create(['name' => 'update category']);
+    $permission5 = Permission::create(['name' => 'delete category']);
 });
