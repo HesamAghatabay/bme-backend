@@ -126,7 +126,7 @@
                             <a class="button-87" href="/article/create">+ مقاله</a>
                             <a class="button-87" href="/category/create">+ دسته</a>
                             <a class="button-87" href="/dashboard'">پروفایل</a>
-                            <a class="button-87" href="{{ route('roles') }}">نقش ها</a>
+                            {{-- <a class="button-87" href="{{ route('roles') }}">نقش ها</a> --}}
                             <a class="button-87" href="{{ route('logout') }}">خروج</a>
                         @endauth
                     </div>

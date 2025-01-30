@@ -79,7 +79,6 @@ class HomeController extends Controller
             'info' => '',
             'user_id' => $user->id,
         ]);
-        // $role = DB::table('role_user')->insert($user->id);
 
         if (!$user) {
             return redirect()->back()->with('error', $request->name . 'ثبت نام با مشکل مواجه شد!');

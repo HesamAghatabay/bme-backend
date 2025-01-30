@@ -76,7 +76,7 @@ Route::get('/permission', function () {
 });
 require __DIR__ . '/auth.php';
 
-Route::get('spatie', function () {
+Route::get('/spatie', function () {
 
     $role0 = Role::create(['name' => 'superAdmin']);
     $role1 = Role::create(['name' => 'admin']);
@@ -101,5 +101,9 @@ Route::get('spatie', function () {
 
     $permission13 = Permission::create(['name' => 'confirm article']);
 
-
+    $role0->givePermissionTo($permission1, $permission2, $permission3, $permission4, $permission5, $permission6, $permission7, $permission8, $permission9, $permission10, $permission11, $permission12, $permission13);
+    $role1->givePermissionTo($permission1, $permission2, $permission3, $permission4, $permission5, $permission6, $permission7, $permission8, $permission11, $permission12, $permission13);
+    $role2->givePermissionTo($permission1, $permission2, $permission3, $permission4, $permission5, $permission6, $permission7, $permission8, $permission13);
+    $role3->givePermissionTo($permission1, $permission2, $permission3, $permission4);
+    dd('spatie is done');
 });
