@@ -97,7 +97,7 @@ class HomeController extends Controller
         if (!$destroyUser) {
             return redirect()->back()->with('error', 'تلاش مجدد');
         }
-        return redirect()->route('roles')->with('success', ' کاربر ' . $user->name . 'با موفقیت حذف شد ');
+        return redirect()->route('index')->with('success', ' کاربر ' . $user->name . 'با موفقیت حذف شد ');
     }
     public function allarticles()
     {

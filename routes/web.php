@@ -61,11 +61,11 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
-Route::get('/roles', [RoleController::class, 'index'])->name('roles');
-Route::get('/role.add', [RoleController::class, 'create'])->name('role.add');
-Route::post('/role.store', [RoleController::class, 'store'])->name('role.store');
-Route::get('/role.edit/{id}', [RoleController::class, 'edit'])->name('role.edit');
-Route::put('/role.update/{id}', [RoleController::class, 'update'])->name('role.update');
+// Route::get('/roles', [RoleController::class, 'index'])->name('roles');
+// Route::get('/role.add', [RoleController::class, 'create'])->name('role.add');
+// Route::post('/role.store', [RoleController::class, 'store'])->name('role.store');
+// Route::get('/role.edit/{id}', [RoleController::class, 'edit'])->name('role.edit');
+// Route::put('/role.update/{id}', [RoleController::class, 'update'])->name('role.update');
 
 Route::post('comment.store/{id}', [CommentController::class, 'store'])->name('comment.store');
 Route::get('/confirm.comments/{id}', [CommentController::class, 'show'])->name('confirm.comments');
@@ -77,7 +77,6 @@ Route::get('/permission', function () {
 require __DIR__ . '/auth.php';
 
 Route::get('spatie', function () {
-
 
     $role0 = Role::create(['name' => 'superAdmin']);
     $role1 = Role::create(['name' => 'admin']);
@@ -99,5 +98,8 @@ Route::get('spatie', function () {
 
     $permission11 = Permission::create(['name' => 'add reader']);
     $permission12 = Permission::create(['name' => 'remove reader']);
+
+    $permission13 = Permission::create(['name' => 'confirm article']);
+
 
 });
