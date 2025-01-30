@@ -78,7 +78,7 @@ class RoleController extends Controller
             return redirect()->route('index')->with('error', 'مجوز دسترسی ندارید ');
         }
         $theUser = user::findOrFail($id);
-        // dd($theUser->name);
+        // dd($theUser->roles);
 
         return view('edit-role', compact('theUser'));
     }
