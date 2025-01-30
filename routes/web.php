@@ -76,4 +76,11 @@ Route::get('/permission', function () {
 });
 require __DIR__ . '/auth.php';
 
+Route::get('spatie', function(){
 
+
+    $role = Role::create(['name' => 'writer']);
+$permission = Permission::create(['name' => 'edit articles']);
+
+
+});
