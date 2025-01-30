@@ -78,10 +78,12 @@ require __DIR__ . '/auth.php';
 
 Route::get('/spatie', function () {
 
-    $role0 = Role::create(['name' => 'superAdmin']);
-    $role1 = Role::create(['name' => 'admin']);
-    $role2 = Role::create(['name' => 'reader']);
-    $role3 = Role::create(['name' => 'user']);
+    $user = User::find(1);
+    // $user->assignRole('admin');
+    $role1 = Role::create(['name' => 'superAdmin']);
+    $role2 = Role::create(['name' => 'admin']);
+    $role3 = Role::create(['name' => 'reader']);
+    $role4 = Role::create(['name' => 'user']);
 
     $permission1 = Permission::create(['name' => 'create articles']);
     $permission2 = Permission::create(['name' => 'edit articles']);
@@ -101,9 +103,10 @@ Route::get('/spatie', function () {
 
     $permission13 = Permission::create(['name' => 'confirm article']);
 
-    $role0->givePermissionTo($permission1, $permission2, $permission3, $permission4, $permission5, $permission6, $permission7, $permission8, $permission9, $permission10, $permission11, $permission12, $permission13);
-    $role1->givePermissionTo($permission1, $permission2, $permission3, $permission4, $permission5, $permission6, $permission7, $permission8, $permission11, $permission12, $permission13);
-    $role2->givePermissionTo($permission1, $permission2, $permission3, $permission4, $permission5, $permission6, $permission7, $permission8, $permission13);
-    $role3->givePermissionTo($permission1, $permission2, $permission3, $permission4);
+    $role1->givePermissionTo($permission1, $permission2, $permission3, $permission4, $permission5, $permission6, $permission7, $permission8, $permission9, $permission10, $permission11, $permission12, $permission13);
+    $role2->givePermissionTo($permission1, $permission2, $permission3, $permission4, $permission5, $permission6, $permission7, $permission8, $permission11, $permission12, $permission13);
+    $role3->givePermissionTo($permission1, $permission2, $permission3, $permission4, $permission5, $permission6, $permission7, $permission8, $permission13);
+    $role4->givePermissionTo($permission1, $permission2, $permission3, $permission4);
+    // $user->assignRole($role1);
     dd('spatie is done');
 });
