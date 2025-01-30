@@ -74,13 +74,6 @@ Route::get('/permission', function () {
     $role = Role::create(['name' => 'admin']);
     $permission = Permission::create(['name' => 'edit articles']);
 });
-Route::get('/testa', function () {
-    $user = User::findOrFail(1);
-
-    return $user->assignRole('admin');
-});
-Route::get('/test', function () {
-    $user = User::findOrFail(1);
-    $user->assignRole('admin');
-});
 require __DIR__ . '/auth.php';
+
+
