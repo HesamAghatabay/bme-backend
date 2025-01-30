@@ -90,7 +90,14 @@ Route::get('spatie', function () {
     $permission4 = Permission::create(['name' => 'delete articles']);
 
     $permission5 = Permission::create(['name' => 'create category']);
-    $permission5 = Permission::create(['name' => 'edit category']);
-    $permission5 = Permission::create(['name' => 'update category']);
-    $permission5 = Permission::create(['name' => 'delete category']);
+    $permission6 = Permission::create(['name' => 'edit category']);
+    $permission7 = Permission::create(['name' => 'update category']);
+    $permission8 = Permission::create(['name' => 'delete category']);
+
+    $permission9 = Permission::create(['name' => 'add admin']);
+    $permission10 = Permission::create(['name' => 'remove admin']);
+
+    $permission11 = Permission::create(['name' => 'add reader']);
+    $permission12 = Permission::create(['name' => 'remove reader']);
+
 });
