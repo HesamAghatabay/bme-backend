@@ -44,6 +44,7 @@ class AuthController extends Controller
             'userip' => $request->ip(),
             'password' => Hash::make($request->password),
         ]);
+        $user->assignRole('user');
         $profile = profile::create([
             'study' => '',
             'photo' => '',

@@ -411,7 +411,12 @@ h4 {
 .mb-250 {
     margin-bottom: 250px;
 }
-
+.bg-role-table {
+    /* background-color: #44affc; */
+    border: 1px solid #86bde4;
+    border-radius: 12px;
+    padding: 15px;
+}
 /* //////////////////part//////////////////// */
 
 h5 {

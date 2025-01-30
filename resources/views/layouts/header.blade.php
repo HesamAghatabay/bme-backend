@@ -123,10 +123,20 @@
                             <a class="button-87" href="{{ route('login') }}">ورود</a>
                         @endguest
                         @auth
-                            <a class="button-87" href="/article/create">+ مقاله</a>
-                            <a class="button-87" href="/category/create">+ دسته</a>
-                            <a class="button-87" href="/dashboard'">پروفایل</a>
-                            {{-- <a class="button-87" href="{{ route('roles') }}">نقش ها</a> --}}
+                            @can('create articles')
+                                <a class="button-87" href="/article/create">+ مقاله</a>
+                            @endcan
+
+                            @can('create category')
+                                <a class="button-87" href="/category/create">+ دسته</a>
+                            @endcan
+
+                            <a class="button-87" href="/dashboard">پروفایل</a>
+
+                            @can('see roles')
+                                <a class="button-87" href="{{ route('roles') }}">نقش ها</a>
+                            @endcan
+
                             <a class="button-87" href="{{ route('logout') }}">خروج</a>
                         @endauth
                     </div>

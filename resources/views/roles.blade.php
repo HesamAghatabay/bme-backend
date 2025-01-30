@@ -9,13 +9,13 @@
 
 
     <div class="btn-group m-5" role="group" aria-label="Basic outlined example">
-        <a class="btn btn-outline-primary" href="{{route('client.add')}}">افزودن کاربر</a>
-        <a class="btn btn-outline-primary" href="{{ route('role.add') }}">افزودن نقش</a>
+        <a class="btn btn-outline-primary" href="{{ route('client.add') }}">افزودن کاربر</a>
+        <a class="btn btn-outline-primary" href="#">افزودن نقش</a>
     </div>
 
-    <div class="container-fluid">
-        <table class="table table-info">
-            <thead>
+    <div class="container">
+        <table class="table table-info bg-role-table shadow">
+            <thead class="bg-role-table">
                 <tr>
                     <th scope="col">id</th>
                     <th scope="col">name</th>
@@ -37,9 +37,14 @@
                         @foreach ($user->roles as $role)
                             <td>{{ $role->name }}</td>
                         @endforeach
-
                         <td>
-                            <a class="btn btn-warning mx-1" href="{{ route('role.edit', $user->id) }}">edit</a>
+                            <div class="flix">
+                                @can('edit roles')
+                                    <a class="btn btn-warning mx-1" href="{{ route('role.edit', $user->id) }}">edit</a>
+                                @endcan
+
+                                <a class="btn btn-danger mx-1" href="#">remove</a>
+                            </div>
                         </td>
                     </tr>
                 @endforeach

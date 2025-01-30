@@ -61,10 +61,10 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
-// Route::get('/roles', [RoleController::class, 'index'])->name('roles');
+Route::get('/roles', [RoleController::class, 'index'])->name('roles');
 // Route::get('/role.add', [RoleController::class, 'create'])->name('role.add');
 // Route::post('/role.store', [RoleController::class, 'store'])->name('role.store');
-// Route::get('/role.edit/{id}', [RoleController::class, 'edit'])->name('role.edit');
+Route::get('/role.edit/{id}', [RoleController::class, 'edit'])->name('role.edit');
 // Route::put('/role.update/{id}', [RoleController::class, 'update'])->name('role.update');
 
 Route::post('comment.store/{id}', [CommentController::class, 'store'])->name('comment.store');
@@ -76,10 +76,15 @@ Route::get('/permission', function () {
 });
 require __DIR__ . '/auth.php';
 
-Route::get('/spatie', function () {
-
+Route::get('/assign', function () {
     $user = User::find(1);
-    // $user->assignRole('admin');
+    $role1 = Role::find(1);
+    // dd($role1);
+    $user->assignRole($role1);
+    dd('assign is done');
+});
+
+Route::get('/spatie', function () {
     $role1 = Role::create(['name' => 'superAdmin']);
     $role2 = Role::create(['name' => 'admin']);
     $role3 = Role::create(['name' => 'reader']);
@@ -109,4 +114,21 @@ Route::get('/spatie', function () {
     $role4->givePermissionTo($permission1, $permission2, $permission3, $permission4);
     // $user->assignRole($role1);
     dd('spatie is done');
+});
+
+Route::get('/other1', function () {
+    $permission14 = Permission::create(['name' => 'see roles']);
+    $role1 = Role::find(1);
+    $role2 = Role::find(2);
+    $role1->givePermissionTo($permission14);
+    $role2->givePermissionTo($permission14);
+    dd('other is done');
+});
+Route::get('/other2', function () {
+    $permission15 = Permission::create(['name' => 'edit roles']);
+    $role1 = Role::find(1);
+    $role2 = Role::find(2);
+    $role1->givePermissionTo($permission15);
+    $role2->givePermissionTo($permission15);
+    dd('other is done');
 });

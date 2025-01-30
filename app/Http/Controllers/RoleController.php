@@ -9,21 +9,23 @@ use App\Models\view;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
+use Spatie\Permission\Contracts\Role as ContractsRole;
+use Spatie\Permission\Models\Role as ModelsRole;
 
 class RoleController extends Controller
 {
-    // /**
-    //  * Display a listing of the resource.
-    //  */
-    // public function index()
-    // {
-    //     $isAdmin = Auth::user()->is_admin;
-    //     $allUsers = User::all();
-    //     if ($isAdmin) {
-    //         return view('roles', compact('allUsers'));
-    //     }
-    //     return redirect()->route('index')->with('error', 'مجوز دسترسی ندارید ');
-    // }
+    /**
+     * Display a listing of the resource.
+     */
+    public function index()
+    {
+        $isAdmin = Auth::user()->is_admin;
+        $allUsers = User::all();
+        if ($isAdmin) {
+            return view('roles', compact('allUsers'));
+        }
+        return redirect()->route('index')->with('error', 'مجوز دسترسی ندارید ');
+    }
 
     // /**
     //  * Show the form for creating a new resource.
@@ -69,18 +71,17 @@ class RoleController extends Controller
     // /**
     //  * Show the form for editing the specified resource.
     //  */
-    // public function edit(role $role, $id)
-    // {
-    //     $isAdmin = Auth::user()->is_admin;
-    //     if (!$isAdmin) {
-    //         return redirect()->route('index')->with('error', 'مجوز دسترسی ندارید ');
-    //     }
-    //     $theUser = user::findOrFail($id);
-    //     // dd($theUser->name);
-    //     $roles = role::all();
+    public function edit($id)
+    {
+        $isAdmin = Auth::user()->is_admin;
+        if (!$isAdmin) {
+            return redirect()->route('index')->with('error', 'مجوز دسترسی ندارید ');
+        }
+        $theUser = user::findOrFail($id);
+        // dd($theUser->name);
 
-    //     return view('edit-role', compact('theUser', 'roles'));
-    // }
+        return view('edit-role', compact('theUser'));
+    }
 
     // /**
     //  * Update the specified resource in storage.
