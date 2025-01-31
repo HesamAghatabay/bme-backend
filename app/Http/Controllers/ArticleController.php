@@ -12,6 +12,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Cookie;
 use Illuminate\Support\Facades\DB;
+use Spatie\Permission\Models\Role;
 
 use function Laravel\Prompts\confirm;
 
@@ -104,20 +105,26 @@ class ArticleController extends Controller
         $article = Article::where('id', $id)->where('activity', 1)->first();
         $latestArticleWithoutActivity = article::where('id', $id)->where('activity', 0)->first();
         // dd($confirm);
-        if (Auth::check()) {
-            $userRole = Auth::user()->roleUsers->role_id;
-            if ($latestArticleWithoutActivity && ($userRole == 1 || $userRole == 2)) {
-                return view('latestarticle', compact('newArticles', 'bestArticles', 'latestArticleWithoutActivity'));
-                // dd($latestArticleWithoutActivity->title);
-            }
+        // if (Auth::check()) {
+        //     $userRole = Auth::user()->roleUsers->role_id;
+        //     if ($latestArticleWithoutActivity && ($userRole == 1 || $userRole == 2)) {
+        //         return view('latestarticle', compact('newArticles', 'bestArticles', 'latestArticleWithoutActivity'));
+        //         // dd($latestArticleWithoutActivity->title);
+        //     }
+        // }
+        // $confirm = $article->confirm;
+        $user = Auth::user();
+        foreach ($user->roles as $role) {
+            $therole = $role->id;
         }
-        $confirm = $article->confirm;
+        if ($therole == 1 || $therole == 2 || $therole == 3) {
+            return view('latestarticle', compact('newArticles', 'bestArticles', 'latestArticleWithoutActivity'));
+        }
         if (!$article) {
             return redirect()->route('index')->with('error', 'مقاله مورد نظر تایید نشده است لطفا منتظر بمانید');
         }
         $comments = $article->comments()->where('activity', 1)->get();
         $commentsWithoutActivity = $article->comments()->where('activity', 0)->get();
-        // dd($commentsWithoutActivity);
 
         $articleCookieName = 'viewed_article_' . $id;
         if (!Cookie::get($articleCookieName)) {
@@ -125,7 +132,7 @@ class ArticleController extends Controller
             Cookie::queue($articleCookieName, 'true', 120);
         }
 
-        return view('article', compact('article', 'confirm', 'commentsWithoutActivity', 'comments', 'newArticles', 'bestArticles'));
+        return view('article', compact('article', 'commentsWithoutActivity', 'comments', 'newArticles', 'bestArticles'));
     }
 
     /**
@@ -154,10 +161,6 @@ class ArticleController extends Controller
     public function confirm($id)
     {
         $user = Auth::user();
-        $userRole = Auth::user()->roleUsers->role_id;
-        if ($userRole != 1) {
-            return redirect()->route('index')->with('error', 'مجوز دسترسی ندارید');
-        }
         $article = article::findOrFail($id);
         $activity = $article->update([
             'activity' => 1,
