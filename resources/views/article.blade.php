@@ -120,18 +120,18 @@
                                         <div class="col-10 col-md-6 text-center">
 
 
-                                            <input type="text" class="form-control mb-4"
+                                            <input type="text" class="form-control mb-2"
                                                 placeholder="نام و نام خانوادگی خود را وارد کنید" id="name"
                                                 name="name">
                                             @error('name')
-                                                <p class="f-r mb-4">{{ $message }}</p>
+                                                <p class="f-r text-start ms-1 mb-4">{{ $message }}</p>
                                             @enderror
 
                                             <button type="submit" class="btn btn-info px-5"> ثبت نظر</button>
                                         </div>
                                         <div class="col-10 col-md-6">
-                                            <textarea name="body" class="form-control" placeholder="نظرتان را اینجا بنویسید" id="body" cols="35"
-                                                rows="10"></textarea>
+                                            <textarea name="body" class="form-control ms-1 mb-2" placeholder="نظرتان را اینجا بنویسید" id="body"
+                                                cols="35" rows="10"></textarea>
                                             @error('body')
                                                 <p class="f-r mb-4">{{ $message }}</p>
                                             @enderror

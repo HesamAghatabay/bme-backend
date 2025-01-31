@@ -29,6 +29,7 @@ class CommentController extends Controller
      */
     public function store(Request $request, $id)
     {
+
         $request->validate(
             [
                 'name' => 'required|max:255',
@@ -40,6 +41,9 @@ class CommentController extends Controller
                 'body.required' => 'متن کامنت نمیتواند خالی باشد'
             ]
         );
+        if (!Auth::check()) {
+            return redirect()->back()->with('error', 'برای ثبت نظرات ابتدا با استفاده از حساب کاربری خود وارد شوید.');
+        }
         $userId = Auth::user()->id;
         $userIp = $request->ip();
         $comment = comment::create([
