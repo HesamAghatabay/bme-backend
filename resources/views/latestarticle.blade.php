@@ -79,7 +79,8 @@
                                     <p class="my-2">نویسنده: {{ $latestArticleWithoutActivity->writer }}</p>
                                     <p>تاریخ: {{ $latestArticleWithoutActivity->date }}</p>
                                     <div class="py-3 px-1">
-                                        <span class=""> <i class="bi bi-eye-fill"></i> {{ $latestArticleWithoutActivity->view }}</span>
+                                        <span class=""> <i class="bi bi-eye-fill"></i>
+                                            {{ $latestArticleWithoutActivity->view }}</span>
                                         <span class="mx-5"><a href=""><i class="bi bi-emoji-heart-eyes-fill f-r">
                                                     {{ $latestArticleWithoutActivity->likes }} </i></a>
                                         </span>
@@ -87,15 +88,19 @@
                                 </div>
                                 <div class="col-12 col-md-7">
                                     <img class="article-img rounded shadow"
-                                        src="{{ asset('images/images/' . $latestArticleWithoutActivity->image) }}" alt="">
+                                        src="{{ asset('images/images/' . $latestArticleWithoutActivity->image) }}"
+                                        alt="">
                                 </div>
                             </div>
                             <div class="article-text my-5">
                                 <p class="mb-5">{!! $latestArticleWithoutActivity->body !!}</p>
                             </div>
-                            <a href="{{route('confirm.article', $latestArticleWithoutActivity->id)}}" class="btn btn-sm btn-success">تایید مقاله</a>
+                            @can('confirm article')
+                                <a href="{{ route('confirm.article', $latestArticleWithoutActivity->id) }}"
+                                    class="btn btn-sm btn-success">تایید مقاله</a>
+                            @endcan
                         </div>
-                        
+
                     </div>
                 </div>
             </div>
