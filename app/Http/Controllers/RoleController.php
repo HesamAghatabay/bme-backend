@@ -82,6 +82,24 @@ class RoleController extends Controller
 
         return view('edit-role', compact('theUser'));
     }
+    public function setadmin($id)
+    {
+        $user = User::findOrFail($id);
+        $user->syncRoles('admin');
+        return redirect()->route('role.edit', $id);
+    }
+    public function setreader($id)
+    {
+        $user = User::findOrFail($id);
+        $user->syncRoles('reader');
+        return redirect()->route('role.edit', $id);
+    }
+    public function setuser($id)
+    {
+        $user = User::findOrFail($id);
+        $user->syncRoles('user');
+        return redirect()->route('role.edit', $id);
+    }
 
     // /**
     //  * Update the specified resource in storage.

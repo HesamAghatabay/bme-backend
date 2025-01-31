@@ -12,12 +12,11 @@
                         <th scope="col">articles</th>
                         <th scope="col">categories</th>
                         <th scope="col">role</th>
-                        <th scope="col">chang role</th>
+                        <th scope="col">chang role to</th>
                     </tr>
                 </thead>
                 <tbody>
                     <tr>
-
                         <td>{{ $theUser->name }}</td>
                         <td>{{ $theUser->phone }}</td>
                         <td>{{ $theUser->articles->count($theUser->id) }}</td>
@@ -26,17 +25,19 @@
                             <td>{{ $role->name }}</td>
                         @endforeach
                         <td>
-                            <select class="form-select" aria-label="Default select example">
-                                <option selected>new role</option>
-                                <option value="1"><a href="#">Admin</a></option>
-                                <option value="2"><a href="#">Reader</a></option>
-                                <option value="3"><a href="#">User</a></option>
-                            </select>
+                            @can('add admin')
+                                <a class="btn btn-info" href="{{ route('setadmin', $theUser->id) }}">Admin</a>
+                            @endcan
+                            @can('add reader')
+                                <a class="btn btn-info" href="{{ route('setreader', $theUser->id) }}">Reader</a>
+                            @endcan
+                            <a class="btn btn-info" href="{{ route('setuser', $theUser->id) }}">User</a>
+
                         </td>
                     </tr>
                 </tbody>
             </table>
-
+            <a class="btn btn-warning" href="{{ route('roles') }}">بازگشت</a>
         </div>
     </section>
 @endsection

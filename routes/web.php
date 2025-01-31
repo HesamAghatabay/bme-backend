@@ -62,7 +62,9 @@ Route::middleware('auth')->group(function () {
 });
 
 Route::get('/roles', [RoleController::class, 'index'])->name('roles');
-// Route::get('/role.add', [RoleController::class, 'create'])->name('role.add');
+Route::get('/setadmin/{id}', [RoleController::class, 'setadmin'])->name('setadmin');
+Route::get('/setreader/{id}', [RoleController::class, 'setreader'])->name('setreader');
+Route::get('/setuser/{id}', [RoleController::class, 'setuser'])->name('setuser');
 // Route::post('/role.store', [RoleController::class, 'store'])->name('role.store');
 Route::get('/role.edit/{id}', [RoleController::class, 'edit'])->name('role.edit');
 // Route::put('/role.update/{id}', [RoleController::class, 'update'])->name('role.update');
