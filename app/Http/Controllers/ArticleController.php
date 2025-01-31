@@ -112,15 +112,15 @@ class ArticleController extends Controller
         //         // dd($latestArticleWithoutActivity->title);
         //     }
         // }
-        // $confirm = $article->confirm;
-        $user = Auth::user();
-        foreach ($user->roles as $role) {
-            $therole = $role->id;
-        }
-        if ($therole == 1 || $therole == 2 || $therole == 3) {
-            return view('latestarticle', compact('newArticles', 'bestArticles', 'latestArticleWithoutActivity'));
-        }
+        $confirm = $article->confirm;
         if (!$article) {
+            $user = Auth::user();
+            foreach ($user->roles as $role) {
+                $therole = $role->id;
+            }
+            if ($therole == 1 || $therole == 2 || $therole == 3) {
+                return view('latestarticle', compact('newArticles', 'bestArticles', 'latestArticleWithoutActivity'));
+            }
             return redirect()->route('index')->with('error', 'مقاله مورد نظر تایید نشده است لطفا منتظر بمانید');
         }
         $comments = $article->comments()->where('activity', 1)->get();
@@ -132,7 +132,7 @@ class ArticleController extends Controller
             Cookie::queue($articleCookieName, 'true', 120);
         }
 
-        return view('article', compact('article', 'commentsWithoutActivity', 'comments', 'newArticles', 'bestArticles'));
+        return view('article', compact('article', 'confirm', 'commentsWithoutActivity', 'comments', 'newArticles', 'bestArticles'));
     }
 
     /**

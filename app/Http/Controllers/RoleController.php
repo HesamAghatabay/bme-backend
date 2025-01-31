@@ -19,12 +19,12 @@ class RoleController extends Controller
      */
     public function index()
     {
-        $isAdmin = Auth::user()->is_admin;
+        // $isAdmin = Auth::user()->is_admin;
         $allUsers = User::all();
-        if ($isAdmin) {
+        // if ($isAdmin) {
             return view('roles', compact('allUsers'));
-        }
-        return redirect()->route('index')->with('error', 'مجوز دسترسی ندارید ');
+        // }
+        // return redirect()->route('index')->with('error', 'مجوز دسترسی ندارید ');
     }
 
     // /**
