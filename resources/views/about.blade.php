@@ -69,7 +69,8 @@
                                     <a href="#">
                                         <img src="{{ asset('images/images/' . $reader->profile->photo) }}"
                                             class="d-block img-ostadha rounded shadow" alt="{{ $reader->name }}">
-                                        <p class="m-2 irsans">{{ $reader->name }}</p>
+                                        <p class="m-2 irsans p-reder"> <span>
+                                                {{ $reader->name }}</span></p>
                                     </a>
                                 </div>
                             @endforeach

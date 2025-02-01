@@ -423,6 +423,12 @@ h4 {
 .z-x-notif{
     z-index: 999;
 }
+.p-reder span{
+    margin-top: 15px;
+    background-color: pink;
+    padding: 5px;
+    border-radius: 20px;
+}
 
 
 /* //////////////////part//////////////////// */

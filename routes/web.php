@@ -26,7 +26,8 @@ Route::get('/best-articles', [HomeController::class, 'bestarticles'])->name('bes
 Route::get('/lastest-articles', [HomeController::class, 'lastestarticles'])->name('lastest-articles');
 
 Route::get('/about', function () {
-    return view('about');
+    $readers = Role::findByName('reader')->users;
+    return view('about', compact('readers'));
 })->name('about');
 
 Route::get('register', [AuthController::class, 'register'])->name('register');
