@@ -420,6 +420,11 @@ h4 {
     border-radius: 12px;
     padding: 15px;
 }
+.z-x-notif{
+    z-index: 999;
+}
+
+
 /* //////////////////part//////////////////// */
 
 h5 {

@@ -36,45 +36,47 @@
                             </div>
                             <p>{!! $thiscategory->info !!}</p>
                         </div>
-                        <div class="d-flex justify-content-center mx-5 p-2 mt-4">
-                            <div class="">
-                                <a href="/category/{{ $thiscategory->id }}/edit" class="btn btn-warning">ویرایش
-                                </a>
-                            </div>
-                            <div class="col">
-                                <!-- Button trigger modal -->
-                                <button type="button" class="btn btn-danger" data-bs-toggle="modal"
-                                    data-bs-target="#exampleModal">
-                                    حذف
-                                </button>
+                        @can('delete category')
+                            <div class="d-flex justify-content-center mx-5 p-2 mt-4">
+                                <div class="">
+                                    <a href="/category/{{ $thiscategory->id }}/edit" class="btn btn-warning">ویرایش
+                                    </a>
+                                </div>
+                                <div class="col">
+                                    <!-- Button trigger modal -->
+                                    <button type="button" class="btn btn-danger" data-bs-toggle="modal"
+                                        data-bs-target="#exampleModal">
+                                        حذف
+                                    </button>
 
-                                <!-- Modal -->
-                                <div class="modal fade bg-transparent" id="exampleModal" tabindex="-1"
-                                    aria-labelledby="exampleModalLabel" aria-hidden="true">
-                                    <div class="modal-dialog">
-                                        <div class="modal-content">
-                                            <div class="modal-header">
-                                                <h1 class="modal-title fs-5" id="exampleModalLabel">آیا
-                                                    {{ $thiscategory->title }} را حذف می کنید؟</h1>
-                                                <button type="button" class="btn-close" data-bs-dismiss="modal"
-                                                    aria-label="Close"></button>
-                                            </div>
-                                            <div class="modal-footer">
-                                                <button type="button" class="btn btn-secondary"
-                                                    data-bs-dismiss="modal">لغو</button>
-                                                <form method="POST" action="/category/{{ $thiscategory->id }}">
-                                                    @csrf
-                                                    @method('delete')
-                                                    <button type="submit" class="btn btn-danger">حذف</button>
-                                                </form>
+                                    <!-- Modal -->
+                                    <div class="modal fade bg-transparent" id="exampleModal" tabindex="-1"
+                                        aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                        <div class="modal-dialog">
+                                            <div class="modal-content">
+                                                <div class="modal-header">
+                                                    <h1 class="modal-title fs-5" id="exampleModalLabel">آیا
+                                                        {{ $thiscategory->title }} را حذف می کنید؟</h1>
+                                                    <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                                        aria-label="Close"></button>
+                                                </div>
+                                                <div class="modal-footer">
+                                                    <button type="button" class="btn btn-secondary"
+                                                        data-bs-dismiss="modal">لغو</button>
+                                                    <form method="POST" action="/category/{{ $thiscategory->id }}">
+                                                        @csrf
+                                                        @method('delete')
+                                                        <button type="submit" class="btn btn-danger">حذف</button>
+                                                    </form>
 
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
-                                </div>
 
+                                </div>
                             </div>
-                        </div>
+                        @endcan
                     </div>
                     <div class="card d-none d-md-flex mb-2">
                         <div class="card-body">

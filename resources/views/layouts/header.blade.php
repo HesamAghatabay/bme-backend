@@ -195,7 +195,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="row text-center justify-content-center">
+                <div class="row text-center justify-content-center z-x-notif">
                     <div class="col-8">
 
                         @if (session('success'))
