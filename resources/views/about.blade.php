@@ -62,29 +62,19 @@
 
                 <div class="col-10 col-md-5 py-5">
                     <div id="carouselExample" class="carousel slide">
+                        <h5 class="seener-ostadha mx-3">ناظران سایت</h5>
                         <div class="carousel-inner">
-
-                            <div class="carousel-item active">
-                                <a href="">
-                                    <img src="{{ asset('imgs/img-1.jpg') }}" class="d-block img-ostadha rounded shadow"
-                                        alt="...">
-                                </a>
-                            </div>
-                            <div class="carousel-item">
-                                <a href="">
-                                    <img src="{{ asset('imgs/img-2.jpg') }}" class="d-block img-ostadha rounded shadow"
-                                        alt="...">
-                                </a>
-                            </div>
-                            <div class="carousel-item">
-                                <a href="">
-                                    <img src="{{ asset('imgs/img-3.jpg') }}" class="d-block img-ostadha rounded shadow"
-                                        alt="...">
-                                </a>
-                            </div>
+                            @foreach ($readers as $reader)
+                                <div class="carousel-item active">
+                                    <a href="#">
+                                        <img src="{{ asset('images/images/' . $reader->profile->photo) }}"
+                                            class="d-block img-ostadha rounded shadow" alt="{{ $reader->name }}">
+                                        <p class="m-2 irsans">{{ $reader->name }}</p>
+                                    </a>
+                                </div>
+                            @endforeach
                         </div>
                         <div class="d-flex justify-content-center mt-3">
-                            <h5 class="seener-ostadha mx-3">اساتید ناظر مقالات</h5>
                             <a class="mx-1" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
                                 <i class="bi bi-arrow-right-square-fill f-blue f-25"></i>
                             </a>
