@@ -408,8 +408,11 @@ h4 {
 .bg-transparent {
     background: transparent;
 }
-.mb-250 {
-    margin-bottom: 250px;
+.mb-200 {
+    margin-bottom: 200px;
+}
+.mt-80{
+    margin-top: 80px;
 }
 .bg-role-table {
     /* background-color: #44affc; */

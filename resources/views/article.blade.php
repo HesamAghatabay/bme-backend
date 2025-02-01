@@ -107,9 +107,11 @@
                                             <p>{{ $comment->body }}</p>
                                         </div>
                                     </div>
-                                    <div>
-                                        <a href="" class="btn btn-sm btn-danger">حذف نظر</a>
-                                    </div>
+                                    @can('confirm comments')
+                                        <div>
+                                            <a href="" class="btn btn-sm btn-danger">حذف نظر</a>
+                                        </div>
+                                    @endcan
                                 @endforeach
 
                             </div>
@@ -151,8 +153,11 @@
                                                 </div>
                                             </div>
                                             <div class="d-flex justify-content-center my-2">
-                                                <a href="{{ route('confirm.comments', $comment->id) }}"
-                                                    class="btn btn-sm btn-success mx-1">تایید</a>
+                                                <form action="{{ route('confirm.comments', $comment->id) }}" method="POST">
+                                                    @csrf
+                                                    @method('put')
+                                                    <button type="submit" class="btn btn-sm btn-success mx-1">تایید</button>
+                                                </form>
                                                 <form action="{{ route('destroy.comments', $comment->id) }}" method="post">
                                                     @csrf
                                                     @method('delete')

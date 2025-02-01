@@ -217,6 +217,7 @@
                             دانشگاه کارآفرین گام بر می‌دارد.</p>
                     </div>
                 </div>
+
                 <div class="col-12 col-md-6 py-5">
                     <div id="carouselExample" class="carousel slide">
                         <div class="carousel-inner">
@@ -251,6 +252,7 @@
                         </div>
                     </div>
                 </div>
+                
             </div>
         </div>
     </section>

@@ -36,7 +36,7 @@
             </div>
 
 
-            <div class="row justify-content-center align-items-center mb-250">
+            <div class="row justify-content-center align-items-center mb-200 mt-80">
                 <div class="col-10 col-md-4">
                     <h5>رئیس دانشکده: محمدرضا جوان
                     </h5>

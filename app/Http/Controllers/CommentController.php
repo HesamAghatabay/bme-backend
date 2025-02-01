@@ -64,28 +64,23 @@ class CommentController extends Controller
      */
     public function show($id)
     {
-        $user = Auth::user();
-        if (!$user) {
-            return redirect()->route('login')->with('error', 'لطفا وارد سایت شوید');
-        }
-        $comment = comment::findOrFail($id);
-        // dd($comment);
-        $articleId = $comment->article->id;
-        $confirm = $comment->update([
-            'activity' => 1,
-        ]);
-        if (!$confirm) {
-            return redirect()->back()->with('error', 'دوباره تلاش کنید');
-        }
-        return redirect()->route('article.show', $articleId)->with('success', 'نظر' . $comment->name . 'تایید شد');
+        //
     }
 
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(comment $comment)
+    public function edit(comment $comment, $id)
     {
-        //
+        $user = Auth::user();
+        if (!$user) {
+            return redirect()->route('login')->with('error', 'لطفا وارد سایت شوید');
+        }
+        $comment = comment::findOrFail($id);
+        $articleId = $comment->article->id;
+        $comment->activity = 1;
+        $comment->save();
+        return redirect()->route('article.show', $articleId)->with('success', 'نظر' . $comment->name . 'تایید شد');
     }
 
     /**
@@ -102,7 +97,7 @@ class CommentController extends Controller
     public function destroy(comment $comment, $id)
     {
         $comment = comment::find($id);
-        $comment->delete;
-        return redirect()->route('article.show', $comment->article->id)->with('sucsess', 'نظر حذف شد');
+        $comment->delete();
+        return redirect()->route('article.show', $comment->article->id)->with('success', 'نظر ' . $comment->name . 'حذف شد');
     }
 }

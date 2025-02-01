@@ -12,6 +12,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
+use Spatie\Permission\Models\Role;
 
 class HomeController extends Controller
 {
@@ -36,6 +37,8 @@ class HomeController extends Controller
         // foreach ($categories as $categories) {
         //     $articles = DB::table('articles')->where('category_id', $categories->id)->get();
         // }
+        $readers = Role::findByName('reader');
+        dd($readers);
         return view('index', compact('categories', 'articles', 'bestarticles', 'categoryHasArticle', 'newarticles', 'latestArticleWithoutActivity'));
     }
     public function create()

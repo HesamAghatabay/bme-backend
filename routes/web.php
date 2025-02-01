@@ -70,7 +70,7 @@ Route::get('/role.edit/{id}', [RoleController::class, 'edit'])->name('role.edit'
 // Route::put('/role.update/{id}', [RoleController::class, 'update'])->name('role.update');
 
 Route::post('comment.store/{id}', [CommentController::class, 'store'])->name('comment.store');
-Route::get('/confirm.comments/{id}', [CommentController::class, 'show'])->name('confirm.comments');
+Route::put('/confirm.comments/{id}', [CommentController::class, 'edit'])->name('confirm.comments');
 Route::delete('/destroy.comments/{id}', [CommentController::class, 'destroy'])->name('destroy.comments');
 
 Route::get('/permission', function () {
