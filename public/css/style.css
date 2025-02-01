@@ -408,8 +408,8 @@ h4 {
 .bg-transparent {
     background: transparent;
 }
-.mb-200 {
-    margin-bottom: 200px;
+.mb-100 {
+    margin-bottom: 100px;
 }
 .mt-80{
     margin-top: 80px;
@@ -426,7 +426,7 @@ h4 {
 .p-reder span{
     margin-top: 15px;
     background-color: pink;
-    padding: 5px;
+    padding: 5px 15px;
     border-radius: 20px;
 }
 

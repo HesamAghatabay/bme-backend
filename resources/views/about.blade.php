@@ -36,7 +36,7 @@
             </div>
 
 
-            <div class="row justify-content-center align-items-center mb-200 mt-80">
+            <div class="row justify-content-center align-items-center mb-100 mt-80">
                 <div class="col-10 col-md-4">
                     <h5>رئیس دانشکده: محمدرضا جوان
                     </h5>
@@ -69,7 +69,7 @@
                                     <a href="#">
                                         <img src="{{ asset('images/images/' . $reader->profile->photo) }}"
                                             class="d-block img-ostadha rounded shadow" alt="{{ $reader->name }}">
-                                        <p class="m-2 irsans p-reder"> <span>
+                                        <p class="m-4 irsans p-reder"> <span>
                                                 {{ $reader->name }}</span></p>
                                     </a>
                                 </div>
