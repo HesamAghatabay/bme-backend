@@ -134,3 +134,13 @@ Route::get('/other2', function () {
     $role2->givePermissionTo($permission15);
     dd('other is done');
 });
+Route::get('/other3', function () {
+    $permission16 = Permission::create(['name' => 'confirm comments']);
+    $role1 = Role::find(1);
+    $role2 = Role::find(2);
+    $role3 = Role::find(3);
+    $role1->givePermissionTo($permission16);
+    $role2->givePermissionTo($permission16);
+    $role3->givePermissionTo($permission16);
+    dd('other is done');
+});

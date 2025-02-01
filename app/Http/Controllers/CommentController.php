@@ -62,20 +62,15 @@ class CommentController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(comment $comment, $id)
+    public function show($id)
     {
         $user = Auth::user();
         if (!$user) {
             return redirect()->route('login')->with('error', 'لطفا وارد سایت شوید');
         }
         $comment = comment::findOrFail($id);
+        dd($comment);
         $articleId = $comment->article->id;
-        $usreRole = Auth::user()->roleUsers->role_id;
-        // dd($usreRole);
-        if ($usreRole != 1) {
-            return redirect()->route('article.show', $articleId)->with('error', 'مجوز دسترسی ندارید');
-        }
-        // dd($articleId);
         $confirm = $comment->update([
             'activity' => 1,
         ]);

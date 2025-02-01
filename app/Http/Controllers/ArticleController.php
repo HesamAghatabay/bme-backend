@@ -112,7 +112,6 @@ class ArticleController extends Controller
         //         // dd($latestArticleWithoutActivity->title);
         //     }
         // }
-        $confirm = $article->confirm;
         if (!$article) {
             $user = Auth::user();
             foreach ($user->roles as $role) {
@@ -123,6 +122,7 @@ class ArticleController extends Controller
             }
             return redirect()->route('index')->with('error', 'مقاله مورد نظر تایید نشده است لطفا منتظر بمانید');
         }
+        $confirm = $article->confirm;
         $comments = $article->comments()->where('activity', 1)->get();
         $commentsWithoutActivity = $article->comments()->where('activity', 0)->get();
 
