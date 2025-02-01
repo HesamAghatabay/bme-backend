@@ -69,7 +69,7 @@ class CommentController extends Controller
             return redirect()->route('login')->with('error', 'لطفا وارد سایت شوید');
         }
         $comment = comment::findOrFail($id);
-        dd($comment);
+        // dd($comment);
         $articleId = $comment->article->id;
         $confirm = $comment->update([
             'activity' => 1,
@@ -99,8 +99,10 @@ class CommentController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(comment $comment)
+    public function destroy(comment $comment, $id)
     {
-        //
+        $comment = comment::find($id);
+        $comment->delete;
+        return redirect()->route('article.show', $comment->article->id)->with('sucsess', 'نظر حذف شد');
     }
 }

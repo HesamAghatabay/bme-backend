@@ -150,10 +150,14 @@
                                                     <p>{{ $comment->body }}</p>
                                                 </div>
                                             </div>
-                                            <div>
+                                            <div class="d-flex justify-content-center my-2">
                                                 <a href="{{ route('confirm.comments', $comment->id) }}"
-                                                    class="btn btn-sm btn-success">تایید</a>
-                                                <a href="" class="btn btn-sm btn-danger">حذف نظر</a>
+                                                    class="btn btn-sm btn-success mx-1">تایید</a>
+                                                <form action="{{ route('destroy.comments', $comment->id) }}" method="post">
+                                                    @csrf
+                                                    @method('delete')
+                                                    <button type="submit" class="btn btn-sm btn-danger">حذف نظر</button>
+                                                </form>
                                             </div>
                                 @endforeach
                             @endcan
