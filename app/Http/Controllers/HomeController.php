@@ -37,9 +37,9 @@ class HomeController extends Controller
         // foreach ($categories as $categories) {
         //     $articles = DB::table('articles')->where('category_id', $categories->id)->get();
         // }
-        $readers = Role::findByName('reader');
-        dd($readers);
-        return view('index', compact('categories', 'articles', 'bestarticles', 'categoryHasArticle', 'newarticles', 'latestArticleWithoutActivity'));
+        $readers = Role::findByName('reader')->users;
+        // dd($readers);
+        return view('index', compact('categories', 'readers', 'articles', 'bestarticles', 'categoryHasArticle', 'newarticles', 'latestArticleWithoutActivity'));
     }
     public function create()
     {

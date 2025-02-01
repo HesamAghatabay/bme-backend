@@ -221,25 +221,16 @@
                 <div class="col-12 col-md-6 py-5">
                     <div id="carouselExample" class="carousel slide">
                         <div class="carousel-inner">
+                            @foreach ($readers as $reader)
+                                <div class="carousel-item active">
+                                    <a href="#">
+                                        <img src="{{ asset('images/images/' . $reader->image) }}"
+                                            class="d-block img-ostadha rounded shadow" alt="{{$reader->name}}">
+                                        <p>{{ $reader->name }}</p>
+                                    </a>
+                                </div>
+                            @endforeach
 
-                            <div class="carousel-item active">
-                                <a href="">
-                                    <img src="{{ asset('imgs/img-1.jpg') }}" class="d-block img-ostadha rounded shadow"
-                                        alt="...">
-                                </a>
-                            </div>
-                            <div class="carousel-item">
-                                <a href="">
-                                    <img src="{{ asset('imgs/img-2.jpg') }}" class="d-block img-ostadha rounded shadow"
-                                        alt="...">
-                                </a>
-                            </div>
-                            <div class="carousel-item">
-                                <a href="">
-                                    <img src="{{ asset('imgs/img-3.jpg') }}" class="d-block img-ostadha rounded shadow"
-                                        alt="...">
-                                </a>
-                            </div>
                         </div>
                         <div class="d-flex justify-content-center mt-3">
                             <h5 class="seener-ostadha mx-3">اساتید ناظر مقالات</h5>
@@ -252,7 +243,7 @@
                         </div>
                     </div>
                 </div>
-                
+
             </div>
         </div>
     </section>
