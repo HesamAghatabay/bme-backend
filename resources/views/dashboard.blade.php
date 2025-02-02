@@ -38,7 +38,8 @@
                                     </div>
                                 </a>
                                 <div class="d-flex mt-3 justify-content-center">
-                                    <a class="btn btn-sm btn-success mx-1" href="">ویرایش مقاله</a>
+                                    <a class="btn btn-sm btn-success mx-1" href="/article/{{ $article->id }}/edit">ویرایش
+                                        مقاله</a>
                                     <a class="btn btn-sm btn-danger" href="">حذف</a>
                                 </div>
                             </div>

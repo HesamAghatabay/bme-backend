@@ -125,7 +125,7 @@ class ArticleController extends Controller
         $confirm = $article->confirm;
         $comments = $article->comments()->where('activity', 1)->get();
         $commentsWithoutActivity = $article->comments()->where('activity', 0)->get();
-        
+
         $articleCookieName = 'viewed_article_' . $id;
         if (!Cookie::get($articleCookieName)) {
             $article->increment('view');
@@ -138,9 +138,9 @@ class ArticleController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(article $article)
+    public function edit($id)
     {
-        //
+        return view('edit-article', compact('id'));
     }
 
     /**
