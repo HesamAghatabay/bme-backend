@@ -429,6 +429,12 @@ h4 {
     padding: 5px 15px;
     border-radius: 20px;
 }
+.card-article-dashboard{
+    border: 3px solid green;
+    border-radius: 15px;
+    padding: 8px 10px;
+    box-shadow: 3px 3px 10px 1px rgb(139, 135, 135);
+}
 
 
 /* //////////////////part//////////////////// */

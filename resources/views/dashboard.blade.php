@@ -12,8 +12,8 @@
                 </div>
                 <div class="col-4">
 
-                            <img class="profile-img shadow" src="{{ asset('images/images/' . $userAuth->profile->photo) }}"
-                                alt="عکس پروفایلش">
+                    <img class="profile-img shadow" src="{{ asset('images/images/' . $userAuth->profile->photo) }}"
+                        alt="عکس پروفایلش">
 
                 </div>
             </div>
@@ -25,17 +25,23 @@
                 <div class="row row-cols-2 row-cols-md-4 justify-content-center">
 
                     @foreach ($userAuth->articles as $article)
-                        <div class="col align-self-center my-3">
-                            <a href="{{ route('article.show', $article->id) }}">
-                                <div class="new-card shadow"
-                                    style="background-image: url('{{ asset('images/images/' . $article->image) }}')">
-                                    <div class="new-card-body">
-                                        <h6>
-                                            {{ $article->intro }}
-                                        </h6>
+                        <div class="col align-self-center my-3 d-flex">
+                            <div class="card-article-dashboard">
+                                <a href="{{ route('article.show', $article->id) }}">
+                                    <div class="new-card shadow"
+                                        style="background-image: url('{{ asset('images/images/' . $article->image) }}')">
+                                        <div class="new-card-body">
+                                            <h6>
+                                                {{ $article->intro }}
+                                            </h6>
+                                        </div>
                                     </div>
+                                </a>
+                                <div class="d-flex mt-3 justify-content-center">
+                                    <a class="btn btn-sm btn-success mx-1" href="">ویرایش مقاله</a>
+                                    <a class="btn btn-sm btn-danger" href="">حذف</a>
                                 </div>
-                            </a>
+                            </div>
                         </div>
                     @endforeach
 
