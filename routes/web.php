@@ -54,6 +54,7 @@ Route::resource('category', CategoryController::class);
 // Route::get('article/show/{id}', [ArticleController::class, 'show'])->name('article.show');
 Route::resource('article', articleController::class);
 Route::get('/confirm.article/{id}', [ArticleController::class, 'confirm'])->name('confirm.article');
+Route::put('/decline.article/{id}', [ArticleController::class, 'decline'])->name('decline.article');
 
 Route::get('/dashboard', [ProfileController::class, 'index'])->middleware(['auth', 'verified'])->name('dashboard');
 Route::middleware('auth')->group(function () {

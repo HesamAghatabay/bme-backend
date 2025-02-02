@@ -239,4 +239,12 @@ class ArticleController extends Controller
         }
         return redirect()->route('index')->with('success', 'مقاله تایید شد');
     }
+    public function decline($id)
+    {
+        $article = article::findOrFail($id);
+        $article->update([
+            'activity' => 0,
+        ]);
+        return redirect()->route('index')->with('success', $article->title . ' لغو تایید شد');
+    }
 }

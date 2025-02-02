@@ -96,6 +96,11 @@
                             <div class="text-end">
                                 <p>تایید شده توسط : {{ $confirm->user->name }}</p>
                                 <p>تاریخ : {{ $confirm->date }}</p>
+                                <form action="{{ route('decline.article', $article->id) }}" method="post">
+                                    @csrf
+                                    @method('put')
+                                    <button class="btn btn-sm btn-warning" type="submit">لغو تایید</button>
+                                </form>
                             </div>
                         </div>
                         <div class="row justify-content-center my-4">
