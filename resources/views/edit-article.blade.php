@@ -1,7 +1,7 @@
 @extends('layouts.master')
 @section('content')
     <h1 class="text-center mt-5 pt-5"> ویرایش {{ $article->title }}</h1>
-    <section class="text-start mt-100 bg-add-article py-5">
+    <section class="text-start mt-130 bg-add-article py-5">
         <form method="POST" action="/article/{{ $article->id }}" enctype="multipart/form-data">
             @csrf
             @method('put')
