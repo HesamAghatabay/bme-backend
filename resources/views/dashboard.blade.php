@@ -31,7 +31,7 @@
                                     <div class="new-card shadow"
                                         style="background-image: url('{{ asset('images/images/' . $article->image) }}')">
                                         <div class="new-card-body">
-                                            <h6 class="text-center ">
+                                            <h6 class="text-center article-h6">
                                                 {{ $article->intro }}
                                             </h6>
                                         </div>
