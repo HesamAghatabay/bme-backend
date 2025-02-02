@@ -142,6 +142,9 @@ class ArticleController extends Controller
     public function edit($id)
     {
         $article = article::findOrFail($id);
+        if ($article->activity) {
+            return redirect()->back()->with('error', 'درحال حاضر امکان ویرایش ' . $article->title . ' وجود ندارد. برای ویرایش با ناظرات هماهنگ نمایید');
+        }
         return view('edit-article', compact('article'));
     }
 
@@ -174,7 +177,7 @@ class ArticleController extends Controller
             'date.reauired' => 'تاریخ الزامی است',
             'body.required' => 'متن بدنه الزامی است'
         ]);
-        if ($request->hasFile('photo')) {
+        if ($request->hasFile('image')) {
             Storage::delete('/images/images/' . $article->photo);
             $filename = time() . ' - ' . $request->image->getClientOriginalName();
             $request->image->storeAs('/images', $filename);
