@@ -1,7 +1,7 @@
 @extends('layouts.master')
 @section('content')
-    <h1 class="text-center mt-5 pt-5">صفحه افزودن مقاله جدید</h1>
-    <section class="text-start mt-130 bg-add-article py-5">
+    <h1 class="text-center mt-5 pt-5"> ویرایش {{ $article->title }}</h1>
+    <section class="text-start mt-100 bg-add-article py-5">
         <form method="POST" action="" enctype="multipart/form-data">
             @csrf
             @method('put')
@@ -10,7 +10,8 @@
                 <div class="row justify-content-center align-items-start">
                     <div class="col-10 col-md-4">
                         <label for="title" class="form-label">عنوان</label>
-                        <input type="text" value="" class="form-control mb-2" name="title" id="title" placeholder="عنوان">
+                        <input type="text" value="{{ $article->title }}" class="form-control mb-2" name="title"
+                            id="title" placeholder="عنوان">
                         @error('title')
                             <p class="f-r mb-4">{{ $message }}</p>
                         @enderror
@@ -25,28 +26,32 @@
 
 
                         <label for="intro" class="form-label">مقدمه</label>
-                        <input type="text" class="form-control mb-2" name="intro" id="intro" placeholder="مقدمه">
+                        <input type="text" value="{{ $article->intro }}" class="form-control mb-2" name="intro"
+                            id="intro" placeholder="مقدمه">
                         @error('intro')
                             <p class="f-r mb-4">{{ $message }}</p>
                         @enderror
 
 
                         <label for="resources" class="form-label">منابع</label>
-                        <input type="text" class="form-control mb-2" name="resources" id="resources" placeholder="منابع">
+                        <input type="text" value="{{ $article->resources }}" class="form-control mb-2" name="resources"
+                            id="resources" placeholder="منابع">
                         @error('resources')
                             <p class="f-r mb-4">{{ $message }}</p>
                         @enderror
 
 
                         <label for="writer" class="form-label">نویسنده</label>
-                        <input type="text" class="form-control mb-2" name="writer" id="writer" placeholder="نویسنده">
+                        <input type="text" value="{{ $article->writer }}" class="form-control mb-2" name="writer"
+                            id="writer" placeholder="نویسنده">
                         @error('writer')
                             <p class="f-r mb-4">{{ $message }}</p>
                         @enderror
 
 
                         <label for="date" class="form-label">تاریخ</label>
-                        <input type="date" class="form-control mb-2" name="date" id="date">
+                        <input type="date" value="{{ $article->date }}" class="form-control mb-2" name="date"
+                            id="date">
                         @error('date')
                             <p class="f-r mb-4">{{ $message }}</p>
                         @enderror
@@ -68,7 +73,7 @@
 
                     <div class="col-10 col-md-7">
                         <label for="body" class="form-label">بدنه</label>
-                        <textarea class="ckeditor mb-2" name="body" id="editor1"></textarea>
+                        <textarea class="ckeditor mb-2" name="body" id="editor1">{{ $article->body }}</textarea>
                         @error('body')
                             <p class="f-r mb-4">{{ $message }}</p>
                         @enderror
