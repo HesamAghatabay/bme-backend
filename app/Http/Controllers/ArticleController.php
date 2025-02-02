@@ -12,6 +12,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Cookie;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Storage;
 use Spatie\Permission\Models\Role;
 
 use function Laravel\Prompts\confirm;
@@ -147,9 +148,67 @@ class ArticleController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, article $article)
+    public function update(Request $request, $id)
     {
-        //
+        $article = article::findOrFail($id);
+        $articleinall = allarticles::findOrFail($id);
+
+        $request->validate([
+            'title' => 'required|max:255',
+            'image' => 'required|image|mimes:jpeg,png,jpg,gif|max:2048',
+            'intro' => 'required',
+            'resources' => 'required|max:255',
+            'writer' => 'required|max:255',
+            'date' => 'required|date',
+            'body' => 'required'
+        ], [
+            'title.required' => 'عنوان الزامی است',
+            'title.max' => 'بیش از حد مجاز',
+            'image.required' => 'تصویر الزامی است',
+            'image.max' => 'بیش از حد مجاز',
+            'intro.required' => 'توضیحات الزامی است',
+            'resources.required' => 'نوشتن منابع الزامی است',
+            'resources.max' => 'بیش از حد مجاز',
+            'writer.required' => 'نوشتن نویسنده الزامی است',
+            'writer.max' => 'بیش از حد مجاز',
+            'date.reauired' => 'تاریخ الزامی است',
+            'body.required' => 'متن بدنه الزامی است'
+        ]);
+        if ($request->hasFile('photo')) {
+            Storage::delete('/images/images/' . $article->photo);
+            $filename = time() . ' - ' . $request->image->getClientOriginalName();
+            $request->image->storeAs('/images', $filename);
+        }
+        $userid = Auth::user()->id;
+        $userIp = $request->ip();
+        $article->update([
+            'title' => $request->title,
+            'image' => $filename,
+            'intro' => $request->intro,
+            'resources' => $request->resources,
+            'writer' => $request->writer,
+            'date' => $request->date,
+            'body' => $request->body,
+            'category_id' => $request->category_id,
+            'user_id' => $userid,
+            'userip' => $userIp
+        ]);
+        $articleinall->update([
+            'title' => $request->title,
+            'image' => $filename,
+            'intro' => $request->intro,
+            'resources' => $request->resources,
+            'writer' => $request->writer,
+            'date' => $request->date,
+            'body' => $request->body,
+            'category_id' => $request->category_id,
+            'user_id' => $userid,
+            'userip' => $userIp
+        ]);
+        if (!$article || !$articleinall) {
+            return redirect()->back()->with('error', 'ویرایش مقاله با خطا مواجه شد');
+        }
+        return redirect()->route('dashboard')->with('success', 'مقاله با موفقیت ویرایش شد');
     }
 
     /**

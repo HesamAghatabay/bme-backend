@@ -2,7 +2,7 @@
 @section('content')
     <h1 class="text-center mt-5 pt-5"> ویرایش {{ $article->title }}</h1>
     <section class="text-start mt-100 bg-add-article py-5">
-        <form method="POST" action="" enctype="multipart/form-data">
+        <form method="POST" action="/article/{{ $article->id }}" enctype="multipart/form-data">
             @csrf
             @method('put')
             <div class="container">
@@ -81,7 +81,7 @@
                 </div>
                 <div class="row justify-content-start">
                     <div class="col-3 text-end mt-4">
-                        <button type="submit" class="btn btn-info m-4">ارسال مقاله</button>
+                        <button type="submit" class="btn btn-info m-4">ویرایش مقاله</button>
                     </div>
                 </div>
             </div>
