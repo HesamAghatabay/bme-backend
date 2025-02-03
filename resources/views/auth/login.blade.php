@@ -70,7 +70,7 @@
 
                         <div class="d-flex align-items-center">
                             <button type="submit" class="btn btn-info mx-4">ورود</button>
-                            <a href="{{route('forgot.password')}}"> رمز خود را فراموش کرده اید. </a>
+                            <a class="forget-psass" href="{{ route('forgot.password') }}"> رمز خود را فراموش کرده اید. </a>
                         </div>
 
                     </form>
