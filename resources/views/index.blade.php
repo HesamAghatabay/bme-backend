@@ -20,9 +20,6 @@
                     <h6>وبسایت رسمی مقالات مهندسی پزشکی و کمک توانبخشی دانشگاه صنعتی شاهرود</h6>
                 </div>
             </div>
-
-
-
             <div class="row justify-content-center">
                 <div class="col-5">
                     <div class="serch-header shadow animate__animated animate__fadeInUpBig">
