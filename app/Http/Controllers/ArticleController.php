@@ -123,7 +123,8 @@ class ArticleController extends Controller
             }
             return redirect()->route('index')->with('error', 'مقاله مورد نظر تایید نشده است لطفا منتظر بمانید');
         }
-        $confirm = $article->confirm;
+        $confirm = $article->confirm->latest()->take(1)->get();
+        // dd($confirm);
         $comments = $article->comments()->where('activity', 1)->get();
         $commentsWithoutActivity = $article->comments()->where('activity', 0)->get();
 
@@ -155,7 +156,6 @@ class ArticleController extends Controller
     {
         $article = article::findOrFail($id);
         $articleinall = allarticles::findOrFail($id);
-
         $request->validate([
             'title' => 'required|max:255',
             'image' => 'required|image|mimes:jpeg,png,jpg,gif|max:2048',

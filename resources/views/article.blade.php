@@ -94,8 +94,10 @@
                                 <p class="mb-5">{!! $article->body !!}</p>
                             </div>
                             <div class="text-end">
-                                <p>تایید شده توسط : {{ $confirm->user->name }}</p>
-                                <p>تاریخ : {{ $confirm->date }}</p>
+                                @foreach ($confirm as $confirm)
+                                    <p>تایید شده توسط : {{ $confirm->user->name }}</p>
+                                    <p>تاریخ : {{ $confirm->date }}</p>
+                                @endforeach
                                 <form action="{{ route('decline.article', $article->id) }}" method="post">
                                     @csrf
                                     @method('put')

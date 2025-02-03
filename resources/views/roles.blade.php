@@ -9,8 +9,8 @@
 
 
     <div class="btn-group m-5" role="group" aria-label="Basic outlined example">
-        <a class="btn btn-outline-primary" href="{{ route('client.add') }}">افزودن کاربر</a>
-        <a class="btn btn-outline-primary" href="#">افزودن نقش</a>
+        <a class="btn btn-outline-primary" href="{{ route('client.add') }}">افزودن کاربر جدید</a>
+        {{-- <a class="btn btn-outline-primary" href="#">افزودن نقش</a> --}}
     </div>
 
     <div class="container">
