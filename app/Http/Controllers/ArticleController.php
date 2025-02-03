@@ -225,7 +225,11 @@ class ArticleController extends Controller
     {
         $user = Auth::user();
         $article = article::findOrFail($id);
+        $articleinall = allarticles::findOrFail($id);
         $activity = $article->update([
+            'activity' => 1,
+        ]);
+        $activityinall = $article->update([
             'activity' => 1,
         ]);
         $confirm = confirm::create([
@@ -234,7 +238,7 @@ class ArticleController extends Controller
             'user_id' => $user->id,
             'article_id' => $id,
         ]);
-        if (!$activity && !$confirm) {
+        if (!$activity && !$activityinall && !$confirm) {
             return redirect()->back()->with('error', 'دوباره تلاش نمایید');
         }
         return redirect()->route('index')->with('success', 'مقاله تایید شد');
@@ -242,7 +246,11 @@ class ArticleController extends Controller
     public function decline($id)
     {
         $article = article::findOrFail($id);
+        $articleinall = allarticles::findOrFail($id);
         $article->update([
+            'activity' => 0,
+        ]);
+        $articleinall->update([
             'activity' => 0,
         ]);
         return redirect()->route('index')->with('success', $article->title . ' لغو تایید شد');
