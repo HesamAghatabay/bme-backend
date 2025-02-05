@@ -44,7 +44,7 @@
             <h3>دسته ها</h3>
         </div>
         <div class="container">
-            <div class="row">
+            <div class="row justify-content-center align-items-center">
 
                 @foreach ($categories as $category)
                     <div class="col-4 col-md-2">
