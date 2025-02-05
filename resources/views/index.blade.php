@@ -97,16 +97,16 @@
 
 
     <!-- new-articles -->
-    <section id="new-articles" class="text-center">
+    <section id="new-articles" class="text-center px-2">
         <div class="container">
             <div class="h3-div d-flex justify-content-between align-items-center">
                 <h3 class="text-start">مقالات جدید</h3>
                 <a href="{{ route('lastest-articles') }}" class="text-end button-71 shadow">مشاهده همه</a>
             </div>
-            <div class="row row-cols-2 row-cols-md-5 justify-content-center align-items-center">
+            <div class="row row-cols-2 row-cols-md-5 justify-content-center">
 
                 @foreach ($newarticles as $article)
-                    <div class="col align-self-center my-3">
+                    <div class="col my-3 text-center">
                         <div class="new-card shadow"
                             style="background-image: url('{{ asset('images/images/' . $article->image) }}')">
                             <a class="text-center" href="/article/{{ $article->id }}">
@@ -127,7 +127,7 @@
 
     <!-- ////////////part-1-articles//////////// -->
     @foreach ($categoryHasArticle as $category)
-        <section id="" class="text-center mt-130">
+        <section id="" class="text-center mt-130 px-2">
             <div class="container">
                 <div class="h3-div d-flex justify-content-between align-items-center">
                     <h3 class="text-start">مقالات دسته {{ $category->title }}</h3>
@@ -139,15 +139,15 @@
                     @foreach ($category->articles->where('activity', 1) as $article)
                         <div class="col align-self-center my-3">
                             <div
-                            class="new-card shadow"style="background-image: url('{{ asset('images/images/' . $article->image) }}')">
-                            <a href="/article/{{ $article->id }}">
+                                class="new-card shadow"style="background-image: url('{{ asset('images/images/' . $article->image) }}')">
+                                <a href="/article/{{ $article->id }}">
                                     <div class="new-card-body">
                                         <h6>
                                             {{ $article->intro }}
                                         </h6>
                                     </div>
                                 </a>
-                                </div>
+                            </div>
                         </div>
                     @endforeach
 
@@ -159,7 +159,7 @@
 
 
     <!-- latest-articles-without-activity -->
-    <section id="new-articles" class="text-center">
+    <section id="new-articles" class="text-center px-2">
         <div class="container">
             <div class="h3-div d-flex justify-content-between align-items-center">
                 <h3 class="text-start">مقالات در انتظار تایید</h3>
@@ -169,8 +169,8 @@
                 @foreach ($latestArticleWithoutActivity as $article)
                     <div class="col align-self-center my-3">
                         <div class="new-card shadow"
-                        style="background-image: url('{{ asset('images/images/' . $article->image) }}')">
-                        <a href="/article/{{ $article->id }}">
+                            style="background-image: url('{{ asset('images/images/' . $article->image) }}')">
+                            <a href="/article/{{ $article->id }}">
                                 <div class="new-card-body">
                                     <h6>
                                         {{ $article->intro }}
