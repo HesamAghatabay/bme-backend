@@ -107,16 +107,16 @@
 
                 @foreach ($newarticles as $article)
                     <div class="col align-self-center my-3">
-                        <a href="/article/{{ $article->id }}">
-                            <div class="new-card shadow"
-                                style="background-image: url('{{ asset('images/images/' . $article->image) }}')">
+                        <div class="new-card shadow"
+                            style="background-image: url('{{ asset('images/images/' . $article->image) }}')">
+                            <a class="text-center" href="/article/{{ $article->id }}">
                                 <div class="new-card-body">
                                     <h6>
                                         {{ $article->intro }}
                                     </h6>
                                 </div>
-                            </div>
-                        </a>
+                            </a>
+                        </div>
                     </div>
                 @endforeach
 
@@ -138,16 +138,16 @@
 
                     @foreach ($category->articles->where('activity', 1) as $article)
                         <div class="col align-self-center my-3">
+                            <div
+                            class="new-card shadow"style="background-image: url('{{ asset('images/images/' . $article->image) }}')">
                             <a href="/article/{{ $article->id }}">
-                                <div
-                                    class="new-card shadow"style="background-image: url('{{ asset('images/images/' . $article->image) }}')">
                                     <div class="new-card-body">
                                         <h6>
                                             {{ $article->intro }}
                                         </h6>
                                     </div>
+                                </a>
                                 </div>
-                            </a>
                         </div>
                     @endforeach
 
@@ -168,16 +168,16 @@
 
                 @foreach ($latestArticleWithoutActivity as $article)
                     <div class="col align-self-center my-3">
+                        <div class="new-card shadow"
+                        style="background-image: url('{{ asset('images/images/' . $article->image) }}')">
                         <a href="/article/{{ $article->id }}">
-                            <div class="new-card shadow"
-                                style="background-image: url('{{ asset('images/images/' . $article->image) }}')">
                                 <div class="new-card-body">
                                     <h6>
                                         {{ $article->intro }}
                                     </h6>
                                 </div>
-                            </div>
-                        </a>
+                            </a>
+                        </div>
                     </div>
                 @endforeach
 
