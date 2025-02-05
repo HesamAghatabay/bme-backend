@@ -11,6 +11,8 @@
         </div>
     </div>
 @endsection
+
+
 @section('desktoph')
     <div class="div-header text-center">
         <div class="container-fluid">

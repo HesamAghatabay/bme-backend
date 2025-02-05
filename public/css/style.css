@@ -49,6 +49,9 @@ header a {
 .f-black {
     color: #000;
 }
+.f-27 {
+    font-size: 27px;
+}
 .div-header {
     /* position: absolute; */
     /* top: 50px; */
@@ -186,7 +189,8 @@ h1 {
     transform: scale(0.95);
 }
 .dropdown-bg {
-    background-color: rgba(233, 233, 233, 0.753);
+    background-color: rgba(192, 192, 192, 0.74);
+    width: 45% !important;
 }
 
 /* //////////////////// parts ///////////////////// */
