@@ -3,7 +3,7 @@
     <div class="div-header-s">
         <div class="container">
             <div class="row justify-content-center">
-                <div class="col-11 text-center name-header animate__animated animate__fadeInUp">
+                <div class="col-11 text-center name-header-mobile animate__animated animate__fadeInUp">
                     <h1>مهندسی پزشکی شاهرود</h1>
                     <h6>وبسایت رسمی مقالات مهندسی پزشکی و کمک توانبخشی دانشگاه صنعتی شاهرود</h6>
                 </div>
@@ -35,6 +35,8 @@
         </div>
     </div>
 @endsection
+
+
 @section('content')
     <!-- parts -->
     <section id="parts" class="text-center">

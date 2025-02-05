@@ -82,6 +82,22 @@ header a {
     border-radius: 17px;
     margin-top: 40px;
     padding: 10px 20px;
+    color: #303030;
+}
+.name-header-mobile {
+    background-color: #dad7cd9c;
+    border-radius: 17px;
+    margin-top: 60px;
+    padding: 7px 15px;
+}
+.name-header-mobile h1 {
+    font-size: 20px;
+    color: #303030;
+    font-weight: bold;
+}
+.name-header-mobile h6 {
+    font-size: 10px;
+    color: #202020;
 }
 .t-shadow {
     text-shadow: 2px 4px 2px #eee0b3;
@@ -192,7 +208,7 @@ h1 {
     background-color: rgba(192, 192, 192, 0.74);
     width: 45% !important;
 }
-.hamberger-items:hover{
+.hamberger-items:hover {
     border: 1px solid rgba(212, 167, 68, 0.719);
     padding: 5px 5px;
     box-shadow: 1px -1px 5px 5px rgba(173, 144, 100, 0.233);
