@@ -46,27 +46,41 @@
                                 <i class="bi bi-list f-27"></i>
                             </h6>
                             @auth
-                                @can('create articles')
-                                    <a class="" href="/article/create">+ مقاله</a>
-                                @endcan
+                                <ul class="dropdown-menu dropdown-bg">
 
-                                @can('create category')
-                                    <a class="" href="/category/create">+ دسته</a>
-                                @endcan
+                                    @can('create articles')
+                                        <li class="my-1 px-1 hamberger-items">
+                                            <a class="" href="/article/create">+ مقاله</a>
+                                        </li>
+                                    @endcan
 
-                                <a class="" href="/dashboard">پروفایل</a>
+                                    @can('create category')
+                                        <li class="my-1 px-1 hamberger-items">
+                                            <a class="" href="/category/create">+ دسته</a>
+                                        </li>
+                                    @endcan
 
-                                @can('see roles')
-                                    <a class="" href="{{ route('roles') }}">نقش ها</a>
-                                @endcan
+                                    <li class="my-1 px-1 hamberger-items">
+                                        <a class="" href="/dashboard">پروفایل</a>
+                                    </li>
 
-                                <a class="btn btn-sm btn-danger" href="{{ route('logout') }}">خروج</a>
+                                    @can('see roles')
+                                        <li class="my-1 px-1 hamberger-items">
+                                            <a class="" href="{{ route('roles') }}">نقش ها</a>
+                                        </li>
+                                    @endcan
+                                    <li class="my-1 px-1 hamberger-items">
+                                        <a class="btn btn-sm btn-danger" href="{{ route('logout') }}">خروج</a>
+                                    </li>
+                                </ul>
                             @else
                                 <ul class="dropdown-menu dropdown-bg">
-                                    <li class="my-1 px-1"><a class="" href="{{ route('index') }}">خانه
-                                    <li class="my-1 p-1"><a class="" href="{{ route('register') }}">ثبت
+                                    <li class="my-1 px-1 hamberger-items"><a class="" href="{{ route('index') }}">خانه
+                                    <li class="my-1 p-1 hamberger-items"><a class=""
+                                            href="{{ route('register') }}">ثبت
                                             نام</a></li>
-                                    <li class="my-1 px-1"><a class="" href="{{ route('login') }}">ورود</a>
+                                    <li class="my-1 px-1 hamberger-items"><a class=""
+                                            href="{{ route('login') }}">ورود</a>
                                     </li>
                                 </ul>
                             @endauth

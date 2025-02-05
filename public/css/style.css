@@ -192,6 +192,11 @@ h1 {
     background-color: rgba(192, 192, 192, 0.74);
     width: 45% !important;
 }
+.hamberger-items:hover{
+    border: 1px solid rgba(212, 167, 68, 0.719);
+    padding: 5px 5px;
+    box-shadow: 1px -1px 5px 5px rgba(173, 144, 100, 0.233);
+}
 
 /* //////////////////// parts ///////////////////// */
 
