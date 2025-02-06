@@ -106,7 +106,7 @@
             <div class="row row-cols-2 row-cols-md-5 justify-content-center">
 
                 @foreach ($newarticles as $article)
-                    <div class="col my-3 text-center">
+                    <div class="col my-3 align-self-center">
                         <div class="new-card shadow"
                             style="background-image: url('{{ asset('images/images/' . $article->image) }}')">
                             <a class="text-center" href="/article/{{ $article->id }}">

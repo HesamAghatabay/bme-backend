@@ -47,11 +47,16 @@
                             </h6>
                             @auth
                                 <ul class="dropdown-menu dropdown-bg">
+                                    <a class="" href="{{ route('index') }}">
+                                        <li class="my-1 px-1 hamberger-items">
+                                            خانه</li>
+                                    </a>
 
                                     @can('create articles')
-                                        <li class="my-1 px-1 hamberger-items">
-                                            <a class="" href="/article/create">+ مقاله</a>
-                                        </li>
+                                        <a class="" href="/article/create">
+                                            <li class="my-1 px-1 hamberger-items">
+                                                + مقاله </li>
+                                        </a>
                                     @endcan
 
                                     @can('create category')
@@ -75,7 +80,9 @@
                                 </ul>
                             @else
                                 <ul class="dropdown-menu dropdown-bg">
-                                    <li class="my-1 px-1 hamberger-items"><a class="" href="{{ route('index') }}">خانه
+                                    <li class="my-1 px-1 hamberger-items"><a class=""
+                                            href="{{ route('index') }}">خانه</a>
+                                    </li>
                                     <li class="my-1 p-1 hamberger-items"><a class=""
                                             href="{{ route('register') }}">ثبت
                                             نام</a></li>
